@@ -7,4 +7,9 @@ class Admin extends CI_Controller {
 		$data['templet_URL'] = "admin/login";
 		$this->load->view('admin/default',$data);
 	}
+	public function create_grid(){		
+		$data['user_login_stat'] = true;
+		$data['templet_URL'] = "admin/grid";
+		$this->load->view('admin/default',$data);
+	}
 }

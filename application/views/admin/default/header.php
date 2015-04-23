@@ -25,3 +25,4 @@
   </script>
   <!-- End of Google Analytics -->
   <body ng-app="theGrid">
+    <?php $this->load->view('admin/default/body-header'); ?>
