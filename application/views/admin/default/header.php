@@ -24,4 +24,4 @@
   	<?php $this->load->view('SEO/g-analytics'); ?>
   </script>
   <!-- End of Google Analytics -->
-  <body>
+  <body ng-app="theGrid">
