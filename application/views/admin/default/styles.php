@@ -1,0 +1,1 @@
+<link href="<?php echo base_url(); ?>asserts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
