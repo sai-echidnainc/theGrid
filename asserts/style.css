@@ -46,6 +46,9 @@ q:before, q:after {
 	background: #989898;
 	padding: 10% 0 5%;
 }
+.echidna_home img{
+	width: auto;
+}
 .img-responsive{
 	display: inline;
 }
