@@ -43,6 +43,12 @@ $route['admin'] = "admin/admin";
 $route['admin/(:any)'] = "admin/admin/$1";
 $route['404_override'] = '';
 
+$route['grid'] = "admin/grid";
+$route['grid/(:any)'] = "admin/grid/$1";
+
+$route['card'] = "admin/card";
+$route['card/(:any)'] = "admin/card/$1";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
