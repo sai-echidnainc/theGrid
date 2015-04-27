@@ -203,3 +203,90 @@ img{
 	color: #58595B;
 	border-bottom: 1px solid #000;
 }
+.form-group{
+	position: relative;
+}
+#picker{
+	position: absolute;
+	bottom:5px;
+	right: 5px;
+}
+#picker img{
+	width: auto;
+}
+.colpick_dark{
+	height: 29%;
+}
+#dragandrophandler{
+	border:2px dotted #0B85A1;
+	width:400px;
+	color:#92AAB0;
+	text-align:left;vertical-align:middle;
+	padding:10px 10px 10 10px;
+	margin-bottom:10px;
+	font-size:200%;
+}
+.new_card{
+	border: 1px solid #000;
+	padding: 5px 15px;
+}
+.new_card h2{
+	font-family: "Roboto-Black";
+	float: left;
+}
+.new_card select{
+	float: right;
+	width: auto;
+	margin-top: 20px;
+	border: 1px solid #000;
+	border-radius: 0;
+}
+.active_card_container{
+	padding: 5px 15px;
+}
+.active_card_container h2{
+	font-family: "Roboto-Black";
+	border-bottom: 1px solid #000;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+.preview{
+	position: relative;
+}
+.crd{
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	margin: 10% 0;
+	height: 304px;
+	border: 1px solid #ccc;
+}
+.crd .preview_hover{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 10px;
+	font-size: 12px;
+	z-index: 2;
+	display: none;
+}
+.crd .card_title{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	text-align: center;
+	display: none;
+	background: #fff;
+}
+.preview_hover img{
+	width: auto;
+}
+.preview_hover .edit_pre{
+	float: left;
+	cursor: pointer;
+}
+.preview_hover .delete_pre{
+	float: right;
+	cursor: pointer;
+}
