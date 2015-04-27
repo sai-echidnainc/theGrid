@@ -28,4 +28,5 @@ class Card extends CI_Controller {
 		echo json_encode($result_arr);
 	}
 
+
 }

@@ -40,4 +40,10 @@ class Grid extends CI_Controller {
 		}
 		echo json_encode($result_arr);
 	}
+
+	public function edit_grid(){		
+		$data['user_login_stat'] = true;
+		$data['templet_URL'] = "admin/edit_grid";
+		$this->load->view('admin/default',$data);
+	}
 }
