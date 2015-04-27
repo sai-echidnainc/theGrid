@@ -177,6 +177,7 @@ img{
 	background: #989898;
 	position: fixed;
 	width: 100%;
+	top: 0;
 	z-index: 5;
 	padding: 15px;
 }
@@ -187,5 +188,18 @@ img{
 	padding: 15px;
 	background: #989898;
 	color: #fff;
-	font-size: 12px;
+	font-size: 14px;
+}
+.grid_opt_container{
+	margin-top: 90px;
+	padding: 20px;
+}
+.options_div{
+	border: 1px solid #000;
+	padding: 20px;
+}
+.grid_opt_container h2{
+	font-family: "Roboto-Black";
+	color: #58595B;
+	border-bottom: 1px solid #000;
 }
