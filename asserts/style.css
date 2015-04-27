@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family:"Roboto-Regular";
 }
 ol, ul {
 	list-style: none;
@@ -38,7 +39,7 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-.container-fluid{
+.login{
 	padding: 0;
 }
 .echidna_home{
@@ -88,4 +89,100 @@ q:before, q:after {
 	color: #000;
 	padding: 7px 50px;
 	margin-top: 15px;
+}
+img{
+	width: 100%;
+}
+.filter_grid{
+	width: auto;
+	margin: 20px 0 10px;
+}
+.cen{
+	text-align: center;
+}
+.grid_head{
+	margin-top: 90px;
+}
+.grid-container{
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	width: 80%;
+	margin: 10% 0;
+	height: 265px;
+	border: 1px solid #ccc;
+}
+.grid_detail{
+	/*position: absolute;*/
+	width: 100%;
+	bottom: 0;
+	font-size: 12px;
+	background: #fff;
+	max-height: 50%;
+	z-index: 2;
+}
+.grid_detail p{
+	padding: 10px;
+	display: none;
+}
+.grid_detail a{
+	padding: 10px;
+	border-top: 1px dashed #000;
+	display: block;
+	color: #000;
+	display: none;
+}
+.hover_content{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 10px;
+	font-size: 12px;
+	display: none;
+	z-index: 2;
+}
+.hover_content .gridno{
+	float: left;
+}
+.hover_content .date{
+	float: right;
+}
+.hover_content input{
+	display: block;
+	margin: 18% auto;
+	border:none;
+	padding: 5px 15px;
+	background: #fff;
+}
+.hover_content input:hover{
+	background: #000;
+	color:#fff;
+}
+.overlay{
+	background: rgba(255,255,255,0.5);
+	position: absolute;
+	width: 100%;
+	top: 0;
+	height: 100%;
+	display: none;
+	z-index: 1;
+}
+.logo-div{
+	display: inline-block;
+}
+.header-container{
+	background: #989898;
+	position: fixed;
+	width: 100%;
+	z-index: 5;
+	padding: 15px;
+}
+.grid_btn{
+	margin-top: 10px;
+}
+.footer_container{
+	padding: 15px;
+	background: #989898;
+	color: #fff;
+	font-size: 12px;
 }

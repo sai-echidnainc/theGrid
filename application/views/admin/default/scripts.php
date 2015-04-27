@@ -7,3 +7,4 @@
 
 <script src="<?php echo base_url(); ?>asserts/ng-files/app.js"></script>
 <script src="<?php echo base_url(); ?>asserts/ng-files/directives.js"></script>
+<script src="<?php echo base_url(); ?>asserts/script.js"></script>

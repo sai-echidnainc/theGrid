@@ -1,5 +1,5 @@
 <!-- Login Container -->
-<div class="container-fluid">
+<div class="container-fluid login">
 	<div class="row-fluid">
 		<div class="echidna_home text-center">
 			<img src="<?php echo base_url(); ?>asserts/img/logo.png" class="img-responsive" alt="logo"/>
