@@ -16,8 +16,15 @@ class Admin extends CI_Controller {
 	}	
 
 	public function index()	{
-		$data['templet_URL'] = "admin/login";
-		$this->load->view('admin/default',$data);
+
+		if($this->__is_user_loggedin()){
+			$data['user_login_stat'] = true;
+			$data['templet_URL'] = "admin/grid_landing";
+			$this->load->view('admin/default',$data);
+		}else{
+			$data['templet_URL'] = "admin/login";
+			$this->load->view('admin/default',$data);
+		}
 	}
 	public function create_grid(){		
 		$data['user_login_stat'] = true;

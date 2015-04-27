@@ -27,5 +27,53 @@ class Grid_Model extends CI_Model {
 		return $this->db->delete('grids', array('grid_id' => $gId, 'user_id' => $user_id)); 
 	}
 
+	public function viewCards($gId, $user_id){
+		$sql = "SELECT *
+				FROM grids AS g
+				LEFT JOIN cards AS c
+				ON g.grid_id = c.grid_id WHERE g.user_id = $userID AND c.grid_id = $gId;";
+
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
+	public function add_grid($data){
+		$data = array(
+		   'user_id' => $data['user_id'] ,
+		   'grid_name' => $data['grid_name'] ,
+		   'grid_arrangement' => $data['grid_arrangement'],
+		   'grid_color' => $data['grid_color'],
+		   'grid_font' => $data['grid_font'],
+		   'grid_image' => $data['grid_image'],
+		   'grid_slug' => $data['grid_slug'],
+		);
+
+		$this->db->insert('grids', $data); 
+		$insert_id = $this->db->insert_id();
+		if($insert_id)
+			return true;
+		return false;
+	}
+
+	public function update_grid($data){
+		if(!$data['grid_id'])
+			return false;
+		$data2 = array(
+		   'user_id' => $data['user_id'] ,
+		   'grid_name' => $data['grid_name'] ,
+		   'grid_arrangement' => $data['grid_arrangement'],
+		   'grid_color' => $data['grid_color'],
+		   'grid_font' => $data['grid_font'],
+		   'grid_image' => $data['grid_image'],
+		   'grid_slug' => $data['grid_slug'],
+		);
+
+		$this->db->where('grid_id', $data['grid_id']);
+		$this->db->update('grids', $data); 
+		if($this->db->affected_rows() > 0)
+			return true;
+		return false;
+	}
+
 }
 ?>

@@ -1,2 +1,2 @@
 var grids = [];
-grids.app = angular.module("theGrid", []);
+grids.app = angular.module("theGrid", ['ngResource']);
