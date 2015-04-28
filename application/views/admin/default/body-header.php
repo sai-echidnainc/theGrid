@@ -15,12 +15,12 @@
 			<?php
 				if(uri_string() == "grid/add"){
 			?>
-					<a href="<?php echo site_url('grid/add');?>"><input type="button" value="Add New Grid" class="btn btn-default"/></a>
-					<a href="<?php echo site_url('grid/add');?>"><input type="button" value="Add New Grid" class="btn btn-default"/></a>
+					<a href="<?php echo site_url('grid/add');?>"><input type="button" value="Preview Grid" class="btn btn-default head_btn"/></a>
+					<a href="<?php echo site_url('grid/add');?>"><input type="button" value="Publish Grid" class="btn btn-default head_btn"/></a>
 			<?php		
 				}else{
 			?>
-			<a href="<?php echo site_url('grid/add');?>"><input type="button" value="Add New Grid" class="btn btn-default"/></a>
+			<a href="<?php echo site_url('grid/add');?>"><input type="button" value="Add New Grid" class="btn btn-default head_btn"/></a>
 			<?php } ?>
 		</div>
 	</div>

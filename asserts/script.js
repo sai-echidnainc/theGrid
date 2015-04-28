@@ -4,7 +4,8 @@ $('#picker').colpick({
 	layout:'rgbhex',
 	color:'ff8800',
 	onSubmit:function(hsb,hex,rgb,el) {
-		$("#gridBGColor").css('background-color', '#'+hex);
+		/*$("#gridBGColor").css('background-color', '#'+hex);*/
+        $("#gridBGColor").val('#'+hex).css({'color':'#'+hex,"border-color":'#'+hex});
 		$(el).colpickHide();
 	}
 });

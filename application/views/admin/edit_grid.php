@@ -10,7 +10,7 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">GRID BACKGROUND COLOR*</label>
-						<input type="email" class="form-control" id="gridBGColor" placeholder="Enter Hexcode or Use the Color Wheel"/>
+						<input type="email" class="form-control" id="gridBGColor" placeholder="Enter Hexcode or Use the Color Wheel" value=""/>
 						<a href="#" id="picker"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></a>
 					</div>
 				</form>
@@ -26,22 +26,22 @@
 					<div class="form-group">
 						<label for="exampleInputEmail1">CHOOSE GRID FONT FAMILY*</label>
 						<select class="form-control">
-							<option>Roboto</option>
-							<option>Times New Roman</option>
-							<option>Arial</option>
-							<option>Helevetica</option>
+							<option class="roboto">Roboto</option>
+							<option class="times_new_roman">Times New Roman</option>
+							<option class="arial">Arial</option>
+							<option class="helvetica">Helevetica</option>
 						</select>
 					</div>
 				</form>
 			</div>
 			<div class="col-lg-4 upload">
 				<div class='fileDrop'>
-Upload a file by dragging it.
-<span id='fileDropTarget'/>
-
-</div>
+					Upload a file by dragging it.
+					<span id='fileDropTarget'/>
+				</div>
 			</div>
 			<div class="clearfix"></div>
+			<button class="save_btn btn btn-default">Save Grid</button>
 		</div>		
 	</div>
 </div>

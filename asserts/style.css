@@ -187,9 +187,9 @@ q:before, q:after {
 	padding: 15px;
 }
 .grid_btn img{
-	width: auto;
-	float: right;
-	margin-bottom: 10px;
+	position: absolute;
+	top: 15px;
+	right: 15px;
 }
 .footer_container{
 	padding: 15px;
@@ -240,6 +240,7 @@ q:before, q:after {
 .new_card h2{
 	font-family: "Roboto-Black";
 	float: left;
+	color: #58595B;
 }
 .new_card select{
 	float: right;
@@ -256,6 +257,7 @@ q:before, q:after {
 	border-bottom: 1px solid #000;
 	padding-bottom: 5px;
 	padding-left: 10px;
+	color: #58595B;
 }
 .preview{
 	position: relative;
@@ -330,4 +332,8 @@ q:before, q:after {
 	text-align: center;
 	display: inline-block;
 	padding: 5px 10px;
+}
+input.btn.btn-default.head_btn{
+	display: inline-block;
+	margin-top: 25px;
 }
