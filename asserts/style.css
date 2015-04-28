@@ -93,7 +93,7 @@ q:before, q:after {
 	padding: 7px 50px;
 	margin-top: 15px;
 }
-img{
+.preview img{
 	width: 100%;
 }
 .filter_grid{
@@ -114,6 +114,9 @@ img{
 	margin: 10% 0;
 	height: 265px;
 	border: 1px solid #ccc;
+}
+.grid-container img{
+	width: 100%;
 }
 .grid_detail{
 	position: absolute;
@@ -142,6 +145,7 @@ img{
 	padding: 10px;
 	font-size: 12px;
 	display: none;
+	color: #fff;
 	z-index: 2;
 }
 .hover_content .gridno{
@@ -156,13 +160,14 @@ img{
 	border:none;
 	padding: 5px 15px;
 	background: #fff;
+	color: #000;
 }
 .hover_content input:hover{
-	background: #000;
-	color:#fff;
+	background: #fff;
+	color:#000;
 }
 .overlay{
-	background: rgba(255,255,255,0.5);
+	background: rgba(0,0,0,0.5);
 	position: absolute;
 	width: 100%;
 	top: 0;
@@ -181,8 +186,10 @@ img{
 	z-index: 5;
 	padding: 15px;
 }
-.grid_btn{
-	margin-top: 10px;
+.grid_btn img{
+	width: auto;
+	float: right;
+	margin-bottom: 10px;
 }
 .footer_container{
 	padding: 15px;
@@ -293,6 +300,9 @@ img{
 .card_options_div,.prev{
 	border-top: 1px solid #000;
 	padding-top: 3%;
+}
+.prev img{
+	width: 100%;
 }
 .card_options_div select{
 	float: none;
