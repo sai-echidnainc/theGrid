@@ -23,6 +23,7 @@
 					<div><label class="sr-only" for="exampleInputPassword3">PASSWORD</label></div>
 					<input type="password" name="password" class="form-control" id="exampleInputPassword3">
 				</div>
+				<div class="clearfix"></div>
 				<?php 
 					if(isset($error))
 					echo '<div class="error">'.$error.'</div>';				

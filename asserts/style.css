@@ -313,6 +313,11 @@ img{
 .text_div, .img_div{
 	display: none;
 }
-/*.card_options_heading{
-	display: none;
-}*/
+.error{
+	font-size: 12px;
+	background: #f30;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+	padding: 5px 10px;
+}
