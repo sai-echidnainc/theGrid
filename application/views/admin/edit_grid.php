@@ -11,7 +11,7 @@
 					<div class="form-group">
 						<label for="exampleInputEmail1">GRID BACKGROUND COLOR*</label>
 						<input type="email" class="form-control" id="gridBGColor" placeholder="Enter Hexcode or Use the Color Wheel" value=""/>
-						<a href="#" id="picker"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></a>
+						<span id="picker"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 					</div>
 				</form>
 				<form class="col-lg-6">
@@ -27,18 +27,23 @@
 						<label for="exampleInputEmail1">CHOOSE GRID FONT FAMILY*</label>
 						<select class="form-control">
 							<option class="roboto">Roboto</option>
-							<option class="times_new_roman">Times New Roman</option>
-							<option class="arial">Arial</option>
+							<option class="times_new_roman">Open Sans</option>
+							<option class="montserrat">Montserrat</option>
+							<option class="lato">Lato</option>
+							<option class="proxima_nova">Proxima Nova</option>
 							<option class="helvetica">Helevetica</option>
+							<option class="raleway">Raleway</option>
+							<option class="avenir">Avenir</option>
+							<option class="din">DIN</option>
+							<option class="pt_sans">PT Sans</option>
 						</select>
 					</div>
 				</form>
 			</div>
 			<div class="col-lg-4 upload">
-				<div class='fileDrop'>
-					Upload a file by dragging it.
-					<span id='fileDropTarget'/>
-				</div>
+				<label for="exampleInputEmail1">PREVIEW IMAGE</label>
+				<img src="<?php echo base_url(); ?>asserts/img/preview.png" class="img-responsive">
+				<input type="file" value="BROWSE" class="browse"/>
 			</div>
 			<div class="clearfix"></div>
 			<button class="save_btn btn btn-default">Save Grid</button>
@@ -53,8 +58,8 @@
 				<h2 class="h2 card_options_heading">CARD OPTIONS</h2>
 				<select class="form-control card_type_select">
 					<option default selected value="1">Select Type</option>
-					<option value="2">Image</option>
-					<option value="3">Text</option>
+					<option value="2">Text</option>
+					<option value="3">Image</option>
 				</select>
 			</div>
 			<div class="clearfix"></div>
@@ -75,8 +80,8 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">OVERLAY COLOR*</label>
-							<input type="email" class="form-control" id="gridBGColor" placeholder="Enter Hexcode or Use the Color Wheel"/>
-							<a href="#" id="picker"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></a>
+							<input type="email" class="form-control" id="gridBGColor1" placeholder="Enter Hexcode or Use the Color Wheel"/>
+							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
 					</form>
 					<form class="col-lg-6">
@@ -114,8 +119,8 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">OVERLAY COLOR*</label>
-							<input type="email" class="form-control" id="gridBGColor" placeholder="Enter Hexcode or Use the Color Wheel"/>
-							<a href="#" id="picker"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></a>
+							<input type="email" class="form-control" id="gridBGColor2" placeholder="Enter Hexcode or Use the Color Wheel"/>
+							<span id="picker2"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
 					</form>
 					<form class="col-lg-6">

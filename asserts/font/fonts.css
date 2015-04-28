@@ -5,8 +5,530 @@
 	font-style:normal;
 }
 @font-face {
+	font-family:"Roboto-BlackItalic";
+	src:url("roboto/Roboto-BlackItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-Bold";
+	src:url("roboto/Roboto-Bold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-BoldCondensed";
+	src:url("roboto/Roboto-BoldCondensed.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-BoldCondensedItalic";
+	src:url("roboto/Roboto-BoldCondensedItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-BoldItalic";
+	src:url("roboto/Roboto-BoldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-Condensed";
+	src:url("roboto/Roboto-Condensed.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-CondensedItalic";
+	src:url("roboto/Roboto-CondensedItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-Italic";
+	src:url("roboto/Roboto-Italic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-Light";
+	src:url("roboto/Roboto-Light.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-LightItalic";
+	src:url("roboto/Roboto-LightItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-Medium";
+	src:url("roboto/Roboto-Medium.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-MediumItalic";
+	src:url("roboto/Roboto-MediumItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
 	font-family:"Roboto-Regular";
 	src:url("roboto/Roboto-Regular.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-Thin";
+	src:url("roboto/Roboto-Thin.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Roboto-ThinItalic";
+	src:url("roboto/Roboto-ThinItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-Bold";
+	src:url("open-sans/OpenSans-Bold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-BoldItalic";
+	src:url("open-sans/OpenSans-BoldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-ExtraBold";
+	src:url("open-sans/OpenSans-ExtraBold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-ExtraBoldItalic";
+	src:url("open-sans/OpenSans-ExtraBoldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-Italic";
+	src:url("open-sans/OpenSans-Italic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-Light";
+	src:url("open-sans/OpenSans-Light.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-LightItalic";
+	src:url("open-sans/OpenSans-LightItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-Regular";
+	src:url("open-sans/OpenSans-Regular.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-Semibold";
+	src:url("open-sans/OpenSans-Semibold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"OpenSans-SemiboldItalic";
+	src:url("open-sans/OpenSans-SemiboldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Montserrat-Black";
+	src:url("montserrat/Montserrat-Black.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Montserrat-Bold";
+	src:url("montserrat/Montserrat-Bold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Montserrat-Hairline";
+	src:url("montserrat/Montserrat-Hairline.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Montserrat-Light";
+	src:url("montserrat/Montserrat-Light.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Montserrat-Regular";
+	src:url("montserrat/Montserrat-Regular.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Black";
+	src:url("lato/Lato-Black.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-BlackItalic";
+	src:url("lato/Lato-BlackItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Bold";
+	src:url("lato/Lato-Bold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-BoldItalic";
+	src:url("lato/Lato-BoldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Hairline";
+	src:url("lato/Lato-Hairline.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-HairlineItalic";
+	src:url("lato/Lato-HairlineItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Heavy";
+	src:url("lato/Lato-Heavy.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-HeavyItalic";
+	src:url("lato/Lato-HeavyItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Italic";
+	src:url("lato/Lato-Italic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Light";
+	src:url("lato/Lato-Light.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-LightItalic";
+	src:url("lato/Lato-LightItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Medium";
+	src:url("lato/Lato-Medium.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-MediumItalic";
+	src:url("lato/Lato-MediumItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Regular";
+	src:url("lato/Lato-Regular.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Semibold";
+	src:url("lato/Lato-Semibold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-SemiboldItalic";
+	src:url("lato/Lato-SemiboldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-Thin";
+	src:url("lato/Lato-Thin.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Lato-ThinItalic";
+	src:url("lato/Lato-ThinItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-Black";
+	src:url("raleway/Raleway-Black.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-BlackItalic";
+	src:url("raleway/Raleway-BlackItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-Bold";
+	src:url("raleway/Raleway-Bold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-BoldItalic";
+	src:url("raleway/Raleway-BoldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-ExtraBold";
+	src:url("raleway/Raleway-ExtraBold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-ExtraBoldItalic";
+	src:url("raleway/Raleway-ExtraBoldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-ExtraLight";
+	src:url("raleway/Raleway-ExtraLight.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-ExtraLightItalic";
+	src:url("raleway/Raleway-ExtraLightItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-Italic";
+	src:url("raleway/Raleway-Italic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-Light";
+	src:url("raleway/Raleway-Light.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-LightItalic";
+	src:url("raleway/Raleway-LightItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-Medium";
+	src:url("raleway/Raleway-Medium.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-MediumItalic";
+	src:url("raleway/Raleway-MediumItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-Regular";
+	src:url("raleway/Raleway-Regular.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-SemiBold";
+	src:url("raleway/Raleway-SemiBold.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-SemiBoldItalic";
+	src:url("raleway/Raleway-SemiBoldItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-Thin";
+	src:url("raleway/Raleway-Thin.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Raleway-ThinItalic";
+	src:url("raleway/Raleway-ThinItalic.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"PTC55F";
+	src:url("PT-Sans/PTC55F.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"PTC75F";
+	src:url("PT-Sans/PTC75F.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"PTN57F";
+	src:url("PT-Sans/PTN57F.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"PTN77F";
+	src:url("PT-Sans/PTN77F.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"PTS55F";
+	src:url("PT-Sans/PTS55F.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"PTS56F";
+	src:url("PT-Sans/PTS56F.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"PTS75F";
+	src:url("PT-Sans/PTS75F.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"PTS76F";
+	src:url("PT-Sans/PTS76F.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-Black";
+	src:url("avenir-lt-std/AvenirLTStd-Black.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-BlackOblique";
+	src:url("avenir-lt-std/AvenirLTStd-BlackOblique.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-Book";
+	src:url("avenir-lt-std/AvenirLTStd-Book.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-BookOblique";
+	src:url("avenir-lt-std/AvenirLTStd-BookOblique.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-Heavy";
+	src:url("avenir-lt-std/AvenirLTStd-Heavy.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-HeavyOblique";
+	src:url("avenir-lt-std/AvenirLTStd-HeavyOblique.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-Light";
+	src:url("avenir-lt-std/AvenirLTStd-Light.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-LightOblique";
+	src:url("avenir-lt-std/AvenirLTStd-LightOblique.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-Medium";
+	src:url("avenir-lt-std/AvenirLTStd-Medium.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-MediumOblique";
+	src:url("avenir-lt-std/AvenirLTStd-MediumOblique.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-Oblique";
+	src:url("avenir-lt-std/AvenirLTStd-Oblique.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"AvenirLTStd-Roman";
+	src:url("avenir-lt-std/AvenirLTStd-Roman.otf") format("OpenType");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"din-regular";
+	src:url("DIN/din-regular.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:"Proxima Nova Alt Light";
+	src:url("proxima-nova-alt-lt/Proxima Nova Alt Light.otf") format("OpenType");
 	font-weight:normal;
 	font-style:normal;
 }

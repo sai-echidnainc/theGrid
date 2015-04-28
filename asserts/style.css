@@ -209,16 +209,17 @@ q:before, q:after {
 	font-family: "Roboto-Black";
 	color: #58595B;
 	border-bottom: 1px solid #000;
+	margin-bottom: 3%;
 }
 .form-group{
 	position: relative;
 }
-#picker{
+#picker,#picker1,#picker2{
 	position: absolute;
 	bottom:5px;
 	right: 5px;
 }
-#picker img{
+#picker img, #picker1 img, #picker2 img{
 	width: auto;
 }
 .colpick_dark{
@@ -336,4 +337,7 @@ q:before, q:after {
 input.btn.btn-default.head_btn{
 	display: inline-block;
 	margin-top: 25px;
+}
+.upload img{
+	width: 100%;
 }

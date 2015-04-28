@@ -9,6 +9,26 @@ $('#picker').colpick({
 		$(el).colpickHide();
 	}
 });
+$('#picker1').colpick({
+    colorScheme:'dark',
+    layout:'rgbhex',
+    color:'ff8800',
+    onSubmit:function(hsb,hex,rgb,el) {
+        /*$("#gridBGColor").css('background-color', '#'+hex);*/
+        $("#gridBGColor1").val('#'+hex).css({'color':'#'+hex,"border-color":'#'+hex});
+        $(el).colpickHide();
+    }
+});
+$('#picker2').colpick({
+    colorScheme:'dark',
+    layout:'rgbhex',
+    color:'ff8800',
+    onSubmit:function(hsb,hex,rgb,el) {
+        /*$("#gridBGColor").css('background-color', '#'+hex);*/
+        $("#gridBGColor2").val('#'+hex).css({'color':'#'+hex,"border-color":'#'+hex});
+        $(el).colpickHide();
+    }
+});
 
 $(".crd").mouseenter(function(){
     $(this).find(".card_title").css("position","absolute");
