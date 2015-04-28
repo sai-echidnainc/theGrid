@@ -301,6 +301,9 @@ q:before, q:after {
 	border-top: 1px solid #000;
 	padding-top: 3%;
 }
+.prev img{
+	width: 100%;
+}
 .card_options_div select{
 	float: none;
 	border: 1px solid #ccc;
