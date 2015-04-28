@@ -198,8 +198,8 @@ q:before, q:after {
 	font-size: 14px;
 }
 .grid_opt_container{
-	margin-top: 90px;
-	padding: 20px;
+	margin-top: 110px;
+	margin-bottom: 20px;
 }
 .options_div{
 	border: 1px solid #000;
