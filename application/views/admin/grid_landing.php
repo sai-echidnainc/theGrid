@@ -3,11 +3,12 @@
 	<div class="row-fluid">
 		<div class="grid_head">
 			<h2 class="h2 pull-left">THE GRID</h2>
-			<select class="form-control pull-right filter_grid">
-				<option selected>Select Grids By</option>
-				<option>Date</option>
-				<option>Type</option>
-				<option>Number</option>
+			<select class="form-control pull-right filter_grid" ng-model="gridOrderBy">
+				<option value='0' selected>Select Grids By</option>
+				<option value="createdDate">Date</option>
+				<!-- <option value="-createdDate">Date -</option> -->
+				<option value="COUNT">Count</option>
+				<!-- <option value="-COUNT">Count -</option> -->
 			</select>
 		</div>
 	</div>
@@ -20,7 +21,7 @@
 
 	<div class="row-fluid" ng-show="gridData">
 
-		<div class="col-lg-4 cen" ng-repeat="grid in gridData">
+		<div class="col-lg-4 cen" ng-repeat="grid in gridData | orderBy : gridOrderBy">
 			<div class="grid-container">
 				<a href="#">
 					<img src="<?php echo base_url();?>asserts/img/grid.png" class="img-responsive" ng-if="!grid.image">

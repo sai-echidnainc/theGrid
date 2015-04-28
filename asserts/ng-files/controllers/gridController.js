@@ -1,7 +1,8 @@
 grids.app.controller('gridController',['gridService','$scope',function(gridService,$scope){
 	
 
-
+	$scope.gridOrderBy = 0;
+	
 	$scope.deleteGrid = function(grid_id,index){
 		var cnf = confirm("Do you want to delete the the whole grid?");
 		if(!cnf)
