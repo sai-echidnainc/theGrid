@@ -116,9 +116,9 @@ img{
 	border: 1px solid #ccc;
 }
 .grid_detail{
-	/*position: absolute;*/
+	position: absolute;
 	width: 100%;
-	bottom: 0;
+	bottom: 0 !important;
 	font-size: 12px;
 	background: #fff;
 	max-height: 50%;
