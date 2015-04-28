@@ -11,6 +11,35 @@ class Card extends CI_Controller {
        		}
 	}
 
+	private function __create_slug($string) {
+
+	   $string = preg_replace('/[^A-Za-z0-9\s\-]/', '', $string); 
+	   return str_replace(' ', '-', $string);
+	}
+
+	private function __upload_file($file_path,$file_name){
+		$config['upload_path'] = $file_path;
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']	= '10000';
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload($file_name))
+		{
+			$error['status'] = "error";
+			$error['error'] = $this->upload->display_errors();
+			return $error;
+			//var_dump($error);
+		}
+		else
+		{
+			$data['status'] = "ok";
+			$data['data'] = $this->upload->data();
+			return $data;
+			//var_dump($data);
+		}
+	}
+
 	public function index(){
 		redirect('/admin');
 	}
@@ -30,26 +59,72 @@ class Card extends CI_Controller {
 
 	}
 
-	public function add_card($grid_id, $data){
-		$data = array(
-		   'grid_id' => $grid_id ,
-		   'card_type' => $data['card_type'] ,
-		   'card_size' => $data['card_size'],
-		   'card_url' => $data['card_url'],
-		   'card_name' => $data['card_name'],
-		   'card_description' => $data['card_description'],
-		   'overlay_color' => $data['overlay_color'],
-		   'text_color' => $data['text_color'],
-		   'card_image' => $data['card_image'],
-		   'card_slug' => $data['card_slug']
-		);
+	public function add_card($mode = 'create'){
 
-		$this->db->insert('cards', $data); 
-		$insert_id = $this->db->insert_id();
-		if($insert_id)
-			return true;
-		return false;
+		$mode = (isset($mode)) ? $mode : 'create';
+
+		$cType = $this->input->post('cType',true);
+		$cSize = $this->input->post('cSize',true);
+		$cName = $this->input->post('cName',true);
+		$cLink = $this->input->post('cLink',true);
+		$cDesc = $this->input->post('cDesc',true);
+		$cOverColor = $this->input->post('cOverColor',true);
+		$cForeColor = $this->input->post('cForeColor',true);
+		$gID = $this->input->post('gId',true);
+
+		$resArr['status'] = "error";
+		$resArr['message'] = "Don't Miss any data";
+
+		if ($cType && $cSize && $cName && $cLink && $cDesc && $cOverColor && $cForeColor && $gID) {
+			
+			// $file_path = "./uploads/cards";
+			// $result = $this->__upload_file($file_path,"cImage");
+
+			$this->load->model('admin/card_model');
+
+			$data['user_id'] = $this->session->userdata('user_data')['user_id'];
+			$data['card_type'] = $cType;
+			$data['card_Size'] = $cSize;
+			$data['card_Name'] = $cName;
+			$data['card_Link'] = $cLink;
+			$data['card_Desc'] = $cDesc;
+			$data['card_OverColor'] = $cOverColor;
+			$data['card_ForeColor'] = $cForeColor;
+			$data['grid_id'] = $gID;
+			$data['card_slug'] = strtolower($this->__create_slug($cName));
+
+			$funcName = "add_card";
+
+			switch ($cType) {
+				case 'text':
+					
+					break;
+				case 'image':					
+					$file_path = "./uploads/cards";
+					$result = $this->__upload_file($file_path,"cImage");
+					if($result['status'] == 'error'){
+						$resArr['message'] = $result['error'];
+						echo json_encode($resArr);
+						return;
+					}
+					$data['card_image'] = $file_path.'/'.$result['data']['file_name'];
+					break;
+			}
+			
+			if($mode != '' && strtolower($mode) == 'update'){
+				$funcName = "update_card";
+				$data['card_id'] = $this->input->post('cId',true);
+			}
+			
+			if($this->card_model->$funcName($data)){
+					$resArr['status'] = "ok";
+					$resArr['message'] = "Grid Updated Successfully";
+				}else{
+					//unlink($file_path.'/'.$result['data']['file_name']);
+					$resArr['message'] = "Please try again";
+				}
+		}
+		echo json_encode($resArr);
 	}
-
 
 }

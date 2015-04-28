@@ -89,9 +89,9 @@ class Grid extends CI_Controller {
 
 
 	//adding grid function ajax
-	public function add_grid($mode){
+	public function add_grid($mode = 'create'){
 
-		$mode = (isset($mode)) ? $mode : '';
+		$mode = (isset($mode)) ? $mode : 'create';
 
 		$gridTitle = $this->input->post('gTitle',true);
 		$gridType = $this->input->post('gType',true);
