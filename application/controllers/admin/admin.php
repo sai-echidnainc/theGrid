@@ -19,9 +19,14 @@ class Admin extends CI_Controller {
 
 		if($this->__is_user_loggedin()){
 			$data['user_login_stat'] = true;
+			$this->load->model('admin/grid_model');
+			$data['grid_data'] = $this->grid_model->getAllGrids($this->session->userdata('user_data')['user_id']);			
+			$data['page_title'] = "Grid Home Page";
 			$data['templet_URL'] = "admin/grid_landing";
 			$this->load->view('admin/default',$data);
 		}else{
+			$data['error'] = $this->session->flashdata('error');
+			$data['page_title'] = "Login Page";
 			$data['templet_URL'] = "admin/login";
 			$this->load->view('admin/default',$data);
 		}
@@ -34,7 +39,7 @@ class Admin extends CI_Controller {
 
 	public function login(){
 		$result_arr = array('status'=>'error','message'=>'Invalid Credentials');
-		$username = $this->input->post('username',true);
+		$username = trim($this->input->post('username',true));
 		$password = $this->input->post('password',true);
 
 		if (!$username || !$password) {
@@ -48,11 +53,11 @@ class Admin extends CI_Controller {
 				$result_arr['message'] = 'Login Sucessfull';
 				$this->session->set_userdata('user_data',$user_data);
 				$this->session->set_userdata('is_logged_in',true);
-				//redirect logic to Home Page
 			}
-
 		}
-		echo json_encode($result_arr);
+		if($result_arr['status'] == "error")
+			$this->session->set_flashdata('error', $result_arr['message']);
+		redirect('admin');
 	}
 	public function logout(){
 		$this->session->sess_destroy();

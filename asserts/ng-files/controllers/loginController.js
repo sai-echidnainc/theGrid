@@ -1,3 +1,3 @@
-grids.app.controller('loginCtrl',['loginService',function(loginService){
-	loginService.loginCheck('csaicharan');
+grids.app.controller('LoginController',['LoginService',function(LoginService){
+	
 }]);

@@ -1,5 +1,3 @@
-grids.app.service('loginService',['$resource',function($resource){
-this.loginCheck = function(username,password){
-		//alert(username);
-	};
+grids.app.service('LoginService',['$resource','$http',function($resource,$http){
+
 }]);
