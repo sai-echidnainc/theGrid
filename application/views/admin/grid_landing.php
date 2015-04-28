@@ -1,5 +1,8 @@
 <!-- Grid Container -->
+<?php 
 
+var_dump($grid_data);
+?>
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="grid_head">
@@ -15,14 +18,25 @@
 </div>
 <div class="container-fluid">
 	<div class="row-fluid">
+		<?php 
+			if(count($grid_data)){
+				foreach ($grid_data as $key => $grid) {
+		?>
+
 		<div class="col-lg-4 cen">
 			<div class="grid-container">
 				<a href="#">
-					<img src="<?php echo base_url(); ?>asserts/img/grid.png" class="img-responsive">
+					<?php if(isset($grid['image'])){						
+						echo '<img src="'.base_url().$grid['image'].'" class="img-responsive">';
+					}else{
+						echo '<img src="'.base_url().'asserts/img/grid.png" class="img-responsive">';
+					}?>
 				</a>
 				<div class="grid_detail">
-					<h4 class="h4">Grid Title Gets Longer</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat.Morbi tristique sapien justo, nec cursus leo.</p>
+					<h4 class="h4"><?php echo $grid['title'];?></h4>
+					<?php 
+						echo (isset($grid['description'])) ? '<p>'.$grid['description'].'</p>' : '';
+					?>
 					<a href="#">Delete Grid</a>
 				</div>
 				<div class="hover_content">
@@ -33,95 +47,12 @@
 				<div class="overlay"></div>
 			</div>
 		</div>
-		<div class="col-lg-4 cen">
-			<div class="grid-container">
-				<a href="#">
-					<img src="<?php echo base_url(); ?>asserts/img/grid.png" class="img-responsive">
-				</a>
-				<div class="grid_detail">
-					<h4 class="h4">Grid Title Gets Longer</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat.Morbi tristique sapien justo, nec cursus leo.</p>
-					<a href="#">Delete Grid</a>
-				</div>
-				<div class="hover_content">
-					<span class="gridno">23 Grid Cards</span>
-					<span class="date">Created on 04/27/15</span>
-					<input type="button" value="Edit Grid">
-				</div>
-				<div class="overlay"></div>
-			</div>
-		</div>
-		<div class="col-lg-4 cen">
-			<div class="grid-container">
-				<a href="#">
-					<img src="<?php echo base_url(); ?>asserts/img/grid.png" class="img-responsive">
-				</a>
-				<div class="grid_detail">
-					<h4 class="h4">Grid Title Gets Longer</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat.Morbi tristique sapien justo, nec cursus leo.</p>
-					<a href="#">Delete Grid</a>
-				</div>
-				<div class="hover_content">
-					<span class="gridno">23 Grid Cards</span>
-					<span class="date">Created on 04/27/15</span>
-					<input type="button" value="Edit Grid">
-				</div>
-				<div class="overlay"></div>
-			</div>
-		</div>
-		<div class="col-lg-4 cen">
-			<div class="grid-container">
-				<a href="#">
-					<img src="<?php echo base_url(); ?>asserts/img/grid.png" class="img-responsive">
-				</a>
-				<div class="grid_detail">
-					<h4 class="h4">Grid Title Gets Longer</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat.Morbi tristique sapien justo, nec cursus leo.</p>
-					<a href="#">Delete Grid</a>
-				</div>
-				<div class="hover_content">
-					<span class="gridno">23 Grid Cards</span>
-					<span class="date">Created on 04/27/15</span>
-					<input type="button" value="Edit Grid">
-				</div>
-				<div class="overlay"></div>
-			</div>
-		</div>
-		<div class="col-lg-4 cen">
-			<div class="grid-container">
-				<a href="#">
-					<img src="<?php echo base_url(); ?>asserts/img/grid.png" class="img-responsive">
-				</a>
-				<div class="grid_detail">
-					<h4 class="h4">Grid Title Gets Longer</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat.Morbi tristique sapien justo, nec cursus leo.</p>
-					<a href="#">Delete Grid</a>
-				</div>
-				<div class="hover_content">
-					<span class="gridno">23 Grid Cards</span>
-					<span class="date">Created on 04/27/15</span>
-					<input type="button" value="Edit Grid">
-				</div>
-				<div class="overlay"></div>
-			</div>
-		</div>
-		<div class="col-lg-4 cen">
-			<div class="grid-container">
-				<a href="#">
-					<img src="<?php echo base_url(); ?>asserts/img/grid.png" class="img-responsive">
-				</a>
-				<div class="grid_detail">
-					<h4 class="h4">Grid Title Gets Longer</h4>
-					<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat.Morbi tristique sapien justo, nec cursus leo.</p> -->
-					<a href="#">Delete Grid</a>
-				</div>
-				<div class="hover_content">
-					<span class="gridno">23 Grid Cards</span>
-					<span class="date">Created on 04/27/15</span>
-					<input type="button" value="Edit Grid">
-				</div>
-				<div class="overlay"></div>
-			</div>
-		</div>
+
+		<?php
+				}
+			}else{
+				echo "No grids are available try create grids first";
+			}
+		?>
 	</div>
 </div>
