@@ -290,3 +290,29 @@ img{
 	float: right;
 	cursor: pointer;
 }
+.card_options_div,.prev{
+	border-top: 1px solid #000;
+	padding-top: 3%;
+}
+.card_options_div select{
+	float: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 0;
+	width: 100%;
+}
+.save_btn{
+	margin: 20px 30px;
+}
+.form-group{
+	margin-bottom: 40px;
+}
+.browse{
+	margin-top: 15px;
+}
+.text_div, .img_div{
+	display: none;
+}
+/*.card_options_heading{
+	display: none;
+}*/
