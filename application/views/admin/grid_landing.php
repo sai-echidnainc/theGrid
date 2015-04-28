@@ -40,8 +40,8 @@ var_dump($grid_data);
 					<a href="#">Delete Grid</a>
 				</div>
 				<div class="hover_content">
-					<span class="gridno">23 Grid Cards</span>
-					<span class="date">Created on 04/27/15</span>
+					<span class="gridno"><?php echo $grid['COUNT'];?> Cards</span>
+					<span class="date">Created on <?php echo $grid['createdDate'];?></span>
 					<input type="button" value="Edit Grid">
 				</div>
 				<div class="overlay"></div>
