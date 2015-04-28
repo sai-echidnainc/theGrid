@@ -1,8 +1,4 @@
-<!-- Grid Container -->
-<?php 
-
-var_dump($grid_data);
-?>
+<div ng-controller="gridController">
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="grid_head">
@@ -16,9 +12,37 @@ var_dump($grid_data);
 		</div>
 	</div>
 </div>
-<div class="container-fluid">
-	<div class="row-fluid">
-		<?php 
+<div class="container-fluid" ng-init="gridData = false">
+
+	<div ng-show="!gridData">
+		No grid data Available
+	</div>
+
+	<div class="row-fluid" ng-show="gridData">
+
+		<div class="col-lg-4 cen" ng-repeat="grid in gridData">
+			<div class="grid-container">
+				<a href="#">
+					<img src="<?php echo base_url();?>asserts/img/grid.png" class="img-responsive" ng-if="!grid.image">
+					<img ng-src="<?php echo base_url();?>{{grid.image}}" class="img-responsive" ng-if="grid.image" alt="{{grid.title}}">
+				</a>
+				<div class="grid_detail">
+					<h4 class="h4" ng-bind="grid.title"></h4>
+					<p ng-if="grid.description" ng-bind="grid.description"></p>
+					<a href="javascript:void(0)" ng-click="deleteGrid(grid.grid_id,$index)">Delete Grid</a>
+				</div>
+				<div class="hover_content">
+					<span class="gridno">{{grid.COUNT}} Cards</span>
+					<span class="date">Created on {{grid.createdDate}}</span>
+					<input type="button" value="Edit Grid">
+				</div>
+				<div class="overlay"></div>
+			</div>
+		</div>
+
+
+
+		<!--<?php 
 			if(count($grid_data)){
 				foreach ($grid_data as $key => $grid) {
 		?>
@@ -53,6 +77,7 @@ var_dump($grid_data);
 			}else{
 				echo "No grids are available try create grids first";
 			}
-		?>
+		?>-->
 	</div>
+</div>
 </div>

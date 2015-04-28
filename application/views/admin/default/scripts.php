@@ -12,9 +12,11 @@
 
 <?php // ng-Services ?>
 <script src="<?php echo base_url(); ?>asserts/ng-files/services/loginSer.js"></script>
+<script src="<?php echo base_url(); ?>asserts/ng-files/services/gridSer.js"></script>
 
 <?php // ng-controllers ?>
 <script src="<?php echo base_url(); ?>asserts/ng-files/controllers/loginController.js"></script>
+<script src="<?php echo base_url(); ?>asserts/ng-files/controllers/gridController.js"></script>
 
 
 <?php //Scripts ?>

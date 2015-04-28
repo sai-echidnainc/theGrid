@@ -42,6 +42,7 @@ class Grid extends CI_Controller {
 
 
 	public function index()	{
+		/*
 		//echo "Grid";
 		//echo json_encode($this->session->all_userdata());
 		$user_id = $this->session->userdata('user_data')['user_id'];
@@ -55,6 +56,8 @@ class Grid extends CI_Controller {
 			unset($result_arr['message']);
 		}
 		echo json_encode($result_arr);
+		*/
+		redirect('admin');
 	}
 
 	public function delete($id){
@@ -130,6 +133,11 @@ class Grid extends CI_Controller {
 		}
 
 		echo json_encode($resArr);
+	}
+
+	public function getAllGrids(){
+		$this->load->model('admin/grid_model');
+		echo json_encode($this->grid_model->getAllGrids($this->session->userdata('user_data')['user_id']));
 	}
 
 }

@@ -25,8 +25,8 @@
 				</div>
 				<div class="clearfix"></div>
 				<?php 
-					if(isset($error))
-					echo '<div class="error">'.$error.'</div>';				
+					if(isset($error) && $error != '')
+						echo '<div class="error">'.$error.'</div>';				
 				?>
 				<input type="submit" class="btn btn-default" value="submit">
 			</form>
