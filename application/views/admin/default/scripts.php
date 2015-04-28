@@ -3,6 +3,7 @@
 <script src="<?php echo base_url(); ?>asserts/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url(); ?>asserts/Color-Picker-master/js/colpick.js"></script>
 <script src="<?php echo base_url(); ?>asserts/Dropzone/dropzone.js"></script>
+<script src="<?php echo base_url(); ?>asserts/jquery.filedrop.js"></script>
 
 <?php //Angular modules ?>
 <script src="<?php echo base_url(); ?>asserts/default/js/angular.min.js"></script>

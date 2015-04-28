@@ -34,7 +34,13 @@
 					</div>
 				</form>
 			</div>
-			<div class="col-lg-4 upload"></div>
+			<div class="col-lg-4 upload">
+				<div class='fileDrop'>
+Upload a file by dragging it.
+<span id='fileDropTarget'/>
+
+</div>
+			</div>
 			<div class="clearfix"></div>
 		</div>		
 	</div>
