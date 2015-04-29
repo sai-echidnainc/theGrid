@@ -68,47 +68,47 @@
 					<form class="col-lg-6">
 						<div class="form-group">
 							<label for="exampleInputEmail1">CARD SIZE*</label>
-							<select class="form-control">
-								<option>Small</option>
-								<option>Medium</option>
-								<option>Large</option>
+							<select class="form-control" ng-model="cardData.size" ng-options="opt.value as opt.name for opt in cardSizeOpt">
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">CARD NAME*</label>
-							<input type="email" class="form-control" id="exampleInputEmail1">
+							<input type="text" class="form-control" ng-model="cardData.title">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">OVERLAY COLOR*</label>
-							<input type="email" class="form-control" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
+							<input type="text" class="form-control" ng-model="cardData.bgcolor" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
 							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
 					</form>
 					<form class="col-lg-6">
 						<div class="form-group">
 							<label for="exampleInputEmail1">CARD LINK*</label>
-							<input type="text" class="form-control" id="exampleInputEmail1">
+							<input type="text" class="form-control" ng-model="cardData.url">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">CARD DESCRIPTION*</label>
-							<input type="text" class="form-control" id="exampleInputEmail1">
+							<input type="text" class="form-control" ng-model="cardData.description">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">FONT COLOR*</label>
-							<input type="text" ng-model="" class="form-control" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
+							<input type="text" ng-model="cardData.fgcolor" class="form-control" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
 							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
 					</form>
 				</div>
 				<div class="col-lg-4 prev" ng-hide = "newcartType !='text' && newcartType != cardTypeOpt['0'].value">
 					<label for="exampleInputEmail1">CARD PREVIEW</label>
-					<img src="<?php echo base_url(); ?>asserts/img/preview.png" class="img-responsive">
+					<div class="prev_box" style="background-color:{{cardData.bgcolor}};color:{{cardData.fgcolor}};">
+				      <h2 class="h2">{{cardData.title}}</h2>
+				      <p>{{cardData.description}}</p>
+				    </div>
 				</div>
 
 				<div class="col-lg-4 prev" ng-hide = "newcartType !='image'">
-					<label for="exampleInputEmail1">CARD PREVIEW</label>
-					<img src="<?php echo base_url(); ?>asserts/img/preview.png" class="img-responsive">
-					<input type="file" value="BROWSE" class="browse"/>
+					<label for="exampleInputEmail1">IMAGE PREVIEW</label>
+					<img src="{{card.imageThumbnail}}" class="img-responsive" ng-init="card.imageThumbnail = '<?php echo base_url(); ?>asserts/img/preview.png'">
+					<input type="file" value="BROWSE" class="browse" file-model="card.image" onchange="angular.element(this).scope().cardImageUpload(this)"/>
 				</div>
 
 				<div class="clearfix"></div>

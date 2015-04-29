@@ -341,3 +341,17 @@ input.btn.btn-default.head_btn{
 .upload img{
 	width: 100%;
 }
+
+.prev .prev_box{
+ border: 1px solid #000;
+ text-align: center;
+ padding: 20px;
+ min-height: 255px;
+ word-wrap: break-word;
+ word-break: break-word;
+}
+.prev .prev_box h2{
+ float: none;
+ margin-top: 0;
+ color: inherit;
+}

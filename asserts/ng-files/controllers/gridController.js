@@ -52,6 +52,7 @@ grids.app.controller('gridController',['gridService','$scope',function(gridServi
 grids.app.controller('gridEditController',['gridEditService','$scope','site_path',function(gridEditService,$scope,site_path){
 
 	//Default options
+	var defimage = 'asserts/img/preview.png';
 	$scope.gridArrOptions = [
 		{ name:'Select Grid Arrangement' , value :'0'},
 		{ name:'Random' , value :'random'},
@@ -64,16 +65,29 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		{ name:'Image' , value :'image'},
 	];
 
-	$scope.cardTypeOpt = [
-		{ name:'Select Type' , value :'0'},
-		{ name:'Text' , value :'text'},
-		{ name:'Image' , value :'image'},
+	$scope.cardSizeOpt =[
+		{ name:'1 * 1' , value :'one-by-one'},
+		{ name:'1 * 2' , value :'one-by-two'},
+		{ name:'2 * 1' , value :'two-by-one'},
+		{ name:'2 * 2' , value :'two-by-two'},
+		{ name:'2 * 3' , value :'two-by-three'},
+		{ name:'3 * 2' , value :'three-by-two'},
+		{ name:'3 * 3' , value :'three-by-three'},
 	];
 
 	$scope.cardType = $scope.cardTypeOpt[0].value;
-	 $scope.$watch('cardType', function() {
-    $scope.newcartType = $scope.cardType;
-  });
+
+	$scope.$watch('cardType', function() {
+    	$scope.newcartType = $scope.cardType;
+  	});
+
+  	$scope.$watch('grid.imageThumbnail', function() {
+    	$scope.grid.imageThumbnail = ($scope.grid.imageThumbnail == '') ? site_path+defimage : $scope.grid.imageThumbnail;
+  	});
+
+  	$scope.$watch('card.imageThumbnail', function() {
+    	$scope.card.imageThumbnail = ($scope.grid.imageThumbnail == '') ? site_path+defimage : $scope.card.imageThumbnail;
+  	});
 
 	$scope.grid = {
 		gridId : false,
@@ -82,6 +96,17 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		arrangement : 'random',
 		font : 'roboto',
 	};
+
+	$scope.cardData = {
+		cardId : false,
+		title : '',
+		bgcolor : '#000000',
+		fgcolor : '#ffffff',
+		url : '',
+		description :'',
+		size : $scope.cardSizeOpt[0].value
+	};
+
 
 	$scope.defGrid = angular.copy($scope.grid);
 	var formReset = function(){
@@ -168,6 +193,17 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
     	};
     	reader.readAsDataURL(element.files[0]);
     };
+
+	$scope.cardImageUpload = function(element){
+    	$scope.card.imageThumbnail = false;
+		var reader = new FileReader();
+		reader.onload = function (e) {
+        	$scope.card.imageThumbnail =  e.target.result;
+    	 	$scope.$digest();
+    	};
+    	reader.readAsDataURL(element.files[0]);
+    };
+
 
 	$scope.init = function(){
 		//alert("create grid check");
