@@ -154,9 +154,9 @@
 			<div class="col-lg-3" ng-repeat="card in cards">
 				<div class="crd">
 					<div class="preview">
-						<img src="<?php echo base_url(); ?>asserts/img/view.png" class="img-responsive">
+						<img src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive">
 					</div>
-					<div class="card_title"><h4 class="h4">Card Title</h4></div>					
+					<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>					
 					<div class="preview_hover">
 						<div class="edit_pre">
 							<img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive">
