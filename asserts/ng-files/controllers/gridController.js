@@ -58,6 +58,15 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		{ name:'Date' , value :'date'},
 	];
 
+	$scope.cardTypeOpt = [
+		{ name:'Select Type' , value :'0'},
+		{ name:'Text' , value :'text'},
+		{ name:'Image' , value :'image'},
+	];
+	$scope.cardType = $scope.cardTypeOpt[0].value;
+	 $scope.$watch('cardType', function() {
+    $scope.newcartType = $scope.cardType;
+  });
 	$scope.grid = {
 		gridId : false,
 		title : '',

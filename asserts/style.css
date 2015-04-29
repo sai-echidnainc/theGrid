@@ -324,7 +324,7 @@ q:before, q:after {
 	margin-top: 15px;
 }
 .text_div, .img_div{
-	display: none;
+	//display: none;
 }
 .error{
 	font-size: 12px;

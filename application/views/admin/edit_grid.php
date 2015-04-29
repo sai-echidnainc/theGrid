@@ -57,14 +57,14 @@
 			<div class="new_card_head">
 				<h2 class="h2">ADD NEW CARDS</h2>
 				<h2 class="h2 card_options_heading">CARD OPTIONS</h2>
-				<select class="form-control card_type_select" ng-disabled="!grid.gridId">
-					<option default selected value="1">Select Type</option>
-					<option value="2">Text</option>
-					<option value="3">Image</option>
+				<select class="form-control card_type_select" ng-change = "changeType()" ng-disabled="!grid.gridId" ng-model="cardType" ng-options="opt.value as opt.name for opt in cardTypeOpt">
+					<!-- <option ng-repeat="opt in cardTypeOpt" value="{{opt.value}}">{{opt.name}}</option> -->
 				</select>
+
 			</div>
 			<div class="clearfix"></div>
-			<div class="text_div">
+			<div>
+			<div class="text_div" ng-hide = "newcartType !='text'" >
 				<div class="card_options_div col-lg-8">
 					<form class="col-lg-6">
 						<div class="form-group">
@@ -103,7 +103,7 @@
 				<div class="clearfix"></div>
 				<button class="save_btn btn btn-default">Save Card</button>
 			</div>
-			<div class="img_div">
+			<div class="img_div" ng-hide = "newcartType !='image'">
 				<div class="card_options_div col-lg-8">
 					<form class="col-lg-6">
 						<div class="form-group">
@@ -142,6 +142,7 @@
 				</div>
 				<div class="clearfix"></div>
 				<button class="save_btn btn btn-default">Save Card</button>
+			</div>
 			</div>
 		</div>
 	</div>

@@ -43,7 +43,7 @@ $(".crd").mouseenter(function(){
 });
 
 
-$('.card_type_select').change(function(){
+/*$('.card_type_select').change(function(){
     var val=$(this).val();
     switch (val) {
     case "1":
@@ -90,7 +90,7 @@ $('.card_type_select').change(function(){
         break;
     }
 })
-
+*/
 /*--------------------------File Upload---------------------------*/
 
 
