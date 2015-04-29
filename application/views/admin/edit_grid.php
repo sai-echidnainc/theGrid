@@ -154,24 +154,14 @@
 			<div ng-if="!cards"> No cards available try to create a card</div>
 			<div class="col-lg-3" ng-repeat="card in cards">
 				<div class="crd">
-					<div class="preview">
+					<div class="preview" style="background-color:#ccc;">
 						<img src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive">
+						<div class="text_con">
+							<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>						
 					</div>
 					<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>					
-					<div class="preview_hover">
-						<div class="edit_pre">
-							<img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive">
-						</div>
-						<div class="delete_pre"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3" ng-repeat="card in cards">
-				<div class="crd">
-					<div class="preview" style="background-color:#ccc;">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
-					</div>
-					<div class="card_title"><h4 class="h4">Card Title</h4></div>					
 					<div class="preview_hover">
 						<div class="edit_pre">
 							<img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive">

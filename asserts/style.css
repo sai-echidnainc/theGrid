@@ -114,6 +114,7 @@ q:before, q:after {
 	margin: 10% 0;
 	height: 265px;
 	border: 1px solid #ccc;
+	overflow: hidden;
 }
 .grid-container img{
 	width: 100%;
@@ -262,6 +263,8 @@ q:before, q:after {
 }
 .preview{
 	position: relative;
+	width: 100%;
+	height: 100%;
 }
 .crd{
 	display: inline-block;
