@@ -19,7 +19,12 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('home');
+		$data['templet_URL'] = "home";
+		$this->load->view('base',$data);
+	}
+	public function detailpage(){
+		$data['templet_URL'] = "gridDetail";
+		$this->load->view('base',$data);
 	}
 }
 
