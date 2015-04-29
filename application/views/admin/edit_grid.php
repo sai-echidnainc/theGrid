@@ -124,8 +124,12 @@
 			<div ng-if="!cardsData"> No cards available try to create a card</div>
 			<div class="col-lg-3" ng-repeat="card in cardsData">
 				<div class="crd">
-					<div class="preview">
+					<div class="preview" style="background-color:#ccc;">
 						<img src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive">
+						<div class="text_con">
+							<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>						
 					</div>
 					<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>					
 					<div class="preview_hover">

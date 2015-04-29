@@ -1,9 +1,17 @@
-<?php $this->load->view('base_templets/style');?>
-<div class="container-fluid header-container">
-	<div class="row-fluid ">
-		<div class="logo-div pull-left">
-			<a href="<?php echo site_url('admin');?>"><img src="<?php echo base_url(); ?>asserts/img/logo-mini.png" class="img-responsive"></a>
-		</div>
-		<div class="nav"></div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title><?php echo isset($page_title) ? $page_title : "The Grid" ?></title>
+		<?php $this->load->view('base_templets/style');?>
+	</head>
+	<body>
+		<nav class="navbar navbar-default header-container">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">
+						<img alt="Brand" src="<?php echo base_url(); ?>asserts/img/logo-mini.png">
+					</a>
+				</div>
+			</div>
+		</nav>
