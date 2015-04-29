@@ -53,10 +53,13 @@ q:before, q:after {
 	display: inline;
 }
 .header-container{
-	background: #989898;
+	background: #000;
 	position: fixed;
 	width: 100%;
 	top: 0;
 	z-index: 5;
 	padding: 15px;
+}
+.header-container .navbar-brand{
+	padding: 0;
 }

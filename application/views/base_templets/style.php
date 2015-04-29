@@ -6,5 +6,5 @@
 <link href="<?php echo base_url(); ?>asserts/Color-Picker-master/css/colpick.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>asserts/Dropzone/dropzone.css" rel="stylesheet">
 
-<link href="<?php echo base_url(); ?>application/views/base_assets/style.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>application/views/base_assets/responsive.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>asserts/base_assets/style.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>asserts/base_assets/responsive.css" rel="stylesheet">
