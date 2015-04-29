@@ -51,7 +51,7 @@ class Grid_Model extends CI_Model {
 		$this->db->insert('grids', $data); 
 		$insert_id = $this->db->insert_id();
 		if($insert_id)
-			return true;
+			return $insert_id;
 		return false;
 	}
 
@@ -72,6 +72,17 @@ class Grid_Model extends CI_Model {
 		$this->db->update('grids', $data); 
 		if($this->db->affected_rows() > 0)
 			return true;
+		return false;
+	}
+
+	public function getGrid($user_id,$grid_id){
+		$sql = "SELECT * FROM grids AS g WHERE g.user_id = $user_id AND g.grid_id = $grid_id";
+		//var_dump($sql);	
+		$query = $this->db->query($sql);
+		$resArry = $query->result_array();
+		if (count($resArry) >= 1) {
+			return $resArry;
+		}
 		return false;
 	}
 

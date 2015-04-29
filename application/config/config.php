@@ -16,7 +16,7 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/theGrid/';
+$config['base_url'] = 'http://192.168.100.18/theGrid/';
 
 /*
 |--------------------------------------------------------------------------

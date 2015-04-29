@@ -35,7 +35,7 @@
 				<div class="hover_content">
 					<span class="gridno">{{grid.COUNT}} Cards</span>
 					<span class="date">Created on {{grid.createdDate}}</span>
-					<input type="button" value="Edit Grid">
+					<a href="<?php echo site_url('grid/edit');?>/{{grid.grid_id}}"><input type="button" value="Edit Grid"></a>
 				</div>
 				<div class="overlay"></div>
 			</div>

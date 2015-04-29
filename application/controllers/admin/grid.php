@@ -74,10 +74,15 @@ class Grid extends CI_Controller {
 		echo json_encode($result_arr);
 	}
 
-	public function add(){
+	public function add($mode = 'create', $grid_id = 0){
 		$data['user_login_stat'] = true;
 		$data['page_title'] = "Add Grid";
+		$data['initFunc'] = "init()";
+			if($mode == 'edit'){				
+				$data['initFunc'] = "editInit($grid_id)";
+			}
 		$data['templet_URL'] = "admin/edit_grid";
+		$data['nav'] = 'edit';
 		$this->load->view('admin/default',$data);
 	}
 
@@ -131,9 +136,10 @@ class Grid extends CI_Controller {
 					$data['grid_id'] = $this->input->post('gId',true);;
 				}
 
-				if($this->grid_model->$func_name($data)){
+				if($gID = $this->grid_model->$func_name($data)){
 					$resArr['status'] = "ok";
 					$resArr['message'] = "Grid Updated Successfully";
+					$resArr['grid_id'] = $gID;
 				}else{
 					//unlink($file_path.'/'.$result['data']['file_name']);
 					$resArr['message'] = "Please try again";
@@ -148,5 +154,18 @@ class Grid extends CI_Controller {
 		$this->load->model('admin/grid_model');
 		echo json_encode($this->grid_model->getAllGrids($this->session->userdata('user_data')['user_id']));
 	}
-
+	public function getGrid($grid_id = ""){
+		$resArr['status'] = "error";
+		$resArr['message'] = "No Grid found, Try to add a new Grid";
+		if($grid_id!=''){
+			$this->load->model('admin/grid_model');
+			$result = $this->grid_model->getGrid($this->session->userdata('user_data')['user_id'], $grid_id);
+			//var_dump($result);
+			if($result && count($result) >= 1){
+				$resArr['status'] = "ok";
+				$resArr['data'] = $result[0];
+			}
+		}
+		echo json_encode($resArr);
+	}
 }

@@ -44,6 +44,7 @@ $route['admin/(:any)'] = "admin/admin/$1";
 $route['404_override'] = '';
 
 $route['grid'] = "admin/grid";
+$route['grid/edit/(:any)'] = "admin/grid/add/edit/$1";
 $route['grid/(:any)'] = "admin/grid/$1";
 
 $route['card'] = "admin/card";

@@ -2,7 +2,7 @@ grids.app.controller('gridController',['gridService','$scope',function(gridServi
 	
 
 	$scope.gridOrderBy = 0;
-	
+
 	$scope.deleteGrid = function(grid_id,index){
 		var cnf = confirm("Do you want to delete the the whole grid?");
 		if(!cnf)
@@ -47,4 +47,97 @@ grids.app.controller('gridController',['gridService','$scope',function(gridServi
 
 	init();
 
+}]);
+
+grids.app.controller('gridEditController',['gridEditService','$scope','site_path',function(gridEditService,$scope,site_path){
+
+	//Default options
+	$scope.gridArrOptions = [
+		{ name:'Select Grid Arrangement' , value :'0'},
+		{ name:'Random' , value :'random'},
+		{ name:'Date' , value :'date'},
+	];
+
+	$scope.grid = {
+		gridId : false,
+		title : '',
+		bgcolor : '#000000',
+		arrangement : 'random',
+		font : 'roboto',
+	};
+
+	$scope.defGrid = angular.copy($scope.grid);
+	var formReset = function(){
+		$scope.grid = angular.copy($scope.defGrid);
+		$scope.upLoadFile = '';
+	};
+
+	$scope.saveGrid = function(){
+		var formData = new FormData();
+		formData.append('gTitle', $scope.grid['title']);
+		formData.append('BGColor', $scope.grid['bgcolor']);
+		formData.append('gType', $scope.grid['arrangement']);
+		formData.append('gFont', $scope.grid['font']);
+		formData.append('gImage', $scope.grid.image);
+		if($scope.grid.gridId == '' || !$scope.grid.gridId){
+			gridEditService.addGrid(formData,function(data){
+				if(data['status'] == 'ok' ){				
+					$scope.grid.gridId = data['grid_id'];
+					alert('Grid Saved Successfully');
+					//formReset();
+				}else{
+					alert(data['message']);
+				}
+			},function(error){
+
+			});
+		}else{
+			formData.append('gId',$scope.grid['gridId']);
+			gridEditService.updateGrid(formData,function(data){
+				if(data['status'] == 'ok' ){			
+					alert('Grid updated Successfully');
+					//formReset();
+				}else{
+					alert(data['message']);
+				}
+			},function(error){
+
+			});
+		}
+	}
+
+
+	$scope.imageUpload = function(element){
+    	$scope.grid.imageThumbnail = false;
+		var reader = new FileReader();
+		reader.onload = function (e) {
+        	$scope.grid.imageThumbnail =  e.target.result;
+    	 	$scope.$digest();
+    	};
+    	reader.readAsDataURL(element.files[0]);
+    };
+
+	$scope.init = function(){
+		//alert("create grid check");
+	};
+	$scope.editInit = function(Grid_id){
+		//alert("Edit grid check" + Grid_id);
+		gridEditService.getGridData(Grid_id,function(data){
+			if(data['status'] == 'ok'){
+				//console.log(data['data']);
+				$scope.grid = {
+					gridId : data['data']['grid_id'],
+					title : data['data']['grid_name'],
+					bgcolor : data['data']['grid_color'],
+					arrangement : data['data']['grid_arrangement'],
+					font : data['data']['grid_font'],
+					imageThumbnail : site_path + data['data']['grid_image']
+				};
+			}else{
+				alert(data['message']);
+			}
+		},function(error){
+
+		});
+	};
 }]);

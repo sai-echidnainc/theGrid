@@ -9,3 +9,26 @@ grids.app.service('gridService',['$resource','$http','site_url',function($resour
 	};
 
 }]);
+
+
+grids.app.service('gridEditService',['$resource','$http','site_url',function($resource,$http,site_url){
+
+	this.addGrid = function(data, success, error){
+		$http.post(site_url+'grid/add_grid', data, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+            }).success(success).error(error);
+	}
+
+	this.updateGrid = function(data, success, error){
+		$http.post(site_url+'grid/add_grid/update', data, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+            }).success(success).error(error);
+	}
+
+	this.getGridData = function(grid_id,success,error){
+		$http.get(site_url+'grid/getGrid/'+grid_id).success(success).error(error);
+	};
+
+}]);	
