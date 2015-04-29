@@ -170,6 +170,7 @@ class Grid extends CI_Controller {
 			//var_dump($result);
 			if($result && count($result) >= 1){
 				$resArr['status'] = "ok";
+				unset($resArr['message']);
 				$resArr['data'] = $result[0];
 			}
 		}

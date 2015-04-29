@@ -99,7 +99,7 @@
 				</div>
 				<div class="col-lg-4 prev" ng-hide = "newcartType !='text' && newcartType != cardTypeOpt['0'].value">
 					<label for="exampleInputEmail1">CARD PREVIEW</label>
-					<div class="prev_box" style="background-color:{{cardData.bgcolor}};color:{{cardData.fgcolor}};">
+					<div class="prev_box {{grid.font}}" style="background-color:{{cardData.bgcolor}};color:{{cardData.fgcolor}};">
 				      <h2 class="h2">{{cardData.title}}</h2>
 				      <p>{{cardData.description}}</p>
 				    </div>
@@ -107,35 +107,41 @@
 
 				<div class="col-lg-4 prev" ng-hide = "newcartType !='image'">
 					<label for="exampleInputEmail1">IMAGE PREVIEW</label>
-					<img src="{{card.imageThumbnail}}" class="img-responsive" ng-init="card.imageThumbnail = '<?php echo base_url(); ?>asserts/img/preview.png'">
-					<input type="file" value="BROWSE" class="browse" file-model="card.image" onchange="angular.element(this).scope().cardImageUpload(this)"/>
+					<img src="" ng-src="{{cardData.imageThumbnail}}" class="img-responsive" ng-init="cardData.imageThumbnail = '<?php echo base_url(); ?>asserts/img/preview.png'">
+					<input type="file" value="BROWSE" class="browse" file-model="cardData.image" onchange="angular.element(this).scope().cardImageUpload(this)"/>
 				</div>
 
 				<div class="clearfix"></div>
-				<button class="save_btn btn btn-default">Save Card</button>
+				<button class="save_btn btn btn-default" ng-click="saveCard()">Save Card</button>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="active_card_container">
+		<div class="active_card_container {{grid.font}}">
 			<h2 class="h2">ACTIVE CARDS</h2>
 			<div ng-if="!cardsData"> No cards available try to create a card</div>
 			<div class="col-lg-3" ng-repeat="card in cardsData">
-				<div class="crd">
-					<div class="preview" style="background-color:#ccc;">
-						<img src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive">
-						<div class="text_con">
-							<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>	
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
-						</div>						
+				<div class="crd" ng-if="card.type == 'image'">
+					<div class="preview" style="background-color:#ccc;background-image:url(<?php echo base_url(); ?>{{card.image}});">
+						<!-- <img src="" ng-src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive"> -->
 					</div>
 					<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>					
 					<div class="preview_hover">
-						<div class="edit_pre">
-							<img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive">
-						</div>
+						<div class="edit_pre" ng-click="editCard($index)"><img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive"></div>
+						<div class="delete_pre" ng-click="deleteCard($index)"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive"></div>
+					</div>
+				</div>
+				<div class="crd" ng-if="card.type == 'text'" style="background-color:{{card.bgcolor}};color:{{card.fgcolor}};">
+					<div class="text_co">
+				       <div class="txt_div">
+				        	<div class="card_title1"><h4 class="h4" ng-bind="card.title">Title</h4></div> 
+				        	<p ng-bind="card.description">Description</p>
+				       </div>
+				    </div>					
+					<div class="preview_hover">
+						<div class="edit_pre" ng-click="editCard($index)"><img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive"></div>
 						<div class="delete_pre" ng-click="deleteCard($index)"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive"></div>
 					</div>
 				</div>

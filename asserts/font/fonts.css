@@ -532,3 +532,34 @@
 	font-weight:normal;
 	font-style:normal;
 }
+
+.roboto *{
+ font-family:"Roboto-Regular" !important;
+}
+.opensans *{
+ font-family:"OpenSans-Regular" !important;
+}
+.montserrat *{
+ font-family:"Montserrat-Regular" !important;
+}
+.lato *{
+ font-family:"Lato-Regular" !important;
+}
+.proxima_nova *{
+ font-family:"Proxima Nova Alt Light" !important;
+}
+.helvetica *{
+ font-family: "Helvetica" !important;
+}
+.raleway *{
+ font-family:"Raleway-Regular" !important;
+}
+.avenir *{
+ font-family:"AvenirLTStd-Medium" !important;
+}
+.din *{
+ font-family:"din-regular" !important;
+}
+.pt_sans *{
+ font-family:"PTS55F" !important;
+}

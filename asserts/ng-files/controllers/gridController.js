@@ -85,8 +85,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
     	$scope.grid.imageThumbnail = ($scope.grid.imageThumbnail == '') ? site_path+defimage : $scope.grid.imageThumbnail;
   	});
 
-  	$scope.$watch('card.imageThumbnail', function() {
-    	$scope.card.imageThumbnail = ($scope.grid.imageThumbnail == '') ? site_path+defimage : $scope.card.imageThumbnail;
+  	$scope.$watch('cardData.imageThumbnail', function() {
+    	$scope.cardData.imageThumbnail = ($scope.cardData.imageThumbnail == '') ? site_path+defimage : $scope.cardData.imageThumbnail;
   	});
 
 	$scope.grid = {
@@ -153,7 +153,6 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 			//console.log($scope.grid.imageThumbnail.indexOf(site_path));
 			if($scope.grid.imageThumbnail.indexOf(site_path) >= 0){
 				formData.append('gImageThumbnail',$scope.grid.imageThumbnail.replace(site_path, ""));
-				console.log('Yes')				;
 			}
 			gridEditService.updateGrid(formData,function(data){
 				if(data['status'] == 'ok' ){			
@@ -166,6 +165,66 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 
 			});
 		}
+	}
+
+	$scope.saveCard = function(){
+		if($scope.grid.gridId == "")
+			return;
+		var formData = new FormData();
+		formData.append('gId', $scope.grid.gridId);
+		formData.append('cType', $scope.newcartType);
+		formData.append('cName', $scope.cardData['title']);
+		formData.append('cOverColor', $scope.cardData['bgcolor']);
+		formData.append('cForeColor', $scope.cardData['fgcolor']);
+		formData.append('cLink', $scope.cardData['url']);
+		formData.append('cDesc', $scope.cardData['description']);
+		formData.append('cSize', $scope.cardData['size']);
+		if($scope.newcartType == "image")		
+			formData.append('cImage', $scope.cardData.image);
+		if($scope.cardData.cardId == '' || !$scope.cardData.cardId){
+			gridEditService.addCard(formData,function(data){
+				if(data['status'] == "ok"){
+					$scope.cardData['cardId'] = data['card_id'];
+					$scope.editInit($scope.grid.gridId);
+					alert("Card Created Sucessfully");
+				}else{
+					alert(data['message']);
+				}
+			},function(error){
+
+			});
+		}else{
+			formData.append('cId', $scope.cardData['cardId']);
+			if($scope.cardData.imageThumbnail.indexOf(site_path) >= 0){
+				formData.append('cImageThumbnail',$scope.cardData.imageThumbnail.replace(site_path, ""));
+			}
+			gridEditService.updateCard(formData,function(data){
+				if(data['status'] == "ok"){
+					$scope.editInit($scope.grid.gridId);
+					alert("Card Updated Sucessfully");
+				}else{
+					alert(data['message']);
+				}
+			},function(error){
+				
+			});
+		}
+
+	}
+
+	$scope.editCard = function(index) {
+		console.log(index);
+		$scope.cardType = $scope.cardsData[index]['type'];
+		$scope.cardData = {
+			cardId : $scope.cardsData[index]['card_id'],
+			title : $scope.cardsData[index]['title'],
+			bgcolor : $scope.cardsData[index]['bgcolor'],
+			fgcolor : $scope.cardsData[index]['fgcolor'],
+			url : $scope.cardsData[index]['link'],
+			description :$scope.cardsData[index]['description'],
+			size : $scope.cardsData[index]['size'],
+			imageThumbnail : site_path + $scope.cardsData[index]['image']
+		};
 	}
 
 	$scope.deleteCard = function(index){
@@ -195,10 +254,10 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
     };
 
 	$scope.cardImageUpload = function(element){
-    	$scope.card.imageThumbnail = false;
+    	$scope.cardData.imageThumbnail = false;
 		var reader = new FileReader();
 		reader.onload = function (e) {
-        	$scope.card.imageThumbnail =  e.target.result;
+        	$scope.cardData.imageThumbnail =  e.target.result;
     	 	$scope.$digest();
     	};
     	reader.readAsDataURL(element.files[0]);

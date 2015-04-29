@@ -45,7 +45,7 @@ class Card_Model extends CI_Model {
 			$this->db->insert('cards', $data); 
 			$insert_id = $this->db->insert_id();
 			if($insert_id)
-				return true;
+				return $insert_id;
 		}
 		return false;
 	}

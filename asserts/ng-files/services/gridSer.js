@@ -36,4 +36,19 @@ grids.app.service('gridEditService',['$resource','$http','site_url',function($re
 	this.deleteCard = function(card_id,success,error){
 		$http.get(site_url+'card/delete/'+card_id).success(success).error(error);
 	};
+
+	this.addCard = function(data, success, error){
+		$http.post(site_url+'card/add_card', data, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+            }).success(success).error(error);
+	}
+
+	this.updateCard = function(data, success, error){
+		$http.post(site_url+'card/add_card/update', data, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+            }).success(success).error(error);
+	}
+
 }]);	

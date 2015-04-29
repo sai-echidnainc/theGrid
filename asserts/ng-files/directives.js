@@ -15,7 +15,6 @@ grids.app.directive('fileModel', ['$parse', function ($parse) {
 }]);
 
 grids.app.animation('.slideDown', function() {
-    console.log('slidedown animation');
     return {
         addClass: function(element, className, done) {
             jQuery(element).slideDown(800,done);

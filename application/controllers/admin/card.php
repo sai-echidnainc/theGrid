@@ -71,6 +71,7 @@ class Card extends CI_Controller {
 		$cOverColor = $this->input->post('cOverColor',true);
 		$cForeColor = $this->input->post('cForeColor',true);
 		$gID = $this->input->post('gId',true);
+		$imgThumb = $this->input->post('cImageThumbnail',true);;
 
 		$resArr['status'] = "error";
 		$resArr['message'] = "Don't Miss any data";
@@ -99,7 +100,12 @@ class Card extends CI_Controller {
 				case 'text':
 					
 					break;
-				case 'image':					
+				case 'image':
+					if($imgThumb){
+						$data['card_image'] = $imgThumb;
+						break;
+					}
+
 					$file_path = "./uploads/cards";
 					$result = $this->__upload_file($file_path,"cImage");
 					if($result['status'] == 'error'){
@@ -116,11 +122,11 @@ class Card extends CI_Controller {
 				$data['card_id'] = $this->input->post('cId',true);
 			}
 			
-			if($this->card_model->$funcName($data)){
+			if($card_id = $this->card_model->$funcName($data)){
 					$resArr['status'] = "ok";
-					$resArr['message'] = "Grid Updated Successfully";
+					$resArr['message'] = "Card Created Successfully";
+					$resArr['card_id'] = $card_id;
 				}else{
-					//unlink($file_path.'/'.$result['data']['file_name']);
 					$resArr['message'] = "Please try again";
 				}
 		}
