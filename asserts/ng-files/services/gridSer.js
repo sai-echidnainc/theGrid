@@ -30,5 +30,7 @@ grids.app.service('gridEditService',['$resource','$http','site_url',function($re
 	this.getGridData = function(grid_id,success,error){
 		$http.get(site_url+'grid/getGrid/'+grid_id).success(success).error(error);
 	};
-
+	this.getAllCards = function(grid_id,success,error){
+		$http.get(site_url+'card/getCards/'+grid_id).success(success).error(error);
+	};
 }]);	

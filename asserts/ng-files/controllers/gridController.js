@@ -72,6 +72,21 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		$scope.upLoadFile = '';
 	};
 
+	var cardJQUpdate = function() {
+		$(".crd").mouseenter(function(){
+		    $(this).find(".card_title").css("position","absolute");
+		    $(this).find(".card_title").stop().slideDown("slow");
+		    $(this).find(".preview_hover").fadeIn();
+		    /*$(this).find(".overlay").css("display","block");*/
+		})
+		.mouseleave(function(){
+		    /*$(this).find(".grid_detail").css("position","relative");*/
+		    $(this).find(".card_title").stop().slideUp("slow");   
+		    $(this).find(".preview_hover").fadeOut();
+		    /*$(this).find(".overlay").css("display","none");*/
+		});
+	};
+
 	$scope.saveGrid = function(){
 		var formData = new FormData();
 		formData.append('gTitle', $scope.grid['title']);
@@ -133,11 +148,25 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 					font : data['data']['grid_font'],
 					imageThumbnail : site_path + data['data']['grid_image']
 				};
+				// Calling the another ajax to get the cards data				
+
+					gridEditService.getAllCards($scope.grid.gridId, function(data){
+						if(data['status'] == 'ok'){
+							$scope.cards = data['data'];
+							setTimeout(cardJQUpdate,200);
+						}
+					},function(error){
+
+					});
+
+				//End of the cards
+
 			}else{
 				alert(data['message']);
 			}
 		},function(error){
 
 		});
+
 	};
 }]);

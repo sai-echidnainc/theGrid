@@ -1,4 +1,3 @@
-
 $('#picker').colpick({
 	colorScheme:'dark',
 	layout:'rgbhex',

@@ -127,4 +127,20 @@ class Card extends CI_Controller {
 		echo json_encode($resArr);
 	}
 
+	public function getCards($grid_id = ""){
+		$resArr['status'] = "error";
+		$resArr['message'] = "Don't Miss any data";
+
+		if($grid_id != ""){
+			$this->load->model('admin/card_model');
+			if($cardD = $this->card_model->getAllCards($this->session->userdata('user_data')['user_id'],$grid_id)){
+				$resArr['status'] = "ok";
+				unset($resArr['message']);
+				$resArr['data'] = $cardD;
+			}
+		}
+
+		echo json_encode($resArr);
+	}
+
 }

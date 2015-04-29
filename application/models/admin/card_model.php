@@ -85,4 +85,16 @@ class Card_Model extends CI_Model {
 		return false;
 	}
 
+	public function getAllCards($user_id, $grid_id){
+		$sql = " SELECT c.card_id, c.card_type AS type, c.card_size AS size, c.card_url AS link, c.card_name AS title, c.card_description AS description, c.overlay_color AS bgcolor, c.text_color AS fgcolor, c.card_image AS image, c.card_slug AS slug FROM cards AS c
+			INNER JOIN grids AS g
+			ON g.grid_id = c.grid_id WHERE g.user_id = $user_id AND g.grid_id = $grid_id";
+		$query = $this->db->query($sql);
+		$resArry = $query->result_array();
+		if (count($resArry) >= 1) {	
+			return $resArry;
+		}
+		return false;
+	}
+
 }
