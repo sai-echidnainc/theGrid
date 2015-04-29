@@ -11,17 +11,17 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">GRID BACKGROUND COLOR*</label>
-						<input type="text" class="form-control" id="gridBGColor" ng-model="grid.bgcolor" placeholder="Enter Hexcode or Use the Color Wheel" value=""/>
+						<input type="text" minicolors class="form-control" ng-model="grid.bgcolor" placeholder="Enter Hexcode or Use the Color Wheel" value=""/>
 						<span id="picker"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 					</div>
 				</form>
 				<form class="col-lg-6">
 					<div class="form-group">
 						<label for="exampleInputEmail1">SELECT GRID ARRANGEMENT*</label>
-						<select class="form-control" ng-model="grid.arrangement">
-							<option value="0">Select Arrangement (Randomize or Default)</option>
+						<select class="form-control" ng-model="grid.arrangement" ng-options="opt.value as opt.name for opt in gridArrOptions">
+							<!-- <option value="0">Select Arrangement (Randomize or Default)</option>
 							<option value="random" selected>Randomize</option>
-							<option value="date">Default</option>
+							<option value="date">Default</option> -->
 						</select>
 					</div>
 					<div class="form-group">
@@ -63,8 +63,7 @@
 
 			</div>
 			<div class="clearfix"></div>
-			<div>
-			<div class="text_div" ng-hide = "newcartType !='text'" >
+			<div class="text_div" ng-class="{slideDown: newcartType != cardTypeOpt['0'].value}">
 				<div class="card_options_div col-lg-8">
 					<form class="col-lg-6">
 						<div class="form-group">
@@ -81,68 +80,39 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">OVERLAY COLOR*</label>
-							<input type="email" class="form-control" id="gridBGColor1" placeholder="Enter Hexcode or Use the Color Wheel"/>
+							<input type="email" class="form-control" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
 							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
 					</form>
 					<form class="col-lg-6">
 						<div class="form-group">
 							<label for="exampleInputEmail1">CARD LINK*</label>
-							<input type="email" class="form-control" id="exampleInputEmail1">
+							<input type="text" class="form-control" id="exampleInputEmail1">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">CARD LINK*</label>
-							<input type="email" class="form-control" id="exampleInputEmail1">
+							<label for="exampleInputEmail1">CARD DESCRIPTION*</label>
+							<input type="text" class="form-control" id="exampleInputEmail1">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">FONT COLOR*</label>
+							<input type="text" ng-model="" class="form-control" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
+							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
 					</form>
 				</div>
-				<div class="col-lg-4 prev">
+				<div class="col-lg-4 prev" ng-hide = "newcartType !='text' && newcartType != cardTypeOpt['0'].value">
 					<label for="exampleInputEmail1">CARD PREVIEW</label>
 					<img src="<?php echo base_url(); ?>asserts/img/preview.png" class="img-responsive">
 				</div>
-				<div class="clearfix"></div>
-				<button class="save_btn btn btn-default">Save Card</button>
-			</div>
-			<div class="img_div" ng-hide = "newcartType !='image'">
-				<div class="card_options_div col-lg-8">
-					<form class="col-lg-6">
-						<div class="form-group">
-							<label for="exampleInputEmail1">CARD SIZE*</label>
-							<select class="form-control">
-								<option>Small</option>
-								<option>Medium</option>
-								<option>Large</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">CARD NAME*</label>
-							<input type="email" class="form-control" id="exampleInputEmail1">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">OVERLAY COLOR*</label>
-							<input type="email" class="form-control" id="gridBGColor2" placeholder="Enter Hexcode or Use the Color Wheel"/>
-							<span id="picker2"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
-						</div>
-					</form>
-					<form class="col-lg-6">
-						<div class="form-group">
-							<label for="exampleInputEmail1">CARD LINK*</label>
-							<input type="email" class="form-control" id="exampleInputEmail1">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">CARD LINK*</label>
-							<input type="email" class="form-control" id="exampleInputEmail1">
-						</div>
-					</form>
-				</div>
-				<div class="col-lg-4 prev">
+
+				<div class="col-lg-4 prev" ng-hide = "newcartType !='image'">
 					<label for="exampleInputEmail1">CARD PREVIEW</label>
 					<img src="<?php echo base_url(); ?>asserts/img/preview.png" class="img-responsive">
 					<input type="file" value="BROWSE" class="browse"/>
 				</div>
+
 				<div class="clearfix"></div>
 				<button class="save_btn btn btn-default">Save Card</button>
-			</div>
 			</div>
 		</div>
 	</div>
@@ -151,8 +121,8 @@
 	<div class="row-fluid">
 		<div class="active_card_container">
 			<h2 class="h2">ACTIVE CARDS</h2>
-			<div ng-if="!cards"> No cards available try to create a card</div>
-			<div class="col-lg-3" ng-repeat="card in cards">
+			<div ng-if="!cardsData"> No cards available try to create a card</div>
+			<div class="col-lg-3" ng-repeat="card in cardsData">
 				<div class="crd">
 					<div class="preview">
 						<img src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive">
@@ -162,7 +132,7 @@
 						<div class="edit_pre">
 							<img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive">
 						</div>
-						<div class="delete_pre"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive"></div>
+						<div class="delete_pre" ng-click="deleteCard($index)"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive"></div>
 					</div>
 				</div>
 			</div>

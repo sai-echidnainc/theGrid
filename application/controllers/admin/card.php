@@ -44,10 +44,10 @@ class Card extends CI_Controller {
 		redirect('/admin');
 	}
 
-	public function delete($cardId){
+	public function delete($cardId = ""){
 
 		$result_arr = array('status'=>'error','message'=>'No records found on the id');
-		if(isset($cardId)){
+		if(isset($cardId) && $cardId != ""){
 			$this->load->model('admin/card_model');
 			$user_id = $this->session->userdata('user_data')['user_id'];
 			if($this->card_model->delete_card($cardId,$user_id)){

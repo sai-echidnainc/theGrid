@@ -33,4 +33,7 @@ grids.app.service('gridEditService',['$resource','$http','site_url',function($re
 	this.getAllCards = function(grid_id,success,error){
 		$http.get(site_url+'card/getCards/'+grid_id).success(success).error(error);
 	};
+	this.deleteCard = function(card_id,success,error){
+		$http.get(site_url+'card/delete/'+card_id).success(success).error(error);
+	};
 }]);	

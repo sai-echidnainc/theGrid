@@ -67,9 +67,9 @@ class Grid_Model extends CI_Model {
 		   'grid_image' => $data['grid_image'],
 		   'grid_slug' => $data['grid_slug'],
 		);
-
+		unset($data2['grid_slug']);
 		$this->db->where('grid_id', $data['grid_id']);
-		$this->db->update('grids', $data); 
+		$this->db->update('grids', $data2); 
 		if($this->db->affected_rows() > 0)
 			return true;
 		return false;

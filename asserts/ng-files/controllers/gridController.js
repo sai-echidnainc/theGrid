@@ -63,10 +63,18 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		{ name:'Text' , value :'text'},
 		{ name:'Image' , value :'image'},
 	];
+
+	$scope.cardTypeOpt = [
+		{ name:'Select Type' , value :'0'},
+		{ name:'Text' , value :'text'},
+		{ name:'Image' , value :'image'},
+	];
+
 	$scope.cardType = $scope.cardTypeOpt[0].value;
 	 $scope.$watch('cardType', function() {
     $scope.newcartType = $scope.cardType;
   });
+
 	$scope.grid = {
 		gridId : false,
 		title : '',
@@ -117,6 +125,11 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 			});
 		}else{
 			formData.append('gId',$scope.grid['gridId']);
+			//console.log($scope.grid.imageThumbnail.indexOf(site_path));
+			if($scope.grid.imageThumbnail.indexOf(site_path) >= 0){
+				formData.append('gImageThumbnail',$scope.grid.imageThumbnail.replace(site_path, ""));
+				console.log('Yes')				;
+			}
 			gridEditService.updateGrid(formData,function(data){
 				if(data['status'] == 'ok' ){			
 					alert('Grid updated Successfully');
@@ -130,6 +143,21 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		}
 	}
 
+	$scope.deleteCard = function(index){
+		var cnf = confirm("Do you want to delete the card?");
+		if(!cnf)
+			return;
+		var card_id = $scope.cardsData[index]['card_id'];
+		gridEditService.deleteCard(card_id,function(data){
+			if(data['status'] == "ok"){
+				$scope.cardsData.splice(index,1);
+			}else{
+				alert(data['message']);
+			}
+		},function(error){
+
+		});
+	};
 
 	$scope.imageUpload = function(element){
     	$scope.grid.imageThumbnail = false;
@@ -161,7 +189,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 
 					gridEditService.getAllCards($scope.grid.gridId, function(data){
 						if(data['status'] == 'ok'){
-							$scope.cards = data['data'];
+							$scope.cardsData = data['data'];
 							setTimeout(cardJQUpdate,200);
 						}
 					},function(error){

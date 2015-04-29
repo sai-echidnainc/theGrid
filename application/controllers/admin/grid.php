@@ -80,6 +80,7 @@ class Grid extends CI_Controller {
 		$data['initFunc'] = "init()";
 			if($mode == 'edit'){				
 				$data['initFunc'] = "editInit($grid_id)";
+				$data['page_title'] = "Edit Grid";
 			}
 		$data['templet_URL'] = "admin/edit_grid";
 		$data['nav'] = 'edit';
@@ -102,6 +103,7 @@ class Grid extends CI_Controller {
 		$gridType = $this->input->post('gType',true);
 		$gridBGColor = $this->input->post('BGColor',true);
 		$gridFF = $this->input->post('gFont',true);
+		$gridImageThumb = $this->input->post('gImageThumbnail',true);
 
 		$resArr['status'] = "error";
 		$resArr['message'] = "Don't Miss any data";
@@ -109,14 +111,20 @@ class Grid extends CI_Controller {
 		if ($gridTitle && $gridType && $gridBGColor && $gridFF) {
 			
 			$file_path = "./uploads/grids";
-			$result = $this->__upload_file($file_path,"gImage");
+			if(!$gridImageThumb){
+				$result = $this->__upload_file($file_path,"gImage");
+			}else{
+				$result['status'] = "ok";
+			}
 			//$resArr['data'] = $result;
 			//var_dump($result);
 			if($result['status'] === "error"){
 				$resArr['message'] = $result['error'];
 			}else{
-				//$resArr['status'] = "ok";
-				//unset($resArr['message']);
+				if(!$gridImageThumb)
+					$file_full_path = $file_path.'/'.$result['data']['file_name'];
+				else
+					$file_full_path = $gridImageThumb;
 
 				$this->load->model('admin/grid_model');
 				$data = array(
@@ -125,10 +133,9 @@ class Grid extends CI_Controller {
 					'grid_arrangement' => $gridType, 
 					'grid_color' => $gridBGColor, 
 					'grid_font' => $gridFF, 
-					'grid_image' => $file_path.'/'.$result['data']['file_name'],					
+					'grid_image' => $file_full_path,					
 		   			'grid_slug' => strtolower($this->__create_slug($gridTitle)),
 					);
-
 				$func_name = "add_grid";
 
 				if($mode != '' && strtolower($mode) == 'update') {
