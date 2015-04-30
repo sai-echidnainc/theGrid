@@ -22,4 +22,4 @@
 
 
 <?php //Scripts ?>
-<script src="<?php echo base_url(); ?>application/views/base_assets/script.js"></script>
+<script src="<?php echo base_url(); ?>asserts/base_assets/script.js"></script>
