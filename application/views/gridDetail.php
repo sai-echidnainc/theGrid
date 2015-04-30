@@ -12,5 +12,4 @@
 		<div class="grid_element"></div>
 		<div class="grid_element"></div>
 	</div>
-
 </div>
