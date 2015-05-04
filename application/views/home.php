@@ -12,9 +12,9 @@
 		<div class="col-lg-8"></div>
 		<div class="col-lg-2 pull-right">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Search for...">
+				<input type="text" class="form-control" placeholder="Search for..." id="searchTxt">
 				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">Go!</button>
+					<button class="btn btn-default" type="button" id="search">Go!</button>
 				</span>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
 				foreach ($grids as $key => $grid) {
 		?>
 
-		<div class="col-lg-4 cen sorting" data-date="<?php echo strtotime($grid['createdDate']);?>" data-count="<?php echo $grid['COUNT'];?>" data-title="<?php echo $grid['title'];?>">
+		<div class="col-lg-4 cen sorting" data-date="<?php echo strtotime($grid['createdDate']);?>" data-count="<?php echo $grid['COUNT'];?>" data-title="<?php echo  strtolower($grid['title']);?>">
 			<a href="<?php echo site_url('preview').'/'.$grid['slug'];?>">
 				<div class="grid-container">
 						<img src="<?php echo base_url().$grid['image'];?>" class="img-responsive">

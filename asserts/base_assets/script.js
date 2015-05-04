@@ -41,4 +41,15 @@ $(document).ready(function(){
 		objArray.detach().appendTo(container);
 	});
 
+
+	$('body').on('click','#search.btn',function(){
+		var searchTxt = $("#searchTxt").val().toLowerCase();
+		if(searchTxt == "" || typeof searchTxt == "undefined"){
+			$('.sorting').removeClass('cusHide');
+			return;
+		}
+		console.log('[data-title*="'+searchTxt+'"]');
+		$('.sorting').removeClass('cusHide').not('[data-title*="'+searchTxt+'"]').addClass('cusHide');
+	});
+
 });
