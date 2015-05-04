@@ -63,19 +63,18 @@ $(document).ready(function(){
 	});
 
 
-
-	jQuery(window).load(function() {
-			 jQuery('.flexslider').flexslider({ directionNav: false });
-			jQuery(function(){
-				jQuery('.masonry-container').masonry({
-					itemSelector: '.grid_element',
-					columnWidth: 1,
-					isAnimated: true,
-					gutter : 0
-					// columnWidth: 152
-				});
+	var masFunc = function(){
+			jQuery('.masonry-container').masonry({
+				itemSelector: '.grid_element',
+				columnWidth: 1,
+				isAnimated: true,
+				gutter : 0
+				// columnWidth: 152
 			});
-			jQuery(window).trigger('resize');
+		};
+	jQuery(window).load(function() {;
+			//masFunc();
+			//jQuery(window).trigger('resize');
 		});
 
 });

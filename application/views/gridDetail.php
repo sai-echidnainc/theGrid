@@ -14,9 +14,9 @@ $imageSizeArr = array(
 	
 ?>
 
-<div class="container-fluid grid_msnry">
+<div class="container-fluid grid_msnry" style="background-color:<?php echo (isset($cards[0]['grid_color'])) ? $cards[0]['grid_color'] : '';?>;">
 	<div class="row-fluid">
-		<div class="masonry-container <?php echo $cards[0]['grid_font'];?>">
+		<div class="masonry-container <?php echo (isset($cards[0]['grid_font'])) ? $cards[0]['grid_font'] : '';?>">
 			<?php 
 				foreach ($cards as $key => $card) {
 					//echo json_encode($card['card_type']);
@@ -26,7 +26,7 @@ $imageSizeArr = array(
 							<div class="grid_element <?php echo $card['card_size'];?>">
 								<a href="#">
 									<img src="<?php echo $imageSizeArr[$card['card_size']]; ?>" class="img-responsive">
-									<div class="card_data text_card" style="color:#000;background-color:#ccc;">
+									<div class="card_data text_card" style="color:<?php echo $card['text_color']; ?>;background-color:<?php echo $card['overlay_color']; ?>;">
 										<h2 class="h2"><?php echo $card['card_name']; ?></h2>
 										<p><?php echo $card['card_description']; ?></p>
 									</div>
@@ -40,7 +40,7 @@ $imageSizeArr = array(
 								<a href="#">
 									<img src="<?php echo $imageSizeArr[$card['card_size']]; ?>" class="img-responsive">
 									<div class="card_data image_card" style="background-image:url('<?php echo base_url().$card['card_image']; ?>');">
-										<div class="descp" style="color:#000; background-color:#fff;">
+										<div class="descp" style="color:<?php echo $card['text_color']; ?>; background-color:<?php echo $card['overlay_color']; ?>;">
 											<h2 class="h2"><?php echo $card['card_name']; ?></h2>
 											<p><?php echo $card['card_description']; ?></p>
 										</div>
