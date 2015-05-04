@@ -36,8 +36,15 @@ class Home extends CI_Controller {
 			$funcName = 'getCards';
 		}
 		$this->load->model('home_model');
-		$cards = $this->home_model->$funcName($theSlug);
-		echo json_encode($cards);
+		$data['cards'] = $this->home_model->$funcName($theSlug);
+		if(count($data['cards']) <= 0){
+			show_404();
+			die();
+		}
+		//echo json_encode($cards);
+		$data['templet_URL'] = "gridDetail";
+		$data['page_title'] = "Grid Detail Page -" . $theSlug;
+		$this->load->view('base',$data);
 	}
 }
 
