@@ -14,4 +14,7 @@
 	.sorting{
 		width:100%;
 	}
+	.grid_element{
+		width: 100% !important;
+	}
 }
