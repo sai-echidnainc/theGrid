@@ -72,9 +72,10 @@ $(document).ready(function(){
 				// columnWidth: 152
 			});
 		};
+	$(window).resize(masFunc);
 	jQuery(window).load(function() {;
-			//masFunc();
-			//jQuery(window).trigger('resize');
-		});
+			masFunc();
+			jQuery(window).trigger('resize');
+	});
 
 });
