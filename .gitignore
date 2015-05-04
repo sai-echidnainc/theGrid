@@ -8,3 +8,7 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 asserts/style.css
+asserts/base_assets/style.css
+asserts/base_assets/style.css
+asserts/base_assets/script.js
+asserts/base_assets/style.css

@@ -28,8 +28,27 @@ $(".grid-container").mouseenter(function(){
 			});
 			jQuery(window).trigger('resize');
 		});
+<<<<<<< HEAD
 /*$('.masonry-container').masonry({
   itemSelector: '.grid_element',
   columnWidth: 100,
   isAnimated: true
 });*/
+=======
+
+		objArray.detach().appendTo(container);
+	});
+
+
+	$('body').on('click','#search.btn',function(){
+		var searchTxt = $("#searchTxt").val().toLowerCase();
+		if(searchTxt == "" || typeof searchTxt == "undefined"){
+			$('.sorting').removeClass('cusHide');
+			return;
+		}
+		console.log('[data-title*="'+searchTxt+'"]');
+		$('.sorting').removeClass('cusHide').not('[data-title*="'+searchTxt+'"]').addClass('cusHide');
+	});
+
+});
+>>>>>>> 347693e4c016b70e2f655301d8c1c8c5115a3831
