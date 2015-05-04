@@ -6,31 +6,55 @@
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
 					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');">
+						<div class="descp" style="color:#000; background-color:#fff;">
+							<h2 class="h2">THE GRID</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>
 					</div>
 				</a>
 			</div>
 			<div class="grid_element onebytwo">
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
-					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');"></div>
+					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');">
+						<div class="descp" style="color:#000; background-color:#fff;">
+							<h2 class="h2">THE GRID</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>
+					</div>
 				</a>
 			</div>
 			<div class="grid_element twobyone">
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
-					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');"></div>
+					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');">
+						<div class="descp" style="color:#000; background-color:#fff;">
+							<h2 class="h2">THE GRID</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>
+					</div>
 				</a>
 			</div>
 			<div class="grid_element twobytwo">
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
-					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');"></div>
+					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');">
+						<div class="descp" style="color:#000; background-color:#fff;">
+							<h2 class="h2">THE GRID</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>
+					</div>
 				</a>
 			</div>
 			<div class="grid_element twobythree">
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
-					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');"></div>
+					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');">
+						<div class="descp" style="color:#000; background-color:#fff;">
+							<h2 class="h2">THE GRID</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>
+					</div>
 				</a>
 			</div>
 			<div class="grid_element threebytwo">
@@ -45,19 +69,34 @@
 			<div class="grid_element threebythree">
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
-					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');"></div>
+					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');">
+						<div class="descp" style="color:#000; background-color:#fff;">
+							<h2 class="h2">THE GRID</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>
+					</div>
 				</a>
 			</div>
 			<div class="grid_element onebytwo">
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
-					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');"></div>
+					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');">
+						<div class="descp" style="color:#000; background-color:#fff;">
+							<h2 class="h2">THE GRID</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>
+					</div>
 				</a>
 			</div>
 			<div class="grid_element twobythree">
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
-					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');"></div>
+					<div class="card_data image_card" style="background-image:url('<?php echo base_url(); ?>asserts/img/grid.png');">
+						<div class="descp" style="color:#000; background-color:#fff;">
+							<h2 class="h2">THE GRID</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
+						</div>
+					</div>
 				</a>
 			</div>
 			<div class="grid_element onebyone">
