@@ -21,7 +21,7 @@
 
 	<div class="row-fluid" ng-show="gridData">
 
-		<div class="col-lg-4 cen" ng-repeat="grid in gridData | orderBy : gridOrderBy">
+		<div class="col-lg-4 col-md-4 col-sm-4 cen" ng-repeat="grid in gridData | orderBy : gridOrderBy">
 			<div class="grid-container">
 				<a href="#">
 					<img src="<?php echo base_url();?>asserts/img/grid.png" class="img-responsive" ng-if="!grid.image">

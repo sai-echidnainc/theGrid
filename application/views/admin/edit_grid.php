@@ -3,8 +3,8 @@
 	<div class="row-fluid">
 		<div class="options_div">
 			<h2 class="h2">GRID OPTIONS</h2>
-			<div class="options_field col-lg-8 col-md-8 col-sm-8 col-xs-8">
-				<form class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="gridForm">
+			<div class="options_field col-lg-8 col-md-8 col-sm-8">
+				<form class="col-lg-6 col-md-6 col-sm-6" id="gridForm">
 					<div class="form-group">
 						<label for="exampleInputEmail1">GRID NAME*</label>
 						<input type="text" class="form-control" ng-model="grid.title" placeholder="Enter Page Title">
@@ -15,7 +15,7 @@
 						<span id="picker"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 					</div>
 				</form>
-				<form class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<form class="col-lg-6 col-md-6 col-sm-6" id="gridForm">
 					<div class="form-group">
 						<label for="exampleInputEmail1">SELECT GRID ARRANGEMENT*</label>
 						<select class="form-control" ng-model="grid.arrangement" ng-options="opt.value as opt.name for opt in gridArrOptions">
@@ -41,7 +41,7 @@
 					</div>
 				</form>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 upload">
+			<div class="col-lg-4 col-md-4 col-sm-4 upload">
 				<label for="exampleInputEmail1">PREVIEW IMAGE</label>
 				<img src="" class="img-responsive" ng-src="{{grid.imageThumbnail}}" ng-init="grid.imageThumbnail = '<?php echo base_url(); ?>asserts/img/preview.png'">
 				<input type="file" value="BROWSE" class="browse" file-model="grid.image" onchange="angular.element(this).scope().imageUpload(this)"/>

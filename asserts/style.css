@@ -406,3 +406,6 @@ input.btn.btn-default.head_btn{
  border: 1px solid #f00;
  border-radius: 5px;
 }
+.card_options_heading{
+	display: none;
+}

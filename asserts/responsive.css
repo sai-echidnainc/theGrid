@@ -14,7 +14,37 @@
 	.form-group label{
 		font-size: 12px;
 	}
+	.browse{
+		font-size: 12px;
+	}
+	.save_btn{
+		margin: 20px 15px;
+	}
 }
-
+@media(max-width: 667px) {
+	.btn.btn-default{
+		padding: 7px 20px;
+	}
+}
 @media(max-width: 480px) {
+	input.btn.btn-default.head_btn{
+		margin-top: 10px;
+	}
+	.new_card h2{
+		font-size: 15px;
+	}
+	.new_card select{
+		font-size: 10px;
+		margin-top: 10px;
+		padding: 6px 0;
+	}
+	.grid_opt_container h2{
+		text-align: center;
+		font-size: 20px;
+	}
+}
+@media(max-width: 380px) {
+	#gridForm{
+		padding: 0;
+	}
 }
