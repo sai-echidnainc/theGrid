@@ -292,11 +292,21 @@ q:before, q:after {
 	box-sizing: border-box;
 	text-overflow: ellipsis;
 }
-.grid_element .card_data h2, .grid_element .card_data p{
+.grid_element .card_data .descp h2, .grid_element .card_data .descp p{
 	padding: 10px;
+	white-space: normal;
 }
 .grid_element .card_data.text_card{
 	background-image: none !important;
+}
+.grid_element .card_data .descp{
+	position: absolute;
+	top: 0;
+	padding: 10px;
+	z-index: 2;
+	display: none;
+	opacity: 0.5;
+	height: 100% !important;
 }
 /*.wrapper {
     overflow: visible;
