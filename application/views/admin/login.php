@@ -8,6 +8,13 @@
 			</div>
 		</div>
 	</div>
+	<!-- <div class="row-fluid logout_msg">
+  		<span>Logout Successfully</span>
+ 	</div> -->
+ 	<?php 
+		if(isset($logoutStatus) && $logoutStatus != '')
+			echo "<div class='row-fluid logout_msg'><span>$logoutStatus</span></div>";				
+	?>
 	<div class="row-fluid form-container">
 		<div class="form_div">
 			<!-- <form class="form-inline" method="post" action="<?php echo base_url();?>admin/login"> -->

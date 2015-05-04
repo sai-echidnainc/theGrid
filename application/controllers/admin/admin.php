@@ -26,6 +26,7 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/default',$data);
 		}else{
 			$data['error'] = $this->session->flashdata('error');
+			$data['logoutStatus'] = $this->session->flashdata('logoutStatus');
 			$data['page_title'] = "Login Page";
 			$data['templet_URL'] = "admin/login";
 			$this->load->view('admin/default',$data);
@@ -60,9 +61,14 @@ class Admin extends CI_Controller {
 		redirect('admin');
 	}
 	public function logout(){
+		//var_dump($this->session->all_userdata());
 		$this->session->sess_destroy();
 		//redirect logic after loggedout Sucessfully
-		echo "logout sucessfully";
+		//echo "logout sucessfully";
 		//var_dump($this->__is_user_loggedin());
+		$data['logoutStatus'] = "Loggedout Successfully";
+		$data['page_title'] = "Login Page";
+		$data['templet_URL'] = "admin/login";
+		$this->load->view('admin/default',$data);
 	}
 }

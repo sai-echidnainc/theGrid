@@ -28,7 +28,7 @@
 						<label for="exampleInputEmail1">CHOOSE GRID FONT FAMILY*</label>
 						<select class="form-control" ng-model="grid.font">
 							<option class="roboto" value="roboto" selected>Roboto</option>
-							<option class="times_new_roman" value="times_new_roman">Open Sans</option>
+							<option class="opensans" value="opensans">Open Sans</option>
 							<option class="montserrat" value="montserrat">Montserrat</option>
 							<option class="lato" value="lato">Lato</option>
 							<option class="proxima_nova" value="proxima_nova">Proxima Nova</option>
@@ -56,10 +56,11 @@
 		<div class="new_card">
 			<div class="new_card_head">
 				<h2 class="h2">ADD NEW CARDS</h2>
-				<h2 class="h2 card_options_heading">CARD OPTIONS</h2>
+				<h2 class="h2 card_options_heading">CARD OPTIONS</h2>				
 				<select class="form-control card_type_select" ng-change = "changeType()" ng-disabled="!grid.gridId" ng-model="cardType" ng-options="opt.value as opt.name for opt in cardTypeOpt">
 					<!-- <option ng-repeat="opt in cardTypeOpt" value="{{opt.value}}">{{opt.name}}</option> -->
-				</select>
+				</select>				
+				<button class="save_btn cancel btn btn-default inline pull-right" ng-click="cancelCard()" ng-show="newcartType != cardTypeOpt['0'].value">Cancel</button>
 
 			</div>
 			<div class="clearfix"></div>
@@ -112,7 +113,7 @@
 				</div>
 
 				<div class="clearfix"></div>
-				<button class="save_btn btn btn-default" ng-click="saveCard()">Save Card</button>
+				<button class="save_btn btn btn-default inline" ng-click="saveCard()">Save Card</button>
 			</div>
 		</div>
 	</div>

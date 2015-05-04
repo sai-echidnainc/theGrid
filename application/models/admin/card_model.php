@@ -36,9 +36,8 @@ class Card_Model extends CI_Model {
 		   'card_image' => (isset($data['card_image'])) ? $data['card_image'] : ''
 		);
 
-		$sql = "SELECT g.grid_id FROM grids AS g
-			INNER JOIN cards AS c
-			ON g.grid_id = c.grid_id WHERE g.user_id = $user_id AND g.grid_id = $grid_id";
+		$sql = "SELECT g.grid_id FROM grids AS g WHERE g.user_id = $user_id AND g.grid_id = $grid_id";
+
 		$query = $this->db->query($sql);
 		$resArry = $query->result_array();
 		if (count($resArry) >= 1) {				

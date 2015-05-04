@@ -121,7 +121,6 @@ class Card extends CI_Controller {
 				$funcName = "update_card";
 				$data['card_id'] = $this->input->post('cId',true);
 			}
-			
 			if($card_id = $this->card_model->$funcName($data)){
 					$resArr['status'] = "ok";
 					$resArr['message'] = "Card Created Successfully";
