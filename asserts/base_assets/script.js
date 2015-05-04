@@ -22,18 +22,9 @@ $(document).ready(function(){
 	$(".grid_element").mouseenter(function(){
 		$(this).find(".descp").css("position","absolute");
 		$(this).find(".descp").stop().fadeIn("slow");
-		/*$(this).find(".descp p").stop().slideDown("slow",function(){
-			$(this).css("display","block !important");
-		});*/
-		/*$(this).find(".hover_content").fadeIn();*/
-		/*$(this).find(".overlay").css("display","block");*/
 	})
 	.mouseleave(function(){
-		/*$(this).find(".grid_detail").css("position","relative");*/
 		$(this).find(".descp").stop().fadeOut("slow");
-		/*$(this).find(".descp p").stop().slideUp("slow");*/
-		/*$(this).find(".hover_content").fadeOut();
-		$(this).find(".overlay").css("display","none");*/
 	});
 
 
