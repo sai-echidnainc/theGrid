@@ -73,7 +73,7 @@ $(document).ready(function(){
 			});
 		};
 	jQuery(window).load(function() {;
-			//masFunc();
+			masFunc();
 			//jQuery(window).trigger('resize');
 		});
 
