@@ -268,6 +268,7 @@ q:before, q:after {
 .grid_element img{
 	width: 100%;
 	visibility: hidden;
+	vertical-align: bottom;
 }
 .grid_element .card_data{
 	width: 100%;

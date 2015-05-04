@@ -40,6 +40,10 @@ $imageSizeArr = array(
 								<a href="#">
 									<img src="<?php echo $imageSizeArr[$card['card_size']]; ?>" class="img-responsive">
 									<div class="card_data image_card" style="background-image:url('<?php echo base_url().$card['card_image']; ?>');">
+										<div class="descp" style="color:#000; background-color:#fff;">
+											<h2 class="h2"><?php echo $card['card_name']; ?></h2>
+											<p><?php echo $card['card_description']; ?></p>
+										</div>
 									</div>
 								</a>
 							</div>
