@@ -4,6 +4,9 @@
 <script src="<?php echo base_url(); ?>asserts/Color-Picker-master/js/colpick.js"></script>
 <script src="<?php echo base_url(); ?>asserts/Dropzone/dropzone.js"></script>
 <script src="<?php echo base_url(); ?>asserts/jquery.filedrop.js"></script>
+<script src="<?php echo base_url(); ?>asserts/jQueryLoader.js"></script>
+<script src="<?php echo base_url(); ?>asserts/jquery.flexslider.js"></script>
+<script src="<?php echo base_url(); ?>asserts/masonry.pkgd.js"></script>
 
 <?php //Angular modules ?>
 <script src="<?php echo base_url(); ?>asserts/default/js/angular.min.js"></script>

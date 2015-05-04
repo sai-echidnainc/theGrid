@@ -14,3 +14,22 @@ $(".grid-container").mouseenter(function(){
 	$(this).find(".hover_content").fadeOut();
 	$(this).find(".overlay").css("display","none");
 });
+		
+		jQuery(window).load(function() {
+			 jQuery('.flexslider').flexslider({ directionNav: false });
+			jQuery(function(){
+				jQuery('.masonry-container').masonry({
+					itemSelector: '.grid_element',
+					columnWidth: 1,
+					isAnimated: true,
+					gutter : 0
+					// columnWidth: 152
+				});
+			});
+			jQuery(window).trigger('resize');
+		});
+/*$('.masonry-container').masonry({
+  itemSelector: '.grid_element',
+  columnWidth: 100,
+  isAnimated: true
+});*/

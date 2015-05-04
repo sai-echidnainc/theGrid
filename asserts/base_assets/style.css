@@ -211,5 +211,108 @@ q:before, q:after {
 	background: #000;
 }
 .grid_msnry{
-	margin-top: 110px;
+	margin-top: 80px;
+	padding: 0;
 }
+.grid_element{
+	float: left;
+	/*border: 1px solid #000;*/
+	/*background: #ccc;*/
+	box-sizing: content-box;
+}
+.onebyone{
+ width: 20%;
+ /*height: 20%;*/
+ display: inline-block;
+}
+.onebytwo{
+ width: 20%;
+ /*height: 40%;*/
+ display: inline-block;
+}
+.twobyone{
+ width: 40%;
+ /*height: 20%;*/
+ display: inline-block;
+}
+.twobytwo{
+ width: 40%;
+ /*height: 40%;*/
+ display: inline-block;
+}
+.twobythree{
+ width: 40%;
+ /*height: 60%;*/
+ display: inline-block;
+}
+.threebytwo{
+ width: 60%;
+ /*height: 40%;*/
+ display: inline-block;
+}
+.threebythree{
+ width: 60%;
+ /*height: 60%;*/
+ display: inline-block;
+}
+.grid_element a{
+	display: inline-block;
+	width: 100%;
+	position: relative;
+	height: 100%;
+}
+.grid_element img{
+	width: 100%;
+	visibility: hidden;
+}
+.grid_element .card_data{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: block;
+	text-align: center;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grid_element .card_data h2, .grid_element .card_data p{
+	padding: 10px;
+}
+.grid_element .card_data.text_card{
+	background-image: none !important;
+}
+/*.wrapper {
+    overflow: visible;
+    width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    height: auto !important;
+    float: left;
+    background: #f1f1f1;
+    position: relative;
+    z-index: 1;
+    margin: 120px auto -60px;
+    display: block;
+}
+.main .row{
+	margin:0;
+}
+.masonry-container{
+	margin-right: 0;
+}
+.outer-container{
+	position: relative;
+	overflow: hidden;
+	float: left;
+}
+.outer-container > a{
+	display: block;
+}
+.outer-container > a > img{
+	width: 100%;
+	vertical-align: bottom;
+}*/
