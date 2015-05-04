@@ -142,6 +142,8 @@ q:before, q:after {
 	height: 265px;
 	border: 1px solid #ccc;
 	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: cover !important;
 }
 .grid-container img{
 	width: 100%;
@@ -278,8 +280,17 @@ q:before, q:after {
 	display: block;
 	text-align: center;
 	white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	overflow: hidden;
+	box-sizing: border-box;
+	text-overflow: ellipsis;
+}
+.grid_element .card_data p, .grid_element .card_data h2{
+	display: block;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	box-sizing: border-box;
+	text-overflow: ellipsis;
 }
 .grid_element .card_data h2, .grid_element .card_data p{
 	padding: 10px;
