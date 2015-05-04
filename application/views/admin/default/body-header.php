@@ -5,7 +5,7 @@
 	}
 
 ?>
-<div class="container-fluid header-container">
+<div class="container-fluid header-container" ng-controller="navController">
 	<div class="row-fluid ">
 		<div class="logo-div pull-left">
 			<a href="<?php echo site_url('admin');?>"><img src="<?php echo base_url(); ?>asserts/img/logo-mini.png" class="img-responsive"></a>
@@ -15,8 +15,9 @@
 			<?php
 				if( isset($nav) && $nav =="edit"){
 			?>
-					<a href="<?php echo site_url('grid/add');?>"><input type="button" value="Preview Grid" class="btn btn-default head_btn"/></a>
-					<a href="<?php echo site_url('grid/add');?>"><input type="button" value="Publish Grid" class="btn btn-default head_btn"/></a>
+				<a href="<?php echo site_url('grid/add');?>{{gridID}}"><input type="button" value="Preview Grid" class="btn btn-default head_btn" ng-disabled="!gridID"/></a>
+				<input type="button" value="{{pBtnTxt}}" class="btn btn-default head_btn" ng-disabled="!gridID" ng-click="publish()"/>
+				
 			<?php		
 				}else{
 			?>

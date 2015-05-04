@@ -86,5 +86,17 @@ class Grid_Model extends CI_Model {
 		return false;
 	}
 
+	public function publish($user_id,$grid_id,$publish_status){
+		$data = array(
+			'is_published' => $publish_status 
+		);
+		$this->db->where('grid_id', $grid_id);
+		$this->db->where('user_id', $user_id);
+		$this->db->update('grids', $data); 
+		if($this->db->affected_rows() > 0)
+			return true;
+		return false;
+	}
+
 }
 ?>

@@ -11,7 +11,7 @@ grids.app.service('gridService',['$resource','$http','site_url',function($resour
 }]);
 
 
-grids.app.service('gridEditService',['$resource','$http','site_url',function($resource,$http,site_url){
+grids.app.service('gridEditService',['$resource','$http','site_url','$rootScope',function($resource,$http,site_url,$rootScope){
 
 	this.addGrid = function(data, success, error){
 		$http.post(site_url+'grid/add_grid', data, {
@@ -51,4 +51,19 @@ grids.app.service('gridEditService',['$resource','$http','site_url',function($re
             }).success(success).error(error);
 	}
 
-}]);	
+}]);
+
+grids.app.service('navService',['$resource','$http','site_url',function($resource,$http,site_url){
+
+	this.publish = function(data,success,error){
+		$http.post(site_url+'grid/publish/',data,{
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8;'},
+            transformRequest: function(obj) {
+		        var str = [];
+		        for(var p in obj)
+		        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+		        return str.join("&");
+		    }
+		}).success(success).error(error);
+	};
+}]);

@@ -324,6 +324,11 @@ q:before, q:after {
 .save_btn{
 	margin: 20px 30px;
 }
+.save_btn.cancel{
+	margin-top: 20px;
+  	margin-bottom: 0;
+  	margin-right: 5px;
+}
 .form-group{
 	margin-bottom: 40px;
 }
@@ -389,4 +394,15 @@ input.btn.btn-default.head_btn{
 }
 .crd .text_con .card_title{
  display: block;
+}
+
+.logout_msg{
+ text-align: center;
+ margin: 18px 0;
+}
+.logout_msg span{
+ padding: 10px;
+ display: inline-block;
+ border: 1px solid #f00;
+ border-radius: 5px;
 }

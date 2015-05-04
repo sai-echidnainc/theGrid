@@ -176,4 +176,23 @@ class Grid extends CI_Controller {
 		}
 		echo json_encode($resArr);
 	}
+	public function publish(){
+		$resArr['status'] = "error";
+		$resArr['message'] = "pls try again";
+
+		$gridId = $this->input->post('gridID',true);
+		$publishStat = $this->input->post('publishStatus',true);
+
+		if($gridId != "" && ($publishStat == 'Y' || $publishStat == 'N') && $publishStat != ""){
+			//echo "going into";
+			$this->load->model('admin/grid_model');
+			if($result = $this->grid_model->publish($this->session->userdata('user_data')['user_id'], $gridId,$publishStat)){
+				$resArr['status'] = "ok";
+			}else{
+				$resArr['message'] = "No data available";
+			}
+		}
+
+		echo json_encode($resArr);
+	}
 }

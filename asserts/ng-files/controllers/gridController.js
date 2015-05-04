@@ -49,7 +49,7 @@ grids.app.controller('gridController',['gridService','$scope',function(gridServi
 
 }]);
 
-grids.app.controller('gridEditController',['gridEditService','$scope','site_path',function(gridEditService,$scope,site_path){
+grids.app.controller('gridEditController',['gridEditService','$scope','site_path','$rootScope',function(gridEditService,$scope,site_path,$rootScope){
 
 	//Default options
 	var defimage = 'asserts/img/preview.png';
@@ -66,13 +66,13 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 	];
 
 	$scope.cardSizeOpt =[
-		{ name:'1 * 1' , value :'one-by-one'},
-		{ name:'1 * 2' , value :'one-by-two'},
-		{ name:'2 * 1' , value :'two-by-one'},
-		{ name:'2 * 2' , value :'two-by-two'},
-		{ name:'2 * 3' , value :'two-by-three'},
-		{ name:'3 * 2' , value :'three-by-two'},
-		{ name:'3 * 3' , value :'three-by-three'},
+		{ name:'1 * 1' , value :'onebyone'},
+		{ name:'1 * 2' , value :'onebytwo'},
+		{ name:'2 * 1' , value :'twobyone'},
+		{ name:'2 * 2' , value :'twobytwo'},
+		{ name:'2 * 3' , value :'twobythree'},
+		{ name:'3 * 2' , value :'threebytwo'},
+		{ name:'3 * 3' , value :'threebythree'},
 	];
 
 	$scope.cardType = $scope.cardTypeOpt[0].value;
@@ -87,6 +87,12 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 
   	$scope.$watch('cardData.imageThumbnail', function() {
     	$scope.cardData.imageThumbnail = ($scope.cardData.imageThumbnail == '') ? site_path+defimage : $scope.cardData.imageThumbnail;
+  	});
+
+  	$scope.$watch('grid.gridId',function(){
+  		if($scope.grid.gridId && $scope.grid.gridId != ""){
+  			$rootScope.$broadcast('gridId', { gridData: $scope.grid });
+  		}
   	});
 
 	$scope.grid = {
@@ -227,6 +233,20 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		};
 	}
 
+	$scope.cancelCard = function(){
+		$scope.cardType = '0';
+		$scope.cardData = {
+			cardId : false,
+			title : '',
+			bgcolor : '#000000',
+			fgcolor : '#ffffff',
+			url : '',
+			description :'',
+			size : $scope.cardSizeOpt[0].value,
+			imageThumbnail : ''
+		};
+	};
+
 	$scope.deleteCard = function(index){
 		var cnf = confirm("Do you want to delete the card?");
 		if(!cnf)
@@ -278,7 +298,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 					bgcolor : data['data']['grid_color'],
 					arrangement : data['data']['grid_arrangement'],
 					font : data['data']['grid_font'],
-					imageThumbnail : site_path + data['data']['grid_image']
+					imageThumbnail : site_path + data['data']['grid_image'],
+					isPublished : data['data']['is_published']
 				};
 				// Calling the another ajax to get the cards data				
 
@@ -301,4 +322,38 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		});
 
 	};
+}]);
+
+
+grids.app.controller('navController',['$scope','site_path','$rootScope','navService',function($scope,site_path,$rootScope,navService){
+
+	$scope.pBtnTxt = "Publish Grid";
+	$scope.isPublished = false;
+	$scope.$watch('isPublished',function(){
+		$scope.pBtnTxt = ($scope.isPublished) ? 'Unpublish Grid' : 'Publish Grid' ;
+	});
+
+	$rootScope.$on('gridId', function (event, args) {
+		$scope.gridID = args.gridData.gridId;
+		if(!args.gridData.isPublished || args.gridData.isPublished == 'N'){
+			$scope.isPublished = false;
+		}else{
+			$scope.isPublished = true;
+		}
+	});
+
+	$scope.publish = function(){
+		var data = {
+			gridID : $scope.gridID,
+			publishStatus : ($scope.isPublished) ? 'N' : 'Y'
+		};
+		navService.publish(data,function(data){
+			if(data['status'] == 'ok'){
+				$scope.isPublished = !$scope.isPublished;
+			}
+		},function(error){
+
+		});
+	};
+
 }]);

@@ -20,11 +20,24 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['templet_URL'] = "home";
+		$data['page_title'] = "The Grid - EchidnaLabs";
+		$this->load->model('home_model');
+		$data['grids'] = $this->home_model->getAllPublishedGrids();
 		$this->load->view('base',$data);
 	}
 	public function detailpage(){
 		$data['templet_URL'] = "gridDetail";
 		$this->load->view('base',$data);
+	}
+	public function preview($theSlug = ""){
+		$funcName = 'getPublishedcards';
+		$userId = "";
+		if(isset($_GET['mode']) && $_GET['mode'] == 'admin'){
+			$funcName = 'getCards';
+		}
+		$this->load->model('home_model');
+		$cards = $this->home_model->$funcName($theSlug);
+		echo json_encode($cards);
 	}
 }
 
