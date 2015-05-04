@@ -5,7 +5,7 @@
 		<title><?php echo isset($page_title) ? $page_title : "The Grid" ?></title>
 		<?php $this->load->view('base_templets/style');?>
 	</head>
-	<body>
+	<body class="opensans">
 		<nav class="navbar navbar-default header-container">
 			<div class="container-fluid">
 				<div class="navbar-header">
