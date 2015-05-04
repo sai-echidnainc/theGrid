@@ -9,7 +9,7 @@
 		<nav class="navbar navbar-default header-container">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">
+					<a class="navbar-brand" href="<?php echo base_url(); ?>">
 						<img alt="Brand" src="<?php echo base_url(); ?>asserts/img/logo-mini.png">
 					</a>
 				</div>
