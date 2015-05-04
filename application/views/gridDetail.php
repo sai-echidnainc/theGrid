@@ -1,7 +1,54 @@
 <!-- Grid Detail -->
+<?php 
+$baseURL = base_url();
+ 
+$imageSizeArr = array(
+ 	'onebyone' => $baseURL.'asserts/img/1x1.jpg',
+ 	'onebytwo' => $baseURL.'asserts/img/1x2.jpg',
+ 	'twobyone' => $baseURL.'asserts/img/2x1.jpg',
+ 	'twobytwo' => $baseURL.'asserts/img/2x2.jpg',
+ 	'twobythree' => $baseURL.'asserts/img/2x3.jpg',
+ 	'threebytwo' => $baseURL.'asserts/img/3x2.jpg',
+ 	'threebythree' => $baseURL.'asserts/img/3x3.jpg'
+ 	); 
+	
+?>
+
 <div class="container-fluid grid_msnry">
 	<div class="row-fluid">
-		<div class="masonry-container">
+		<div class="masonry-container <?php echo $cards[0]['grid_font'];?>">
+			<?php 
+				foreach ($cards as $key => $card) {
+					//echo json_encode($card['card_type']);
+					switch ($card['card_type']) {
+						case 'text':
+							?>
+							<div class="grid_element <?php echo $card['card_size'];?>">
+								<a href="#">
+									<img src="<?php echo $imageSizeArr[$card['card_size']]; ?>" class="img-responsive">
+									<div class="card_data text_card" style="color:#000;background-color:#ccc;">
+										<h2 class="h2"><?php echo $card['card_name']; ?></h2>
+										<p><?php echo $card['card_description']; ?></p>
+									</div>
+								</a>
+							</div>
+							<?php
+							break;
+						case 'image':
+							?>
+							<div class="grid_element <?php echo $card['card_size'];?>">
+								<a href="#">
+									<img src="<?php echo $imageSizeArr[$card['card_size']]; ?>" class="img-responsive">
+									<div class="card_data image_card" style="background-image:url('<?php echo base_url().$card['card_image']; ?>');">
+									</div>
+								</a>
+							</div>
+							<?php
+							break;
+					}
+				}
+			?>
+		<!-- 
 			<div class="grid_element onebyone">
 				<a href="#">
 					<img src="<?php echo base_url(); ?>asserts/img/1x1.jpg" class="img-responsive">
@@ -68,7 +115,7 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium at purus sed volutpat. Morbi tristique sapien justo, nec cursus leo.</p>
 					</div>
 				</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
