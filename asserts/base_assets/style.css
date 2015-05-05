@@ -65,7 +65,7 @@ q:before, q:after {
 	padding: 0;
 }
 .grid_view_section{
-	min-height: 71.5vmin;
+	/*min-height: 71.5vmin;*/
 }
 /*
 .crd{
@@ -217,7 +217,7 @@ q:before, q:after {
 .grid_msnry{
 	/*margin-top: 80px;*/
 	padding: 0;
-	min-height: 81.1vmin;
+	/*min-height: 81.1vmin;*/
 }
 .grid_element{
 	float: left;
