@@ -334,6 +334,7 @@ grids.app.controller('navController',['$scope','site_path','$rootScope','navServ
 	});
 
 	$rootScope.$on('gridId', function (event, args) {
+		console.log(args);
 		$scope.gridID = args.gridData.gridId;
 		if(!args.gridData.isPublished || args.gridData.isPublished == 'N'){
 			$scope.isPublished = false;

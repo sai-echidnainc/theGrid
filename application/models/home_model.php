@@ -19,7 +19,7 @@ class Home_Model extends CI_Model {
 	public function getPublishedcards($theSlug){
 		if($theSlug == "")
 			return false;
-		$sql = "SELECT * FROM cards AS c INNER JOIN grids AS g ON g.grid_id = c.grid_id WHERE g.grid_slug = '$theSlug' AND g.is_published = 'Y'";
+		$sql = "SELECT * FROM cards AS c INNER JOIN grids AS g ON g.grid_id = c.grid_id WHERE g.grid_slug = '$theSlug' AND g.is_published = 'Y' ORDER BY grid_creation_time DESC";
 
 		$query = $this->db->query($sql);
 		return $query->result_array();
@@ -27,7 +27,7 @@ class Home_Model extends CI_Model {
 	public function getCards($theSlug){
 		if($theSlug == "")
 			return false;
-		$sql = "SELECT * FROM cards AS c INNER JOIN grids AS g ON g.grid_id = c.grid_id WHERE g.grid_slug = '$theSlug'";
+		$sql = "SELECT * FROM cards AS c INNER JOIN grids AS g ON g.grid_id = c.grid_id WHERE g.grid_slug = '$theSlug' ORDER BY grid_creation_time DESC";
 
 		$query = $this->db->query($sql);
 		return $query->result_array();
