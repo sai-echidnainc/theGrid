@@ -222,6 +222,9 @@ q:before, q:after {
 	/*border: 1px solid #000;*/
 	/*background: #ccc;*/
 	box-sizing: content-box;
+	
+	-webkit-transition: * 0.5s; /* Safari */
+    transition: * 0.5s;
 }
 .onebyone{
  width: 20%;
