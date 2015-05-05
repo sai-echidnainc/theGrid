@@ -17,7 +17,8 @@ $imageSizeArr = array(
 <div class="container-fluid grid_msnry" style="background-color:<?php echo (isset($cards[0]['grid_color'])) ? $cards[0]['grid_color'] : '';?>;">
 	<div class="row-fluid">
 		<div class="masonry-container <?php echo (isset($cards[0]['grid_font'])) ? $cards[0]['grid_font'] : '';?>">
-			<?php 
+			<?php
+				if(isset($cards))
 				foreach ($cards as $key => $card) {
 					//echo json_encode($card['card_type']);
 					switch ($card['card_type']) {

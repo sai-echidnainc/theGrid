@@ -40,6 +40,9 @@ class Home extends CI_Controller {
 		if(count($data['cards']) <= 0){
 			show_404();
 			die();
+		}		
+		if(count($data['cards']) > 0 && $data['cards'][0]['grid_arrangement'] == 'random' ){
+			shuffle($data['cards']);
 		}
 		//echo json_encode($cards);
 		$data['templet_URL'] = "gridDetail";
