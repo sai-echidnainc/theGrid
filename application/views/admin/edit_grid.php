@@ -47,7 +47,7 @@
 				<input type="file" value="BROWSE" class="browse" file-model="grid.image" onchange="angular.element(this).scope().imageUpload(this)"/>
 			</div>
 			<div class="clearfix"></div>
-			<button class="save_btn btn btn-default loader" ng-click="saveGrid()">Save Grid</button>
+			<button class="save_btn btn btn-default" ng-click="saveGrid()" ng-class="{loader: loaders.saveGrid}" ng-disabled="loaders.saveGrid">Save Grid</button>
 		</div>		
 	</div>
 </div>
@@ -113,7 +113,7 @@
 				</div>
 
 				<div class="clearfix"></div>
-				<button class="save_btn btn btn-default inline loader" ng-click="saveCard()">Save Card</button>
+				<button class="save_btn btn btn-default inline" ng-click="saveCard()" ng-class="{loader: loaders.saveCard}" ng-disabled="loaders.saveCard">Save Card</button>
 			</div>
 		</div>
 	</div>
@@ -131,7 +131,7 @@
 					<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>					
 					<div class="preview_hover">
 						<div class="edit_pre" ng-click="editCard($index)"><img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive"></div>
-						<div class="delete_pre" ng-click="deleteCard($index)"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive"></div>
+						<div class="delete_pre" ng-click="deleteCard($index)"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive" ng-disabled="loaders.deleteCard"></div>
 					</div>
 				</div>
 				<div class="crd" ng-if="card.type == 'text'" style="background-color:{{card.bgcolor}};color:{{card.fgcolor}};">
@@ -143,7 +143,7 @@
 				    </div>					
 					<div class="preview_hover">
 						<div class="edit_pre" ng-click="editCard($index)"><img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive"></div>
-						<div class="delete_pre" ng-click="deleteCard($index)"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive"></div>
+						<div class="delete_pre" ng-click="deleteCard($index)"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive" ng-disabled="loaders.deleteCard"></div>
 					</div>
 				</div>
 			</div>

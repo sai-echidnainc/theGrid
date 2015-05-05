@@ -75,6 +75,12 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		{ name:'3 * 3' , value :'threebythree'},
 	];
 
+	$scope.loaders = {
+		saveGrid : false,
+		saveCard : false,
+		deleteCard : false
+	};
+
 	$scope.cardType = $scope.cardTypeOpt[0].value;
 
 	$scope.$watch('cardType', function() {
@@ -136,6 +142,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 	};
 
 	$scope.saveGrid = function(){
+		$scope.loaders.saveGrid = true;
 		var formData = new FormData();
 		formData.append('gTitle', $scope.grid['title']);
 		formData.append('BGColor', $scope.grid['bgcolor']);
@@ -144,6 +151,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		formData.append('gImage', $scope.grid.image);
 		if($scope.grid.gridId == '' || !$scope.grid.gridId){
 			gridEditService.addGrid(formData,function(data){
+				$scope.loaders.saveGrid = false;
 				if(data['status'] == 'ok' ){				
 					$scope.grid.gridId = data['grid_id'];
 					alert('Grid Saved Successfully');
@@ -161,6 +169,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 				formData.append('gImageThumbnail',$scope.grid.imageThumbnail.replace(site_path, ""));
 			}
 			gridEditService.updateGrid(formData,function(data){
+				$scope.loaders.saveGrid = false;
 				if(data['status'] == 'ok' ){			
 					alert('Grid updated Successfully');
 					//formReset();
@@ -176,6 +185,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 	$scope.saveCard = function(){
 		if($scope.grid.gridId == "")
 			return;
+		$scope.loaders.saveCard = true;
 		var formData = new FormData();
 		formData.append('gId', $scope.grid.gridId);
 		formData.append('cType', $scope.newcartType);
@@ -189,6 +199,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 			formData.append('cImage', $scope.cardData.image);
 		if($scope.cardData.cardId == '' || !$scope.cardData.cardId){
 			gridEditService.addCard(formData,function(data){
+				$scope.loaders.saveCard = false;
 				if(data['status'] == "ok"){
 					$scope.cardData['cardId'] = data['card_id'];
 					$scope.editInit($scope.grid.gridId);
@@ -205,6 +216,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 				formData.append('cImageThumbnail',$scope.cardData.imageThumbnail.replace(site_path, ""));
 			}
 			gridEditService.updateCard(formData,function(data){
+				$scope.loaders.saveCard = false;
 				if(data['status'] == "ok"){
 					$scope.editInit($scope.grid.gridId);
 					alert("Card Updated Sucessfully");
@@ -251,8 +263,10 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		var cnf = confirm("Do you want to delete the card?");
 		if(!cnf)
 			return;
+		$scope.loaders.deleteCard = true;
 		var card_id = $scope.cardsData[index]['card_id'];
 		gridEditService.deleteCard(card_id,function(data){
+			$scope.loaders.deleteCard = false;
 			if(data['status'] == "ok"){
 				$scope.cardsData.splice(index,1);
 			}else{
@@ -299,7 +313,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 					arrangement : data['data']['grid_arrangement'],
 					font : data['data']['grid_font'],
 					imageThumbnail : site_path + data['data']['grid_image'],
-					isPublished : data['data']['is_published']
+					isPublished : data['data']['is_published'],
+					slug : data['data']['grid_slug']
 				};
 				// Calling the another ajax to get the cards data				
 
@@ -328,7 +343,9 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 grids.app.controller('navController',['$scope','site_path','$rootScope','navService',function($scope,site_path,$rootScope,navService){
 
 	$scope.pBtnTxt = "Publish Grid";
+	$scope.publishLoad = false;
 	$scope.isPublished = false;
+	$scope.slug = false;
 	$scope.$watch('isPublished',function(){
 		$scope.pBtnTxt = ($scope.isPublished) ? 'Unpublish Grid' : 'Publish Grid' ;
 	});
@@ -336,6 +353,7 @@ grids.app.controller('navController',['$scope','site_path','$rootScope','navServ
 	$rootScope.$on('gridId', function (event, args) {
 		console.log(args);
 		$scope.gridID = args.gridData.gridId;
+		$scope.slug = args.gridData.slug;
 		if(!args.gridData.isPublished || args.gridData.isPublished == 'N'){
 			$scope.isPublished = false;
 		}else{
@@ -344,11 +362,13 @@ grids.app.controller('navController',['$scope','site_path','$rootScope','navServ
 	});
 
 	$scope.publish = function(){
+		$scope.publishLoad = true;
 		var data = {
 			gridID : $scope.gridID,
 			publishStatus : ($scope.isPublished) ? 'N' : 'Y'
 		};
-		navService.publish(data,function(data){
+		navService.publish(data,function(data){			
+			$scope.publishLoad = false;
 			if(data['status'] == 'ok'){
 				$scope.isPublished = !$scope.isPublished;
 			}

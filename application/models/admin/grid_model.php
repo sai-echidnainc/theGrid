@@ -13,7 +13,7 @@ class Grid_Model extends CI_Model {
 		// $this->db->where('grids.user_id', $userID);
 		// $query = $this->db->get();
 
-		$sql = "SELECT DISTINCT g.grid_id, (SELECT COUNT(c.card_id) FROM cards AS c WHERE c.grid_id = g.grid_id ) AS COUNT, g.grid_creation_time AS createdDate, g.grid_slug AS slug, g.grid_name AS title, g.grid_image as image
+		$sql = "SELECT DISTINCT g.grid_id, (SELECT COUNT(c.card_id) FROM cards AS c WHERE c.grid_id = g.grid_id ) AS COUNT, g.grid_creation_time AS createdDate, g.grid_slug AS slug, g.grid_name AS title, g.grid_image as image, g.grid_slug as slug
 				FROM grids AS g
 				LEFT JOIN cards AS c
 				ON g.grid_id = c.grid_id WHERE g.user_id = $userID;";

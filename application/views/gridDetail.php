@@ -18,6 +18,9 @@ $imageSizeArr = array(
 	<div class="row-fluid">
 		<div class="masonry-container <?php echo (isset($cards[0]['grid_font'])) ? $cards[0]['grid_font'] : '';?>">
 			<?php
+				if(!$cards || count($cards) <= 0){
+					echo "No cards Found";
+				}else{
 				foreach ($cards as $key => $card) {
 					//echo json_encode($card['card_type']);
 					switch ($card['card_type']) {
@@ -51,6 +54,7 @@ $imageSizeArr = array(
 							break;
 					}
 				}
+			}
 			?>
 		<!-- 
 			<div class="grid_element onebyone">

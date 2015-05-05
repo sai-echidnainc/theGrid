@@ -37,10 +37,10 @@ class Home extends CI_Controller {
 		}
 		$this->load->model('home_model');
 		$data['cards'] = $this->home_model->$funcName($theSlug);
-		if(count($data['cards']) <= 0){
-			show_404();
-			die();
-		}		
+		// if(count($data['cards']) <= 0){
+		// 	show_404();
+		// 	die();
+		// }		
 		if(count($data['cards']) > 0 && $data['cards'][0]['grid_arrangement'] == 'random' ){
 			shuffle($data['cards']);
 		}
