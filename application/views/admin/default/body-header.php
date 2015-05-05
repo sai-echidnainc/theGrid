@@ -15,8 +15,8 @@
 			<?php
 				if( isset($nav) && $nav =="edit"){
 			?>
-				<a href="<?php echo site_url('grid/add');?>{{gridID}}"><input type="button" value="Preview Grid" class="btn btn-default head_btn" ng-disabled="!gridID"/><div class="loader"></div></a>
-				<input type="button" value="{{pBtnTxt}}" class="btn btn-default head_btn" ng-disabled="!gridID" ng-click="publish()"/>
+				<a href="<?php echo site_url('grid/add');?>{{gridID}}"><input type="button" value="Preview Grid" class="btn btn-default head_btn" ng-disabled="!gridID"/></a>
+				<input type="button" value="{{pBtnTxt}}" class="btn btn-default head_btn loader" ng-disabled="!gridID" ng-click="publish()"/>
 				
 			<?php		
 				}else{

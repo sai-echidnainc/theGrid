@@ -47,7 +47,7 @@
 				<input type="file" value="BROWSE" class="browse" file-model="grid.image" onchange="angular.element(this).scope().imageUpload(this)"/>
 			</div>
 			<div class="clearfix"></div>
-			<button class="save_btn btn btn-default" ng-click="saveGrid()">Save Grid</button>
+			<button class="save_btn btn btn-default loader" ng-click="saveGrid()">Save Grid</button>
 		</div>		
 	</div>
 </div>
@@ -113,7 +113,7 @@
 				</div>
 
 				<div class="clearfix"></div>
-				<button class="save_btn btn btn-default inline" ng-click="saveCard()">Save Card</button>
+				<button class="save_btn btn btn-default inline loader" ng-click="saveCard()">Save Card</button>
 			</div>
 		</div>
 	</div>
