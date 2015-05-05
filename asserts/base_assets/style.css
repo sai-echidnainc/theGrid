@@ -64,9 +64,10 @@ q:before, q:after {
 .header-container .navbar-brand{
 	padding: 0;
 }
-/*.grid_view_section{
-	margin-top: 110px;
+.grid_view_section{
+	min-height: 71.5vmin;
 }
+/*
 .crd{
 	display: inline-block;
 	position: relative;
@@ -216,6 +217,7 @@ q:before, q:after {
 .grid_msnry{
 	/*margin-top: 80px;*/
 	padding: 0;
+	min-height: 81.1vmin;
 }
 .grid_element{
 	float: left;
