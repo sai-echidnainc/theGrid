@@ -74,7 +74,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		{ name:'3 * 2' , value :'threebytwo'},
 		{ name:'3 * 3' , value :'threebythree'},
 	];
-
+/*Sukhchand changes*/
 	$scope.cardAlignmentOpt =[
 		{ name:'left' , value :'left_align'},
 		{ name:'center' , value :'center_align'},
@@ -124,7 +124,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		description :'',
 		size : $scope.cardSizeOpt[0].value,
 		align: left
-	};*/
+	};*/ 
 
 
 	$scope.defGrid = angular.copy($scope.grid);
