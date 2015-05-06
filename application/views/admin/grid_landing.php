@@ -1,5 +1,5 @@
 <div ng-controller="gridController">
-<div class="container-fluid">
+<div class="container-fluid grid_land_sort">
 	<div class="row-fluid">
 		<div class="grid_head">
 			<h2 class="h2 pull-left">THE GRID</h2>
@@ -13,7 +13,7 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid" ng-init="gridData = false">
+<div class="container-fluid grid_landing_content" ng-init="gridData = false">
 
 	<div ng-show="!gridData">
 		No grid data Available

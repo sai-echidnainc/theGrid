@@ -82,6 +82,15 @@ $(document).ready(function(){
 		var min_container_ht= ht-nav-foot_ht;
 		$('.grid_msnry').css("min-height", min_container_ht);
 	};
+	var content_height2= function(){
+		var ht= window.innerHeight;
+		var nav= $('.header-container').outerHeight();
+		var filter_ht= $('.grid_land_sort').outerHeight();
+		var container_ht=$('.grid_landing_content').outerHeight();
+		var foot_ht=$('.footer_container').outerHeight();
+		var min_container_ht= ht-nav-foot_ht;
+		$('.grid_landing_content').css("min-height", min_container_ht);
+	};
 
 	var masFunc = function(){
 			jQuery('.masonry-container').masonry({
