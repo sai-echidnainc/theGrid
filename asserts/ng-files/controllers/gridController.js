@@ -75,6 +75,12 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		{ name:'3 * 3' , value :'threebythree'},
 	];
 
+	$scope.cardAlignmentOpt =[
+		{ name:'left' , value :'left_align'},
+		{ name:'center' , value :'center_align'},
+		{ name:'right' , value :'right_align'},
+	];
+
 	$scope.loaders = {
 		saveGrid : false,
 		saveCard : false,
@@ -108,16 +114,17 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		arrangement : 'random',
 		font : 'roboto',
 	};
-
-	$scope.cardData = {
+	/*sukhchand updates*/
+	/*$scope.cardData = {
 		cardId : false,
 		title : '',
 		bgcolor : '#000000',
 		fgcolor : '#ffffff',
 		url : '',
 		description :'',
-		size : $scope.cardSizeOpt[0].value
-	};
+		size : $scope.cardSizeOpt[0].value,
+		align: left
+	};*/
 
 
 	$scope.defGrid = angular.copy($scope.grid);
