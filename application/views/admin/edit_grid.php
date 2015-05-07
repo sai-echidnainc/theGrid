@@ -81,8 +81,7 @@
 							<input type="text" class="form-control" ng-model="cardData.bgcolor" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
 							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
-						<!-- sukhchand updates -->
-						<div class="form-group" ng-hide="true">
+						<div class="form-group" ng-hide="newcartType !='image'">
 							<label for="exampleInputEmail1">IMAGE ALIGNMENT*</label>
 							<select class="form-control" ng-model="cardData.align" ng-options="opt.value as opt.name for opt in cardAlignmentOpt">
 							</select>

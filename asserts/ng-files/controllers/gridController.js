@@ -74,11 +74,11 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		{ name:'3 * 2' , value :'threebytwo'},
 		{ name:'3 * 3' , value :'threebythree'},
 	];
-/*Sukhchand changes*/
-	$scope.cardAlignmentOpt =[
-		{ name:'left' , value :'left_align'},
-		{ name:'center' , value :'center_align'},
-		{ name:'right' , value :'right_align'},
+
+	$scope.cardAlignmentOpt = [
+		{ name:'left align' , value :'left'},
+		{ name:'center align' , value :'center'},
+		{ name:'right align' , value :'right'},
 	];
 
 	$scope.loaders = {
@@ -114,8 +114,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		arrangement : 'random',
 		font : 'roboto',
 	};
-	/*sukhchand updates*/
-	/*$scope.cardData = {
+
+	$scope.cardData = {
 		cardId : false,
 		title : '',
 		bgcolor : '#000000',
@@ -123,8 +123,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		url : '',
 		description :'',
 		size : $scope.cardSizeOpt[0].value,
-		align: left
-	};*/ 
+		align: $scope.cardAlignmentOpt[0].value
+	};
 
 
 	$scope.defGrid = angular.copy($scope.grid);
@@ -202,6 +202,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		formData.append('cLink', $scope.cardData['url']);
 		formData.append('cDesc', $scope.cardData['description']);
 		formData.append('cSize', $scope.cardData['size']);
+		formData.append('cImageAlign', $scope.cardData['align']);
 		if($scope.newcartType == "image")		
 			formData.append('cImage', $scope.cardData.image);
 		if($scope.cardData.cardId == '' || !$scope.cardData.cardId){
@@ -248,7 +249,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 			url : $scope.cardsData[index]['link'],
 			description :$scope.cardsData[index]['description'],
 			size : $scope.cardsData[index]['size'],
-			imageThumbnail : site_path + $scope.cardsData[index]['image']
+			imageThumbnail : site_path + $scope.cardsData[index]['image'],
+			align : $scope.cardsData[index]['align'],
 		};
 	}
 
@@ -262,7 +264,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 			url : '',
 			description :'',
 			size : $scope.cardSizeOpt[0].value,
-			imageThumbnail : ''
+			imageThumbnail : '',
+			align : $scope.cardAlignmentOpt[0].value
 		};
 	};
 

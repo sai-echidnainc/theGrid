@@ -33,7 +33,8 @@ class Card_Model extends CI_Model {
 		   'overlay_color' => $data['card_OverColor'],
 		   'text_color' => $data['card_ForeColor'],
 		   'card_slug' => $data['card_slug'],
-		   'card_image' => (isset($data['card_image'])) ? $data['card_image'] : ''
+		   'card_image' => (isset($data['card_image'])) ? $data['card_image'] : '',
+		   'card_image_position' => $data['image_align']
 		);
 
 		$sql = "SELECT g.grid_id FROM grids AS g WHERE g.user_id = $user_id AND g.grid_id = $grid_id";
@@ -66,7 +67,8 @@ class Card_Model extends CI_Model {
 		   'overlay_color' => $data['card_OverColor'],
 		   'text_color' => $data['card_ForeColor'],
 		   'card_slug' => $data['card_slug'],
-		   'card_image' => (isset($data['card_image'])) ? $data['card_image'] : ''
+		   'card_image' => (isset($data['card_image'])) ? $data['card_image'] : '',
+		   'card_image_position' => $data['image_align']
 		);
 		
 		
@@ -85,7 +87,8 @@ class Card_Model extends CI_Model {
 	}
 
 	public function getAllCards($user_id, $grid_id){
-		$sql = " SELECT c.card_id, c.card_type AS type, c.card_size AS size, c.card_url AS link, c.card_name AS title, c.card_description AS description, c.overlay_color AS bgcolor, c.text_color AS fgcolor, c.card_image AS image, c.card_slug AS slug FROM cards AS c
+		$sql = " SELECT c.card_id, c.card_type AS type, c.card_size AS size, c.card_url AS link, c.card_name AS title, c.card_description AS description, c.overlay_color AS bgcolor, c.text_color AS fgcolor, c.card_image AS image, c.card_slug AS slug, c.card_image_position as align
+		FROM cards AS c
 			INNER JOIN grids AS g
 			ON g.grid_id = c.grid_id WHERE g.user_id = $user_id AND g.grid_id = $grid_id";
 		$query = $this->db->query($sql);

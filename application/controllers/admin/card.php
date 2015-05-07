@@ -71,12 +71,13 @@ class Card extends CI_Controller {
 		$cOverColor = $this->input->post('cOverColor',true);
 		$cForeColor = $this->input->post('cForeColor',true);
 		$gID = $this->input->post('gId',true);
-		$imgThumb = $this->input->post('cImageThumbnail',true);;
+		$imgThumb = $this->input->post('cImageThumbnail',true);
+		$imgAlign = $this->input->post('cImageAlign',true);
 
 		$resArr['status'] = "error";
 		$resArr['message'] = "Don't Miss any data";
 
-		if ($cType && $cSize && $cName && $cLink && $cDesc && $cOverColor && $cForeColor && $gID) {
+		if ($cType && $cSize && $cName && $cLink && $cDesc && $cOverColor && $cForeColor && $gID && $imgAlign) {
 			
 			// $file_path = "./uploads/cards";
 			// $result = $this->__upload_file($file_path,"cImage");
@@ -93,6 +94,7 @@ class Card extends CI_Controller {
 			$data['card_ForeColor'] = $cForeColor;
 			$data['grid_id'] = $gID;
 			$data['card_slug'] = strtolower($this->__create_slug($cName));
+			$data['image_align'] = strtolower($imgAlign);
 
 			$funcName = "add_card";
 
