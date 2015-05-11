@@ -21,13 +21,14 @@
 
 	<div class="row-fluid" ng-show="gridData">
 
-		<div class="col-lg-4 col-md-4 col-sm-4 cen" ng-repeat="grid in gridData | orderBy : gridOrderBy">
+		<div class="cen col-lg-4 col-md-4 col-sm-4 col-xs-6" ng-repeat="grid in gridData | orderBy : gridOrderBy">
 			<div class="grid-container">
 				<a href="#">
 					<img src="<?php echo base_url();?>asserts/img/grid.png" class="img-responsive" ng-if="!grid.image">
 					<img ng-src="<?php echo base_url();?>{{grid.image}}" class="img-responsive" ng-if="grid.image" alt="{{grid.title}}">
+					<div class="overlay"></div>
 				</a>
-				<div class="grid_detail">
+				 <div class="grid_detail">
 					<h4 class="h4" ng-bind="grid.title"></h4>
 					<p ng-if="grid.description" ng-bind="grid.description"></p>
 					<a href="javascript:void(0)" ng-click="deleteGrid(grid.grid_id,$index)">Delete Grid</a>
@@ -37,7 +38,7 @@
 					<span class="date">Created on {{grid.createdDate}}</span>
 					<a href="<?php echo site_url('grid/edit');?>/{{grid.grid_id}}"><input type="button" value="Edit Grid"></a>
 				</div>
-				<div class="overlay"></div>
+				
 			</div>
 		</div>
 

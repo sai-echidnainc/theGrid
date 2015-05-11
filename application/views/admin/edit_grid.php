@@ -3,7 +3,7 @@
 	<div class="row-fluid">
 		<div class="options_div">
 			<h2 class="h2">GRID OPTIONS</h2>
-			<div class="options_field col-lg-8 col-md-8 col-sm-8">
+			<div class="options_field col-lg-8 col-md-8 col-sm-8 ">
 				<form class="col-lg-6 col-md-6 col-sm-6" id="gridForm">
 					<div class="form-group">
 						<label for="exampleInputEmail1">GRID NAME*</label>
@@ -68,8 +68,8 @@
 			</div>
 			<div class="clearfix"></div>
 			<div class="text_div" ng-class="{slideDown: newcartType != cardTypeOpt['0'].value}">
-				<div class="card_options_div col-lg-8">
-					<form class="col-lg-6">
+				<div class="card_options_div col-lg-8 col-md-8 col-sm-8">
+					<form class="col-lg-6 col-md-6 col-sm-6">
 						<div class="form-group">
 							<label for="exampleInputEmail1">CARD SIZE*</label>
 							<select class="form-control" ng-model="cardData.size" ng-options="opt.value as opt.name for opt in cardSizeOpt">
@@ -90,7 +90,7 @@
 							</select>
 						</div>
 					</form>
-					<form class="col-lg-6">
+					<form class="col-lg-6 col-md-6 col-sm-6">
 						<div class="form-group">
 							<label for="exampleInputEmail1">CARD LINK</label>
 							<input type="text" class="form-control" ng-model="cardData.url">
@@ -106,7 +106,7 @@
 						</div>
 					</form>
 				</div>
-				<div class="col-lg-4 prev" ng-hide = "newcartType !='text' && newcartType != cardTypeOpt['0'].value">
+				<div class="col-lg-4 col-md-4 col-sm-4 prev" ng-hide = "newcartType !='text' && newcartType != cardTypeOpt['0'].value">
 					<label for="exampleInputEmail1">CARD PREVIEW</label>
 					<div class="prev_box {{grid.font}}" style="background-color:{{cardData.bgcolor}};color:{{cardData.fgcolor}};">
 				      <h2 class="h2">{{cardData.title}}</h2>
@@ -114,7 +114,7 @@
 				    </div>
 				</div>
 
-				<div class="col-lg-4 prev" ng-hide = "newcartType !='image'">
+				<div class="col-lg-4 col-md-4 col-sm-4 prev" ng-hide = "newcartType !='image'">
 					<label for="exampleInputEmail1">IMAGE PREVIEW</label>
 					<img src="" ng-src="{{cardData.imageThumbnail}}" class="img-responsive" ng-init="cardData.imageThumbnail = '<?php echo base_url(); ?>asserts/img/preview.png'">
 					<input type="file" value="BROWSE" class="browse" file-model="cardData.image" onchange="angular.element(this).scope().cardImageUpload(this)"/>

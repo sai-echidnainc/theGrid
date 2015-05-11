@@ -156,8 +156,8 @@ q:before, q:after {
 	float: right;
 }
 .hover_content input{
-	display: block;
-	margin: 18% auto;
+	display: inline-block;
+	margin: 18% 3%;
 	border:none;
 	padding: 5px 15px;
 	background: #fff;
@@ -418,4 +418,10 @@ input.btn.btn-default.head_btn.loader,.btn.btn-default.loader {
 	background-position: 95% center;
 	background-repeat: no-repeat;
 	background-size: 8%;
+}
+.imagePreview{
+	height: 340px;
+	text-align: center;
+	color: #fff;
+	padding: 25px;
 }

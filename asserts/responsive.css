@@ -2,11 +2,45 @@
 
 }
 @media(min-width: 980px) and (max-width: 1200px) {
+	.crd{
+		height: 250px;
+	}
+	.grid-container{
+		height: 225px;
+	}
+	.hover_content .gridno {
+		float: none;
+		display: block;
+	}
+	.hover_content .date {
+		float: none;
+		display: block;
+	}
+	.imagePreview{
+		height: 250px;
+	}
 }
 
 @media(min-width: 768px) and (max-width:979px) {
 	.form-group label{
 		font-size: 12px;
+	}
+	.crd{
+		height: 235px;
+	}
+	.grid-container{
+		height: 180px;
+	}
+	.hover_content .gridno {
+		float: none;
+		display: block;
+	}
+	.hover_content .date {
+		float: none;
+		display: block;
+	}
+	.imagePreview{
+		height: 190px;
 	}
 }
 
@@ -20,15 +54,35 @@
 	.save_btn{
 		margin: 20px 15px;
 	}
+	.grid-container{
+		height: 225px;
+	}
+	.hover_content .gridno {
+		float: none;
+		display: block;
+	}
+	.hover_content .date {
+		float: none;
+		display: block;
+	}
+	.imagePreview{
+		height: 300px;
+	}
 }
 @media(max-width: 667px) {
 	.btn.btn-default{
 		padding: 7px 20px;
 	}
+	.crd{
+		height: 235px;
+	}
+	.grid-container{
+		height: 300px;
+	}
 }
 @media(max-width: 480px) {
 	input.btn.btn-default.head_btn{
-		margin-top: 10px;
+		margin-top: 25px;
 	}
 	.new_card h2{
 		font-size: 15px;
@@ -42,9 +96,18 @@
 		text-align: center;
 		font-size: 20px;
 	}
+	.card_act{
+		width: 100%;
+	}
+	.cen{
+		width: 100% !important;
+	}
 }
 @media(max-width: 380px) {
 	#gridForm{
 		padding: 0;
+	}
+	.cen{
+		width: 100% !important;
 	}
 }
