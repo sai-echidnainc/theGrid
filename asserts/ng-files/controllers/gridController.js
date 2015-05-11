@@ -173,7 +173,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		}else{
 			formData.append('gId',$scope.grid['gridId']);
 			//console.log($scope.grid.imageThumbnail.indexOf(site_path));
-			if($scope.grid.imageThumbnail.indexOf(site_path) >= 0){
+			if($scope.grid.imageThumbnail && $scope.grid.imageThumbnail.indexOf(site_path) >= 0){
 				formData.append('gImageThumbnail',$scope.grid.imageThumbnail.replace(site_path, ""));
 			}
 			gridEditService.updateGrid(formData,function(data){

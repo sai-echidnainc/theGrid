@@ -150,7 +150,7 @@ class Grid extends CI_Controller {
 							$data['grid_image'] = $file_path.'/'.$result['data']['file_name'];
  						}
 					}else{
-						$data['grid_image'] = $gridImageThumb;
+						$data['grid_image'] = ($gridImageThumb) ? $gridImageThumb : '' ;
 					}
 					break;
 				
