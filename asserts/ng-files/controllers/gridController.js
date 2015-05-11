@@ -29,15 +29,18 @@ grids.app.controller('gridController',['gridService','$scope',function(gridServi
 					$(this).find(".grid_detail a").stop().slideDown("slow",function(){
 						$(this).css("display","block");
 					});
-					$(this).find(".hover_content").fadeIn();
+					$(this).find(".hover_content").stop().show();
 					$(this).find(".overlay").css("display","block");
 				})
 				.mouseleave(function(){
 					/*$(this).find(".grid_detail").css("position","relative");*/
 					$(this).find(".grid_detail p").stop().slideUp("slow");
 					$(this).find(".grid_detail a").stop().slideUp("slow");
-					$(this).find(".hover_content").fadeOut();
+					$(this).find(".hover_content").stop().hide();
 					$(this).find(".overlay").css("display","none");
+				});
+				$(".grid-container").on('click',function(){
+					window.open($(this).attr('data-gurl'));
 				});
 			},200);
 		},function(error){
