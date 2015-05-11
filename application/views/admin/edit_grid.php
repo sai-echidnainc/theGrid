@@ -76,7 +76,7 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">CARD NAME*</label>
+							<label for="exampleInputEmail1">CARD NAME<span ng-show="newcartType !='image'">*</span></label>
 							<input type="text" class="form-control" ng-model="cardData.title">
 						</div>
 						<div class="form-group">
@@ -92,14 +92,14 @@
 					</form>
 					<form class="col-lg-6">
 						<div class="form-group">
-							<label for="exampleInputEmail1">CARD LINK*</label>
+							<label for="exampleInputEmail1">CARD LINK</label>
 							<input type="text" class="form-control" ng-model="cardData.url">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">CARD DESCRIPTION*</label>
+							<label for="exampleInputEmail1">CARD DESCRIPTION</label>
 							<input type="text" class="form-control" ng-model="cardData.description">
 						</div>
-						<div class="form-group">
+						<div class="form-group" ng-show="( cardData.description || cardData.title )">
 							<label for="exampleInputEmail1">FONT COLOR*</label>
 							<input type="text" ng-model="cardData.fgcolor" class="form-control" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
 							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
@@ -130,13 +130,13 @@
 	<div class="row-fluid">
 		<div class="active_card_container {{grid.font}}">
 			<h2 class="h2">ACTIVE CARDS</h2>
-			<div ng-if="!cardsData"> No cards available try to create a card</div>
+			<div ng-if="!cardsData">No Active Cards Available.</div>
 			<div class="col-lg-3" ng-repeat="card in cardsData">
 				<div class="crd" ng-if="card.type == 'image'">
-					<div class="preview" style="background-color:#ccc;background-image:url(<?php echo base_url(); ?>{{card.image}});">
+					<div class="preview" style="background-color:#ccc;background-image:url(<?php echo base_url(); ?>{{card.image}});background-position:{{card.align}};">
 						<!-- <img src="" ng-src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive"> -->
 					</div>
-					<div class="card_title"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>					
+					<div class="card_title" ng-if="( card.description && card.title)"><h4 class="h4" ng-bind="card.title">Card Title</h4></div>					
 					<div class="preview_hover">
 						<div class="edit_pre" ng-click="editCard($index)"><img src="<?php echo base_url(); ?>asserts/img/edit.png" class="img-responsive"></div>
 						<div class="delete_pre" ng-click="deleteCard($index)"><img src="<?php echo base_url(); ?>asserts/img/del.png" class="img-responsive" ng-disabled="loaders.deleteCard"></div>

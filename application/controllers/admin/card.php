@@ -77,7 +77,7 @@ class Card extends CI_Controller {
 		$resArr['status'] = "error";
 		$resArr['message'] = "Don't Miss any data";
 
-		if ($cType && $cSize && $cName && $cLink && $cDesc && $cOverColor && $cForeColor && $gID && $imgAlign) {
+		if ($cType && $cSize && $cOverColor && $cForeColor && $gID && $imgAlign) {
 			
 			// $file_path = "./uploads/cards";
 			// $result = $this->__upload_file($file_path,"cImage");
@@ -109,6 +109,12 @@ class Card extends CI_Controller {
 					}
 
 					$file_path = "./uploads/cards";
+					if(!isset($_FILES['cImage'])){
+						$resArr['status'] = "error";
+						$resArr['message'] = "Please upload an image";
+						echo json_encode($resArr);
+						return;
+					}
 					$result = $this->__upload_file($file_path,"cImage");
 					if($result['status'] == 'error'){
 						$resArr['message'] = $result['error'];

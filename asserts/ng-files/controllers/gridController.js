@@ -76,9 +76,9 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 	];
 
 	$scope.cardAlignmentOpt = [
-		{ name:'left align' , value :'left'},
 		{ name:'center align' , value :'center'},
 		{ name:'right align' , value :'right'},
+		{ name:'left align' , value :'left'},
 	];
 
 	$scope.loaders = {
@@ -193,7 +193,6 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 	$scope.saveCard = function(){
 		if($scope.grid.gridId == "")
 			return;
-		$scope.loaders.saveCard = true;
 		var formData = new FormData();
 		formData.append('gId', $scope.grid.gridId);
 		formData.append('cType', $scope.newcartType);
@@ -206,6 +205,13 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		formData.append('cImageAlign', $scope.cardData['align']);
 		if($scope.newcartType == "image")		
 			formData.append('cImage', $scope.cardData.image);
+		else{
+			if(!$scope.cardData['title']){
+				alert("Card Name is required");
+				return;
+			}
+		}
+		$scope.loaders.saveCard = true;
 		if($scope.cardData.cardId == '' || !$scope.cardData.cardId){
 			gridEditService.addCard(formData,function(data){
 				$scope.loaders.saveCard = false;
