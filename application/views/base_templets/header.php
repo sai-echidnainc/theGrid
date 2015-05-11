@@ -6,6 +6,7 @@
 		<?php $this->load->view('base_templets/style');?>
 	</head>
 	<body class="opensans">
+		<?php if(isset($navigation)){ ?>
 		<nav class="navbar navbar-default header-container">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -15,3 +16,4 @@
 				</div>
 			</div>
 		</nav>
+		<?php } ?>

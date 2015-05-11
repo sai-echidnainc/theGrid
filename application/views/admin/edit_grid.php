@@ -32,7 +32,7 @@
 							<option class="montserrat" value="montserrat">Montserrat</option>
 							<option class="lato" value="lato">Lato</option>
 							<option class="proxima_nova" value="proxima_nova">Proxima Nova</option>
-							<option class="helvetica" value="helvetica">Helevetica</option>
+							<option class="helvetica" value="helvetica">Helvetica</option>
 							<option class="raleway" value="raleway">Raleway</option>
 							<option class="avenir" value="avenir">Avenir</option>
 							<option class="din" value="din">DIN</option>
@@ -43,7 +43,10 @@
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 upload">
 				<label for="exampleInputEmail1">PREVIEW IMAGE</label>
-				<img src="" class="img-responsive" ng-src="{{grid.imageThumbnail}}" ng-init="grid.imageThumbnail = '<?php echo base_url(); ?>asserts/img/preview.png'">
+				<div ng-show="!grid.imageThumbnail" class="imagePreview" style="background-color:{{grid.bgcolor}};">
+					<h1 ng-bind="grid.title"></h1>
+				</div>
+				<img src="" class="img-responsive" ng-src="{{grid.imageThumbnail}}" ng-init="grid.imageThumbnail = false" ng-show="grid.imageThumbnail">
 				<input type="file" value="BROWSE" class="browse" file-model="grid.image" onchange="angular.element(this).scope().imageUpload(this)"/>
 			</div>
 			<div class="clearfix"></div>

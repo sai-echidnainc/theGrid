@@ -94,7 +94,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
   	});
 
   	$scope.$watch('grid.imageThumbnail', function() {
-    	$scope.grid.imageThumbnail = ($scope.grid.imageThumbnail == '') ? site_path+defimage : $scope.grid.imageThumbnail;
+    	//$scope.grid.imageThumbnail = ($scope.grid.imageThumbnail == '') ? site_path+defimage : $scope.grid.imageThumbnail;
   	});
 
   	$scope.$watch('cardData.imageThumbnail', function() {
@@ -113,6 +113,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		bgcolor : '#000000',
 		arrangement : 'random',
 		font : 'roboto',
+		imageThumbnail : ''
 	};
 
 	$scope.cardData = {
@@ -322,7 +323,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 					bgcolor : data['data']['grid_color'],
 					arrangement : data['data']['grid_arrangement'],
 					font : data['data']['grid_font'],
-					imageThumbnail : site_path + data['data']['grid_image'],
+					imageThumbnail : (data['data']['grid_image']) ? site_path + data['data']['grid_image'] : '',
 					isPublished : data['data']['is_published'],
 					slug : data['data']['grid_slug']
 				};

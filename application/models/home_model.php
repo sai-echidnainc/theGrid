@@ -32,5 +32,13 @@ class Home_Model extends CI_Model {
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
+ 	public function getTitle($slug){
+ 		if($slug == "")
+		return false;
+		$sql = "SELECT grid_name AS title FROM grids WHERE grid_slug = '$slug'";
+
+		$query = $this->db->query($sql);
+		return $query->result_array();
+ 	}
 }
 ?>

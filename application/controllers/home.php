@@ -22,6 +22,7 @@ class Home extends CI_Controller {
 		$data['templet_URL'] = "home";
 		$data['page_title'] = "The Grid - EchidnaLabs";
 		$this->load->model('home_model');
+		$data['navigation'] = true;
 		$data['grids'] = $this->home_model->getAllPublishedGrids();
 		$this->load->view('base',$data);
 	}
@@ -46,7 +47,7 @@ class Home extends CI_Controller {
 		}
 		//echo json_encode($cards);
 		$data['templet_URL'] = "gridDetail";
-		$data['page_title'] = "Grid Detail Page -" . $theSlug;
+		$data['page_title'] = $this->home_model->getTitle($theSlug)[0]['title'];
 		$this->load->view('base',$data);
 	}
 }

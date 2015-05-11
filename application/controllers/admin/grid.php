@@ -105,53 +105,67 @@ class Grid extends CI_Controller {
 		$gridFF = $this->input->post('gFont',true);
 		$gridImageThumb = $this->input->post('gImageThumbnail',true);
 
+		$user_id = $this->session->userdata('user_data')['user_id'];
+
 		$resArr['status'] = "error";
 		$resArr['message'] = "Don't Miss any data";
 
 		if ($gridTitle && $gridType && $gridBGColor && $gridFF) {
-			
+
 			$file_path = "./uploads/grids";
-			if(!$gridImageThumb){
-				$result = $this->__upload_file($file_path,"gImage");
-			}else{
-				$result['status'] = "ok";
-			}
-			//$resArr['data'] = $result;
-			//var_dump($result);
-			if($result['status'] === "error"){
-				$resArr['message'] = $result['error'];
-			}else{
-				if(!$gridImageThumb)
-					$file_full_path = $file_path.'/'.$result['data']['file_name'];
-				else
-					$file_full_path = $gridImageThumb;
 
-				$this->load->model('admin/grid_model');
-				$data = array(
-					'user_id' => $this->session->userdata('user_data')['user_id'],
-					'grid_name' => $gridTitle, 
-					'grid_arrangement' => $gridType, 
-					'grid_color' => $gridBGColor, 
-					'grid_font' => $gridFF, 
-					'grid_image' => $file_full_path,					
-		   			'grid_slug' => strtolower($this->__create_slug($gridTitle)),
-					);
-				$func_name = "add_grid";
+			$data = array(
+				'user_id' => $user_id,
+				'grid_name' => $gridTitle, 
+				'grid_arrangement' => $gridType, 
+				'grid_color' => $gridBGColor, 
+				'grid_font' => $gridFF, 
+				'grid_image' => "",					
+	   			'grid_slug' => strtolower($this->__create_slug($gridTitle)),
+			);
 
-				if($mode != '' && strtolower($mode) == 'update') {
+			switch (strtolower($mode)) {
+				case 'create':		
+
+					if(isset($_FILES['gImage'])){
+						$result = $this->__upload_file($file_path,"gImage");
+						if($result['status'] === "error"){
+							$resArr['message'] = $result['error'];
+						}else{
+							$data['grid_image'] = $file_path.'/'.$result['data']['file_name'];
+ 						}
+					}					
+					$func_name = "add_grid";
+
+					break;
+
+				case 'update':
 					$func_name = "update_grid";
-					$data['grid_id'] = $this->input->post('gId',true);;
-				}
+					$data['grid_id'] = $this->input->post('gId',true);
+					if(!$gridImageThumb && isset($_FILES['gImage'])){
+						$result = $this->__upload_file($file_path,"gImage");
+						if($result['status'] === "error"){
+							$resArr['message'] = $result['error'];
+						}else{
+							$data['grid_image'] = $file_path.'/'.$result['data']['file_name'];
+ 						}
+					}else{
+						$data['grid_image'] = $gridImageThumb;
+					}
+					break;
+				
+			}// End of switch
 
-				if($gID = $this->grid_model->$func_name($data)){
-					$resArr['status'] = "ok";
-					$resArr['message'] = "Grid Updated Successfully";
-					$resArr['grid_id'] = $gID;
-				}else{
-					//unlink($file_path.'/'.$result['data']['file_name']);
-					$resArr['message'] = "Please try again";
-				}
+			$this->load->model('admin/grid_model');
+			if($gID = $this->grid_model->$func_name($data)){
+				$resArr['status'] = "ok";
+				$resArr['message'] = "Grid Updated Successfully";
+				$resArr['grid_id'] = $gID;
+			}else{
+				//unlink($file_path.'/'.$result['data']['file_name']);
+				$resArr['message'] = "Please try again";
 			}
+		
 		}
 
 		echo json_encode($resArr);

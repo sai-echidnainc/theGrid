@@ -25,12 +25,12 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 html{
-	height: 100%;
+/*	height: 100%;*/
 }
 body {
 	line-height: 1;
 	font-family:"Roboto-Regular";
-	height: 100%;
+	/*height: 100%;*/
 }
 ol, ul {
 	list-style: none;
@@ -221,7 +221,7 @@ q:before, q:after {
 .grid_msnry{
 	/*margin-top: 80px;*/
 	padding: 0;
-	height: 100%;
+	height: auto;
 	/*min-height: 81.1vmin;*/
 }
 .grid_element{
