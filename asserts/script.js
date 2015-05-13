@@ -88,7 +88,7 @@ $(document).ready(function(){
             });
 
     var content_height= function(){
-            var ht= window.innerHeight;
+            var ht=window.innerHeight;
             console.log(ht);
             var nav= $('.header-container').outerHeight();
             console.log(nav);
@@ -98,10 +98,13 @@ $(document).ready(function(){
             console.log(container_ht);
             var foot_ht=$('.footer_container').outerHeight();
             console.log(foot_ht);
-            var min_container_ht= ht-nav-foot_ht;
+            var min_container_ht= ht-nav-foot_ht-filter_ht;
             console.log(min_container_ht);
             $('.grid_landing_content').css("min-height", min_container_ht);
         };
+    $(window).load(function(){
+        content_height();
+    });
     $(window).resize(function(){
         content_height();
     });

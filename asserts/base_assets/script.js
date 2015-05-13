@@ -88,7 +88,7 @@ $(document).ready(function(){
 		var filter_ht= $('.grid_land_sort').outerHeight();
 		var container_ht=$('.grid_landing_content').outerHeight();
 		var foot_ht=$('.footer_container').outerHeight();
-		var min_container_ht= ht-nav-foot_ht;
+		var min_container_ht= ht-nav-foot_ht-filter_ht;
 		$('.grid_landing_content').css("min-height", min_container_ht);
 	};
 
@@ -101,12 +101,13 @@ $(document).ready(function(){
 				// columnWidth: 152
 			});
 		};
-	$(window).resize(function(){
+	$(window).load(function(){
 		setTimeout(function(){
 			masFunc();
 		},200);
 		content_height();
 		content_height1();
+		content_height2();
 	});
 	jQuery(window).load(function() {;
 			masFunc();
