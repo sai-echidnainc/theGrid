@@ -2,6 +2,13 @@
 
 }
 @media(min-width: 980px) and (max-width: 1200px) {
+	.hover_content{
+		text-align: center;
+	}
+	.hover_content .gridno,.hover_content .date{
+		float: none;
+		display: block;
+	}
 }
 
 @media(min-width: 768px) and (max-width:979px) {
@@ -11,6 +18,10 @@
 	.grid_element .card_data p{
 		font-size: 14px;
 	}
+	.hover_content .gridno,.hover_content .date{
+		float: none;
+		display: block;
+	}
 }
 
 @media(max-width: 767px) {
@@ -19,6 +30,10 @@
 	}
 	.grid_element .card_data p{
 		font-size: 14px;
+	}
+	.hover_content .gridno,.hover_content .date{
+		float: none;
+		display: block;
 	}
 }
 
