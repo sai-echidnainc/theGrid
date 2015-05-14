@@ -27,7 +27,7 @@ $imageSizeArr = array(
 						case 'text':
 							?>
 							<div class="grid_element <?php echo $card['card_size'];?>">
-								<a href="<?php echo $card['card_url'];?>" target="_blank">
+								<a href="<?php echo ($card['card_url'] != '') ? $card['card_url'].'"  target="_blank' : '#';?>">
 									<img src="<?php echo $imageSizeArr[$card['card_size']]; ?>" class="img-responsive">
 									<div class="card_data text_card" style="color:<?php echo $card['text_color']; ?>;background-color:<?php echo $card['overlay_color']; ?>;">
 										<h2 class="h2"><?php echo $card['card_name']; ?></h2>
@@ -40,7 +40,7 @@ $imageSizeArr = array(
 						case 'image':
 							?>
 							<div class="grid_element <?php echo $card['card_size'];?>">
-								<a href="<?php echo $card['card_url'];?>" target="_blank">
+								<a href="<?php echo ($card['card_url'] != '') ? $card['card_url'].'"  target="_blank' : '#';?>">
 									<img src="<?php echo $imageSizeArr[$card['card_size']]; ?>" class="img-responsive">
 									<div class="card_data image_card" style="background-image:url('<?php echo base_url().$card['card_image']; ?>'); background-position:<?php echo (isset($card['card_image_position'])) ? $card['card_image_position'] : 'left'; ?>;">
 										<div class="descp" style="color:<?php echo $card['text_color']; ?>; background-color:<?php echo $card['overlay_color']; ?>;">

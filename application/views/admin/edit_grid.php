@@ -117,7 +117,7 @@
 				<div class="col-lg-4 col-md-4 col-sm-4 prev" ng-hide = "newcartType !='image'">
 					<label for="exampleInputEmail1">IMAGE PREVIEW</label>
 					<img src="" ng-src="{{cardData.imageThumbnail}}" class="img-responsive" ng-init="cardData.imageThumbnail = '<?php echo base_url(); ?>asserts/img/preview.png'">
-					<input type="file" value="BROWSE" class="browse" file-model="cardData.image" onchange="angular.element(this).scope().cardImageUpload(this)"/>
+					<input type="file" value="BROWSE" class="browse" file-model="cardData.image" onchange="angular.element(this).scope().cardImageUpload(this)" id="cardimgPreview"/>
 				</div>
 
 				<div class="clearfix"></div>
@@ -130,8 +130,8 @@
 	<div class="row-fluid">
 		<div class="active_card_container {{grid.font}}">
 			<h2 class="h2">ACTIVE CARDS</h2>
-			<div ng-if="!cardsData">No Active Cards Available.</div>
-			<div class="col-lg-3" ng-repeat="card in cardsData">
+			<div ng-if="!cardsData.length">No Active Cards Available.</div>
+			<div class="col-lg-3 col-md-3 col-sm-3" ng-repeat="card in cardsData">
 				<div class="crd" ng-if="card.type == 'image'">
 					<div class="preview" style="background-color:#ccc;background-image:url(<?php echo base_url(); ?>{{card.image}});background-position:{{card.align}};">
 						<!-- <img src="" ng-src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive"> -->

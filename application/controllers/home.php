@@ -30,10 +30,10 @@ class Home extends CI_Controller {
 		$data['templet_URL'] = "gridDetail";
 		$this->load->view('base',$data);
 	}
-	public function preview($theSlug = ""){
+	public function preview($theSlug = "" , $mode = ""){
 		$funcName = 'getPublishedcards';
 		$userId = "";
-		if(isset($_GET['mode']) && $_GET['mode'] == 'admin'){
+		if((isset($_GET['mode']) && $_GET['mode'] == 'admin') || $mode == 'admin'){
 			$funcName = 'getCards';
 		}
 		$this->load->model('home_model');

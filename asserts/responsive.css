@@ -68,6 +68,9 @@
 	.imagePreview{
 		height: 300px;
 	}
+	.form_div .form-inline .form-group.password{
+		margin-left: 0;
+	}
 }
 @media(max-width: 667px) {
 	.btn.btn-default{
@@ -109,5 +112,12 @@
 	}
 	.cen{
 		width: 100% !important;
+	}
+	.grid-container{
+		height: 180px;
+		width: 100%;
+	}
+	.grid_land_sort{
+		margin-top: 160px;
 	}
 }

@@ -51,5 +51,6 @@ $route['card'] = "admin/card";
 $route['card/(:any)'] = "admin/card/$1";
 
 $route['(:any)'] = "home/$1";
+$route['(:any)'] = "home/preview/$1";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

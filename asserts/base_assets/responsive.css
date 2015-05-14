@@ -9,6 +9,10 @@
 		float: none;
 		display: block;
 	}
+	.grid_element .card_data .descp h2{
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
 }
 
 @media(min-width: 768px) and (max-width:979px) {
@@ -16,25 +20,35 @@
 		font-size: 20px;
 	}
 	.grid_element .card_data p{
-		font-size: 14px;
+		font-size: 10px;
 	}
 	.hover_content .gridno,.hover_content .date{
 		float: none;
 		display: block;
+	}
+	.grid_element .card_data h2{
+		font-size: 16px;
+	}
+	.grid_element .card_data .descp h2, .grid_element .card_data .descp p{
+		padding: 5px;
 	}
 }
 
 @media(max-width: 767px) {
-	.grid_element .card_data h2{
-		font-size: 20px;
-	}
-	.grid_element .card_data p{
-		font-size: 14px;
+	.grid_element .card_data .descp h2, .grid_element .card_data .descp p{
+		padding: 0;
+		margin: 5px;
 	}
 	.hover_content .gridno,.hover_content .date{
 		float: none;
 		display: block;
 	}
+	.grid_element .card_data p{
+		font-size: 10px;
+	}
+	.grid_element .card_data h2{
+		font-size:15px;
+	}	
 }
 
 @media(max-width: 480px) {
@@ -50,9 +64,23 @@
 	.grid_element .card_data p{
 		font-size: 16px;
 	}
+	.grid_element .card_data .descp h2, .grid_element .card_data .descp p{
+		padding: 10px;
+		margin: 0;
+	}
+	.grid_element .card_data .descp h2{
+		font-size: 30px;
+		margin-top: 80px;
+		margin-bottom: 10px;
+	}
+	.grid_element .card_data .descp p{
+		font-size: 16px;
+		margin: 0 0 10px;
+	}
+
 }
 @media(max-width: 380px){
-	.cen{
+	.cen.sorting{
 		width: 100%;
 	}
 }
