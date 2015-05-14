@@ -1,4 +1,42 @@
 
+var mod = (function($,mod){
+	mod.imageOverlay = function(data){
+		var image_data = [],
+		options = $.extend({
+			ele : '.card_data.image_card.preview',
+			tglSelectors : '.fullscreen',
+			clSector : '.close_overlay',
+			base : '.image_fullscreenContainer'
+		},data),
+		ele = $(options.ele),
+		toggleFullScreen = function(selector){
+			$('body').on('click', options.clSector, function(){
+				$(options.base).fadeOut();
+			})},
+		init = function(){
+			ele.each(function(index, ele){
+				var ele = $(this);
+				image_data.push(ele.attr('data-image'));
+				ele.find(options.tglSelectors).on('click',function(event){
+					event.preventDefault();
+					$(options.base).fadeIn().find('#image').attr('src',image_data[index]);
+				});
+			});
+			toggleFullScreen();
+		}
+		;
+		//console.log(ele.length);
+		if(!ele.length)
+			return;
+		init();
+	}
+
+	return mod;
+
+})(jQuery,mod || {});
+
+console.log(mod);
+
 $(document).ready(function(){
 	$(".grid-container").mouseenter(function(){
 		$(this).find(".grid_detail").css("position","absolute");
@@ -113,5 +151,5 @@ $(document).ready(function(){
 			masFunc();
 			jQuery(window).trigger('resize');
 	});
-
+	mod.imageOverlay();
 });

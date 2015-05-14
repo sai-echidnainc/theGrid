@@ -127,7 +127,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		url : '',
 		description :'',
 		size : $scope.cardSizeOpt[0].value,
-		align: $scope.cardAlignmentOpt[0].value
+		align: $scope.cardAlignmentOpt[0].value,
+		preview : 'N'
 	};
 
 
@@ -204,7 +205,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 			description :'',
 			size : $scope.cardSizeOpt[0].value,
 			align: $scope.cardAlignmentOpt[0].value,
-			imageThumbnail : ''
+			imageThumbnail : '',			
+			preview : 'N'
 		};
 		$scope.cardType = $scope.cardTypeOpt[0].value;
 		$('#cardimgPreview').replaceWith($('#cardimgPreview').val('').clone(true));
@@ -224,6 +226,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		formData.append('cDesc', $scope.cardData['description']);
 		formData.append('cSize', $scope.cardData['size']);
 		formData.append('cImageAlign', $scope.cardData['align']);
+		formData.append('cPreview', $scope.cardData['preview']);
 		if($scope.newcartType == "image")		
 			formData.append('cImage', $scope.cardData.image);
 		else{
@@ -281,6 +284,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 			size : $scope.cardsData[index]['size'],
 			imageThumbnail : site_path + $scope.cardsData[index]['image'],
 			align : $scope.cardsData[index]['align'],
+			preview : $scope.cardsData[index]['preview']
 		};
 	}
 

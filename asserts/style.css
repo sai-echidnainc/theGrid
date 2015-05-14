@@ -323,11 +323,13 @@ q:before, q:after {
 }
 .save_btn{
 	margin: 20px 30px;
+	display: inline-block;
 }
 .save_btn.cancel{
 	margin-top: 20px;
-  	margin-bottom: 0;
+  	margin-bottom: 25px;
   	margin-right: 5px;
+  	margin-left: 0px;
 }
 .form-group{
 	margin-bottom: 40px;

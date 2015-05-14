@@ -73,6 +73,7 @@ class Card extends CI_Controller {
 		$gID = $this->input->post('gId',true);
 		$imgThumb = $this->input->post('cImageThumbnail',true);
 		$imgAlign = $this->input->post('cImageAlign',true);
+		$cPreview = $this->input->post('cPreview',true);
 
 		$resArr['status'] = "error";
 		$resArr['message'] = "Don't Miss any data";
@@ -95,6 +96,7 @@ class Card extends CI_Controller {
 			$data['grid_id'] = $gID;
 			$data['card_slug'] = strtolower($this->__create_slug($cName));
 			$data['image_align'] = strtolower($imgAlign);
+			$data['card_preview'] = $cPreview;
 
 			$funcName = "add_card";
 

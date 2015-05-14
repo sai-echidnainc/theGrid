@@ -63,7 +63,7 @@
 				<select class="form-control card_type_select" ng-change = "changeType()" ng-disabled="!grid.gridId" ng-model="cardType" ng-options="opt.value as opt.name for opt in cardTypeOpt">
 					<!-- <option ng-repeat="opt in cardTypeOpt" value="{{opt.value}}">{{opt.name}}</option> -->
 				</select>				
-				<button class="save_btn cancel btn btn-default inline pull-right" ng-click="cancelCard()" ng-show="newcartType != cardTypeOpt['0'].value">Cancel</button>
+				
 
 			</div>
 			<div class="clearfix"></div>
@@ -104,6 +104,11 @@
 							<input type="text" ng-model="cardData.fgcolor" class="form-control" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
 							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
+						<div class="form-group" ng-hide="newcartType !='image'">
+							<label for="preview">FULL PREVIEW<br>
+							<input type="checkbox" ng-model="cardData.preview" name="preview" ng-true-value="'Y'" ng-false-value="'N'"> {{ (cardData.preview == 'Y') ? 'Yes' : 'No' }}
+						</label>
+						</div>
 					</form>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 prev" ng-hide = "newcartType !='text' && newcartType != cardTypeOpt['0'].value">
@@ -121,7 +126,10 @@
 				</div>
 
 				<div class="clearfix"></div>
-				<button class="save_btn btn btn-default inline" ng-click="saveCard()" ng-class="{loader: loaders.saveCard}" ng-disabled="loaders.saveCard">Save Card</button>
+				<div>
+					<button class="save_btn btn btn-default inline" ng-click="saveCard()" ng-class="{loader: loaders.saveCard}" ng-disabled="loaders.saveCard">Save Card</button>
+					<button class="save_btn cancel btn btn-default inline" ng-click="cancelCard()" ng-show="newcartType != cardTypeOpt['0'].value">Cancel</button>
+				</div>
 			</div>
 		</div>
 	</div>
