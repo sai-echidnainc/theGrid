@@ -1,5 +1,5 @@
 <div ng-controller="gridController">
-<div class="container-fluid grid_land_sort">
+<div class="container-fluid">
 	<div class="row-fluid">
 		<div class="grid_head">
 			<h2 class="h2 pull-left">THE GRID</h2>
@@ -13,7 +13,7 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid grid_landing_content" ng-init="gridData = false">
+<div class="container-fluid" ng-init="gridData = false">
 
 	<div ng-show="!gridData">
 		No grid data Available
@@ -21,27 +21,23 @@
 
 	<div class="row-fluid" ng-show="gridData">
 
-<<<<<<< HEAD
-		<div class="cen col-lg-4 col-md-4 col-sm-6 col-xs-6" ng-repeat="grid in gridData | orderBy : gridOrderBy">
-			<div class="grid-container" data-gurl="<?php echo site_url('preview');?>/{{grid.slug}}?mode=admin">
-=======
-		<div class="cen col-lg-4 col-md-4 col-sm-4 col-xs-6" ng-repeat="grid in gridData | orderBy : gridOrderBy">
-			<div class="grid-container" data-gurl="<?php echo site_url('preview');?>/{{grid.slug}}/admin">
->>>>>>> origin/master
+		<div class="col-lg-4 col-md-4 col-sm-4 cen" ng-repeat="grid in gridData | orderBy : gridOrderBy">
+			<div class="grid-container">
+				<a href="#">
 					<img src="<?php echo base_url();?>asserts/img/grid.png" class="img-responsive" ng-if="!grid.image">
 					<img ng-src="<?php echo base_url();?>{{grid.image}}" class="img-responsive" ng-if="grid.image" alt="{{grid.title}}">
-					<div class="overlay"></div>
-			
-				 <div class="grid_detail">
+				</a>
+				<div class="grid_detail">
 					<h4 class="h4" ng-bind="grid.title"></h4>
 					<p ng-if="grid.description" ng-bind="grid.description"></p>
-					<a href="javascript:void(0)" ng-click="deleteGrid(grid.grid_id,$index)" stop-event>Delete Grid</a>
+					<a href="javascript:void(0)" ng-click="deleteGrid(grid.grid_id,$index)">Delete Grid</a>
 				</div>
 				<div class="hover_content">
 					<span class="gridno">{{grid.COUNT}} Cards</span>
 					<span class="date">Created on {{grid.createdDate}}</span>
-					<a href="<?php echo site_url('grid/edit');?>/{{grid.grid_id}}" stop-event><input type="button" value="Edit Grid"></a>
+					<a href="<?php echo site_url('grid/edit');?>/{{grid.grid_id}}"><input type="button" value="Edit Grid"></a>
 				</div>
+				<div class="overlay"></div>
 			</div>
 		</div>
 

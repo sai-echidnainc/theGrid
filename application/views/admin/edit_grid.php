@@ -63,7 +63,7 @@
 				<select class="form-control card_type_select" ng-change = "changeType()" ng-disabled="!grid.gridId" ng-model="cardType" ng-options="opt.value as opt.name for opt in cardTypeOpt">
 					<!-- <option ng-repeat="opt in cardTypeOpt" value="{{opt.value}}">{{opt.name}}</option> -->
 				</select>				
-				<button class="save_btn cancel btn btn-default inline pull-right" ng-click="cancelCard()" ng-show="newcartType != cardTypeOpt['0'].value">Cancel</button>
+				
 
 			</div>
 			<div class="clearfix"></div>
@@ -104,6 +104,11 @@
 							<input type="text" ng-model="cardData.fgcolor" class="form-control" minicolors placeholder="Enter Hexcode or Use the Color Wheel"/>
 							<span href="#" id="picker1"><img src="<?php echo base_url(); ?>asserts/img/col-pick.png"></span>
 						</div>
+						<div class="form-group" ng-hide="newcartType !='image'">
+							<label for="preview">FULL PREVIEW<br>
+							<input type="checkbox" ng-model="cardData.preview" name="preview" ng-true-value="'Y'" ng-false-value="'N'"> {{ (cardData.preview == 'Y') ? 'Yes' : 'No' }}
+						</label>
+						</div>
 					</form>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 prev" ng-hide = "newcartType !='text' && newcartType != cardTypeOpt['0'].value">
@@ -117,11 +122,14 @@
 				<div class="col-lg-4 col-md-4 col-sm-4 prev" ng-hide = "newcartType !='image'">
 					<label for="exampleInputEmail1">IMAGE PREVIEW</label>
 					<img src="" ng-src="{{cardData.imageThumbnail}}" class="img-responsive" ng-init="cardData.imageThumbnail = '<?php echo base_url(); ?>asserts/img/preview.png'">
-					<input type="file" value="BROWSE" class="browse" file-model="cardData.image" onchange="angular.element(this).scope().cardImageUpload(this)"/>
+					<input type="file" value="BROWSE" class="browse" file-model="cardData.image" onchange="angular.element(this).scope().cardImageUpload(this)" id="cardimgPreview"/>
 				</div>
 
 				<div class="clearfix"></div>
-				<button class="save_btn btn btn-default inline" ng-click="saveCard()" ng-class="{loader: loaders.saveCard}" ng-disabled="loaders.saveCard">Save Card</button>
+				<div>
+					<button class="save_btn btn btn-default inline" ng-click="saveCard()" ng-class="{loader: loaders.saveCard}" ng-disabled="loaders.saveCard">Save Card</button>
+					<button class="save_btn cancel btn btn-default inline" ng-click="cancelCard()" ng-show="newcartType != cardTypeOpt['0'].value">Cancel</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -130,8 +138,8 @@
 	<div class="row-fluid">
 		<div class="active_card_container {{grid.font}}">
 			<h2 class="h2">ACTIVE CARDS</h2>
-			<div ng-if="!cardsData">No Active Cards Available.</div>
-			<div class="col-lg-3" ng-repeat="card in cardsData">
+			<div ng-if="!cardsData.length">No Active Cards Available.</div>
+			<div class="col-lg-3 col-md-3 col-sm-3" ng-repeat="card in cardsData">
 				<div class="crd" ng-if="card.type == 'image'">
 					<div class="preview" style="background-color:#ccc;background-image:url(<?php echo base_url(); ?>{{card.image}});background-position:{{card.align}};">
 						<!-- <img src="" ng-src="<?php echo base_url(); ?>{{card.image}}" class="img-responsive"> -->

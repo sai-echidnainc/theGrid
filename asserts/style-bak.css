@@ -115,7 +115,6 @@ q:before, q:after {
 	height: 265px;
 	border: 1px solid #ccc;
 	overflow: hidden;
-	cursor: pointer;
 }
 .grid-container img{
 	width: 100%;
@@ -157,8 +156,8 @@ q:before, q:after {
 	float: right;
 }
 .hover_content input{
-	display: inline-block;
-	margin: 18% 3%;
+	display: block;
+	margin: 18% auto;
 	border:none;
 	padding: 5px 15px;
 	background: #fff;
@@ -324,13 +323,11 @@ q:before, q:after {
 }
 .save_btn{
 	margin: 20px 30px;
-	display: inline-block;
 }
 .save_btn.cancel{
 	margin-top: 20px;
-  	margin-bottom: 25px;
+  	margin-bottom: 0;
   	margin-right: 5px;
-  	margin-left: 0px;
 }
 .form-group{
 	margin-bottom: 40px;
@@ -421,10 +418,4 @@ input.btn.btn-default.head_btn.loader,.btn.btn-default.loader {
 	background-position: 95% center;
 	background-repeat: no-repeat;
 	background-size: 8%;
-}
-.imagePreview{
-	height: 340px;
-	text-align: center;
-	color: #fff;
-	padding: 25px;
 }

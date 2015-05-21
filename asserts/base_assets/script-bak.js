@@ -1,42 +1,4 @@
 
-var mod = (function($,mod){
-	mod.imageOverlay = function(data){
-		var image_data = [],
-		options = $.extend({
-			ele : '.card_data.image_card.preview',
-			tglSelectors : '.fullscreen',
-			clSector : '.close_overlay',
-			base : '.image_fullscreenContainer'
-		},data),
-		ele = $(options.ele),
-		toggleFullScreen = function(selector){
-			$('body').on('click', options.clSector, function(){
-				$(options.base).fadeOut();
-			})},
-		init = function(){
-			ele.each(function(index, ele){
-				var ele = $(this);
-				image_data.push(ele.attr('data-image'));
-				ele.find(options.tglSelectors).on('click',function(event){
-					event.preventDefault();
-					$(options.base).fadeIn().find('#image').attr('src',image_data[index]);
-				});
-			});
-			toggleFullScreen();
-		}
-		;
-		//console.log(ele.length);
-		if(!ele.length)
-			return;
-		init();
-	}
-
-	return mod;
-
-})(jQuery,mod || {});
-
-console.log(mod);
-
 $(document).ready(function(){
 	$(".grid-container").mouseenter(function(){
 		$(this).find(".grid_detail").css("position","absolute");
@@ -120,15 +82,6 @@ $(document).ready(function(){
 		var min_container_ht= ht-nav-foot_ht;
 		$('.grid_msnry').css("min-height", min_container_ht);
 	};
-	var content_height2= function(){
-		var ht= window.innerHeight;
-		var nav= $('.header-container').outerHeight();
-		var filter_ht= $('.grid_land_sort').outerHeight();
-		var container_ht=$('.grid_landing_content').outerHeight();
-		var foot_ht=$('.footer_container').outerHeight();
-		var min_container_ht= ht-nav-foot_ht-filter_ht;
-		$('.grid_landing_content').css("min-height", min_container_ht);
-	};
 
 	var masFunc = function(){
 			jQuery('.masonry-container').masonry({
@@ -139,17 +92,16 @@ $(document).ready(function(){
 				// columnWidth: 152
 			});
 		};
-	$(window).load(function(){
+	$(window).resize(function(){
 		setTimeout(function(){
 			masFunc();
 		},200);
 		content_height();
 		content_height1();
-		content_height2();
 	});
 	jQuery(window).load(function() {;
 			masFunc();
 			jQuery(window).trigger('resize');
 	});
-	mod.imageOverlay();
+
 });

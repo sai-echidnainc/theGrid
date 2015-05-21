@@ -32,6 +32,7 @@
 	.grid_element .card_data .descp h2, .grid_element .card_data .descp p{
 		padding: 5px;
 	}
+<<<<<<< HEAD
 	.onebyone{
 		 width: 30%;
 		 /*height: 20%;*/
@@ -67,19 +68,20 @@
 		 /*height: 60%;*/
 		 display: inline-block;
 	}
+=======
+>>>>>>> origin/master
 }
 
 @media(max-width: 767px) {
-	.grid_element .card_data h2{
-		font-size: 20px;
-	}
-	.grid_element .card_data p{
-		font-size: 14px;
+	.grid_element .card_data .descp h2, .grid_element .card_data .descp p{
+		padding: 0;
+		margin: 5px;
 	}
 	.hover_content .gridno,.hover_content .date{
 		float: none;
 		display: block;
 	}
+<<<<<<< HEAD
 	.onebyone{
 		 width: 30%;
 		 /*height: 20%;*/
@@ -115,6 +117,14 @@
 		 /*height: 60%;*/
 		 display: inline-block;
 	}
+=======
+	.grid_element .card_data p{
+		font-size: 10px;
+	}
+	.grid_element .card_data h2{
+		font-size:15px;
+	}	
+>>>>>>> origin/master
 }
 
 @media(max-width: 480px) {
@@ -130,6 +140,20 @@
 	.grid_element .card_data p{
 		font-size: 16px;
 	}
+	.grid_element .card_data .descp h2, .grid_element .card_data .descp p{
+		padding: 10px;
+		margin: 0;
+	}
+	.grid_element .card_data .descp h2{
+		font-size: 30px;
+		margin-top: 80px;
+		margin-bottom: 10px;
+	}
+	.grid_element .card_data .descp p{
+		font-size: 16px;
+		margin: 0 0 10px;
+	}
+
 }
 @media(max-width: 380px){
 	.cen.sorting{

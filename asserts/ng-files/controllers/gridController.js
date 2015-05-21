@@ -127,7 +127,8 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		url : '',
 		description :'',
 		size : $scope.cardSizeOpt[0].value,
-		align: $scope.cardAlignmentOpt[0].value
+		align: $scope.cardAlignmentOpt[0].value,
+		preview : 'N'
 	};
 
 
@@ -193,6 +194,25 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		}
 	}
 
+	var cardFormReset = function(){
+
+		$scope.cardData = {
+			cardId : false,
+			title : '',
+			bgcolor : '#000000',
+			fgcolor : '#ffffff',
+			url : '',
+			description :'',
+			size : $scope.cardSizeOpt[0].value,
+			align: $scope.cardAlignmentOpt[0].value,
+			imageThumbnail : '',			
+			preview : 'N'
+		};
+		$scope.cardType = $scope.cardTypeOpt[0].value;
+		$('#cardimgPreview').replaceWith($('#cardimgPreview').val('').clone(true));
+
+	};
+
 	$scope.saveCard = function(){
 		if($scope.grid.gridId == "")
 			return;
@@ -206,6 +226,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 		formData.append('cDesc', $scope.cardData['description']);
 		formData.append('cSize', $scope.cardData['size']);
 		formData.append('cImageAlign', $scope.cardData['align']);
+		formData.append('cPreview', $scope.cardData['preview']);
 		if($scope.newcartType == "image")		
 			formData.append('cImage', $scope.cardData.image);
 		else{
@@ -222,6 +243,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 					$scope.cardData['cardId'] = data['card_id'];
 					$scope.editInit($scope.grid.gridId);
 					alert("Card Created Sucessfully");
+					cardFormReset();
 				}else{
 					alert(data['message']);
 				}
@@ -238,6 +260,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 				if(data['status'] == "ok"){
 					$scope.editInit($scope.grid.gridId);
 					alert("Card Updated Sucessfully");
+					cardFormReset();
 				}else{
 					alert(data['message']);
 				}
@@ -261,6 +284,7 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 			size : $scope.cardsData[index]['size'],
 			imageThumbnail : site_path + $scope.cardsData[index]['image'],
 			align : $scope.cardsData[index]['align'],
+			preview : $scope.cardsData[index]['preview']
 		};
 	}
 

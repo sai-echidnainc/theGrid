@@ -30,7 +30,7 @@
 		?>
 
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 cen sorting" data-date="<?php echo strtotime($grid['createdDate']);?>" data-count="<?php echo $grid['COUNT'];?>" data-title="<?php echo  strtolower($grid['title']);?>">
-			<a href="<?php echo site_url('preview').'/'.$grid['slug'];?>">
+			<a href="<?php echo base_url().$grid['slug'];?>">
 				<div class="grid-container" style="background:url('<?php echo base_url().$grid['image'];?>');">
 						<!-- <img src="<?php echo base_url().$grid['image'];?>" class="img-responsive"> -->
 					<div class="grid_detail">
