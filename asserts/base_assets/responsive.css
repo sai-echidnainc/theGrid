@@ -9,6 +9,10 @@
 		float: none;
 		display: block;
 	}
+	.grid_element .card_data .descp h2{
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
 }
 
 @media(min-width: 768px) and (max-width:979px) {
@@ -16,11 +20,52 @@
 		font-size: 20px;
 	}
 	.grid_element .card_data p{
-		font-size: 14px;
+		font-size: 10px;
 	}
 	.hover_content .gridno,.hover_content .date{
 		float: none;
 		display: block;
+	}
+	.grid_element .card_data h2{
+		font-size: 16px;
+	}
+	.grid_element .card_data .descp h2, .grid_element .card_data .descp p{
+		padding: 5px;
+	}
+	.onebyone{
+		 width: 30%;
+		 /*height: 20%;*/
+		 display: inline-block;
+	}
+	.onebytwo{
+		 width: 30%;
+		 /*height: 40%;*/
+		 display: inline-block;
+	}
+	.twobyone{
+		 width: 50%;
+		 /*height: 20%;*/
+		 display: inline-block;
+	}
+	.twobytwo{
+		 width: 50%;
+		 /*height: 40%;*/
+		 display: inline-block;
+	}
+	.twobythree{
+		 width: 50%;
+		 /*height: 60%;*/
+		 display: inline-block;
+	}
+	.threebytwo{
+		 width: 70%;
+		 /*height: 40%;*/
+		 display: inline-block;
+	}
+	.threebythree{
+		 width: 70%;
+		 /*height: 60%;*/
+		 display: inline-block;
 	}
 }
 
@@ -34,6 +79,41 @@
 	.hover_content .gridno,.hover_content .date{
 		float: none;
 		display: block;
+	}
+	.onebyone{
+		 width: 30%;
+		 /*height: 20%;*/
+		 display: inline-block;
+	}
+	.onebytwo{
+		 width: 30%;
+		 /*height: 40%;*/
+		 display: inline-block;
+	}
+	.twobyone{
+		 width: 50%;
+		 /*height: 20%;*/
+		 display: inline-block;
+	}
+	.twobytwo{
+		 width: 50%;
+		 /*height: 40%;*/
+		 display: inline-block;
+	}
+	.twobythree{
+		 width: 50%;
+		 /*height: 60%;*/
+		 display: inline-block;
+	}
+	.threebytwo{
+		 width: 70%;
+		 /*height: 40%;*/
+		 display: inline-block;
+	}
+	.threebythree{
+		 width: 70%;
+		 /*height: 60%;*/
+		 display: inline-block;
 	}
 }
 
@@ -52,7 +132,7 @@
 	}
 }
 @media(max-width: 380px){
-	.cen{
+	.cen.sorting{
 		width: 100%;
 	}
 }

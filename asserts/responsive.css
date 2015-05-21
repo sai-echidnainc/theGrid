@@ -115,6 +115,7 @@
 	}
 	.grid-container{
 		height: 180px;
+		width: 100%;
 	}
 	.grid_land_sort{
 		margin-top: 160px;
