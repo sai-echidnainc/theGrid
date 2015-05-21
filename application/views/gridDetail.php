@@ -5,9 +5,11 @@ $baseURL = base_url();
 $imageSizeArr = array(
  	'onebyone' => $baseURL.'asserts/img/1x1.jpg',
  	'onebytwo' => $baseURL.'asserts/img/1x2.jpg',
+ 	'onebythree' => $baseURL.'asserts/img/1x3.jpg',
  	'twobyone' => $baseURL.'asserts/img/2x1.jpg',
  	'twobytwo' => $baseURL.'asserts/img/2x2.jpg',
  	'twobythree' => $baseURL.'asserts/img/2x3.jpg',
+ 	'threebyone' => $baseURL.'asserts/img/3x1.jpg',
  	'threebytwo' => $baseURL.'asserts/img/3x2.jpg',
  	'threebythree' => $baseURL.'asserts/img/3x3.jpg'
  	); 

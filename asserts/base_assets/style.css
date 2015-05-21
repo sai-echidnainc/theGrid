@@ -244,6 +244,11 @@ q:before, q:after {
  /*height: 40%;*/
  display: inline-block;
 }
+.onebythree{
+ width: 20%;
+ /*height: 40%;*/
+ display: inline-block;
+}
 .twobyone{
  width: 40%;
  /*height: 20%;*/
@@ -257,6 +262,11 @@ q:before, q:after {
 .twobythree{
  width: 40%;
  /*height: 60%;*/
+ display: inline-block;
+}
+.threebyone{
+ width: 60%;
+ /*height: 40%;*/
  display: inline-block;
 }
 .threebytwo{

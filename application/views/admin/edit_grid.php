@@ -106,7 +106,9 @@
 						</div>
 						<div class="form-group" ng-hide="newcartType !='image'">
 							<label for="preview">FULL PREVIEW<br>
-							<input type="checkbox" ng-model="cardData.preview" name="preview" ng-true-value="'Y'" ng-false-value="'N'"> {{ (cardData.preview == 'Y') ? 'Yes' : 'No' }}
+							<!-- <input type="checkbox" ng-model="cardData.preview" name="preview" ng-true-value="'Y'" ng-false-value="'N'"> {{ (cardData.preview == 'Y') ? 'Yes' : 'No' }} -->
+							<input type="radio" ng-model="cardData.preview" name="preview" ng-true-value="'Y'" ng-false-value="'N'"> {{ (cardData.preview == 'Y') ? 'Yes' : 'No' }}
+							<input type="radio" ng-model="cardData.preview" name="preview" ng-true-value="'Y'" ng-false-value="'N'"> {{ (cardData.preview == 'Y') ? 'Yes' : 'No' }}
 						</label>
 						</div>
 					</form>

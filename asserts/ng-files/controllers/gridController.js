@@ -71,9 +71,11 @@ grids.app.controller('gridEditController',['gridEditService','$scope','site_path
 	$scope.cardSizeOpt =[
 		{ name:'1 * 1' , value :'onebyone'},
 		{ name:'1 * 2' , value :'onebytwo'},
+		{ name:'1 * 3' , value :'onebythree'},
 		{ name:'2 * 1' , value :'twobyone'},
 		{ name:'2 * 2' , value :'twobytwo'},
 		{ name:'2 * 3' , value :'twobythree'},
+		{ name:'3 * 1' , value :'threebyone'},
 		{ name:'3 * 2' , value :'threebytwo'},
 		{ name:'3 * 3' , value :'threebythree'},
 	];
