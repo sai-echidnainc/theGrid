@@ -28,7 +28,7 @@ $config['base_url'] = 'http://192.168.100.18/theGrid';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

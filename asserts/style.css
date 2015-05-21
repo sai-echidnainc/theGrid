@@ -115,6 +115,7 @@ q:before, q:after {
 	height: 265px;
 	border: 1px solid #ccc;
 	overflow: hidden;
+	cursor: pointer;
 }
 .grid-container img{
 	width: 100%;

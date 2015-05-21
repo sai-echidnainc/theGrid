@@ -44,7 +44,7 @@ $imageSizeArr = array(
 									<img src="<?php echo $imageSizeArr[$card['card_size']]; ?>" class="img-responsive">
 									<div class="card_data image_card <?php echo ($card['card_preview'] == 'Y') ? 'preview' : ''; ?>" style="background-image:url('<?php echo base_url().$card['card_image']; ?>'); background-position:<?php echo (isset($card['card_image_position'])) ? $card['card_image_position'] : 'left'; ?>;" data-image="<?php echo base_url().$card['card_image']; ?>">
 										<div class="descp" style="color:<?php echo $card['text_color']; ?>; background-color:<?php echo $card['overlay_color']; ?>;">
-											<div class="fullscreen"></div>
+											<?php if($card['card_preview'] == 'Y') {?><div class="fullscreen"></div><?php } ?>
 											<h2 class="h2"><?php echo $card['card_name']; ?></h2>
 											<p><?php echo $card['card_description']; ?></p>
 										</div>
